@@ -6,30 +6,53 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/05 14:46:06 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/07/05 18:23:17 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/07/06 14:28:15 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Contact.hpp"
+#include <iostream>
+#include <iomanip>
 
-// savoir comment Phonebook doit construire
-// son array de contact, il a besoin d avoir des valeurs par defaut
-Contact::Contact() : _first_name(""), _last_name(""),
-					_nickname(""), _phone_number(""),
-					_darkest_secret("") {}
+Contact::Contact() : _firstName(""), _lastName(""),
+					_nickname(""), _phoneNumber(""),
+					_darkestSecret("") {}
 
-// pour creer un contact depuis le main donne ces infos la
-Contact:: Contact(std::string first_name, std::string last_name,
-			std::string nickname, std::string phone_number,
-			std::string darkest_secret){
+Contact:: Contact(std::string firstName, std::string lastName,
+			std::string nickname, std::string phoneNumber,
+			std::string darkestSecret){
 
-	this->_first_name = first_name;
-	this->_last_name = last_name;
+	this->_firstName = firstName;
+	this->_lastName = lastName;
 	this->_nickname = nickname;
-	this->_phone_number = phone_number;
-	this->_darkest_secret = darkest_secret;
+	this->_phoneNumber = phoneNumber;
+	this->_darkestSecret = darkestSecret;
+
+	initFields();
 }
 
-// std::string Contact::fields_name() : "first_name", "last_name"{}
+void Contact:: initFields(){
+	_fields[0] = &_firstName;
+	_fields[1] = &_lastName;
+	_fields[2] = &_nickname;
+	_fields[3] = &_phoneNumber;
+	_fields[4] = &_darkestSecret;
+}
 
-// Contact:: ~Contact(){};
+Contact& Contact:: operator=(const Contact& other){
+	
+	if (this != &other)
+	{
+		_firstName = other._firstName;
+		_lastName = other._lastName;
+		_nickname = other._nickname;
+		_phoneNumber = other._phoneNumber;
+		_darkestSecret = other._darkestSecret;
+		initFields();
+	}
+	return (*this);
+}
+
+const std::string& Contact:: getField(int index) const {
+	return (*_fields[index]);
+};

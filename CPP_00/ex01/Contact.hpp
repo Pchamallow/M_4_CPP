@@ -6,7 +6,7 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/05 11:03:20 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/07/05 18:23:22 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/07/06 14:28:57 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,17 +18,23 @@ class	Contact{
 
 	public :
 		Contact();
-		Contact(std::string	first_name,
-				std::string	last_name,
+		Contact(std::string	firstName,
+				std::string	lastName,
 				std::string	nickname,
-				std::string	phone_number,
-				std::string	darkest_secret);
-		// ~Contact();
+				std::string	phoneNumber,
+				std::string	darkestSecret);
+
+		const std::string&	getField(int index) const;
+
+		Contact&	operator=(const Contact& other);
 
 	private :
-		std::string	_first_name;
-		std::string	_last_name;
+		std::string	_firstName;
+		std::string	_lastName;
 		std::string	_nickname;
-		std::string	_phone_number;
-		std::string	_darkest_secret;
+		std::string	_phoneNumber;
+		std::string	_darkestSecret;
+		std::string	*_fields[5];
+
+		void		initFields();
 };

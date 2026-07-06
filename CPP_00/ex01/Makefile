@@ -6,14 +6,14 @@
 #    By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/07/04 10:52:43 by pswirgie          #+#    #+#              #
-#    Updated: 2026/07/05 16:34:22 by pswirgie         ###   ########.fr        #
+#    Updated: 2026/07/06 11:00:09 by pswirgie         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # ================= VARIABLES ================= #
 
 CC				:= c++
-CFLAGS			:= -Wall -Wextra -Werror -std=c++98
+CFLAGS			:= -Wall -Wextra -Werror -std=c++98 -g
 BUILD_DIR		:= .phonebook
 
 NAME		:= phonebook
@@ -51,6 +51,10 @@ $(BUILD_DIR)/%.o: %.cpp $(HEADERS)
 	@mkdir -p $(dir $@)
 	@$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 
+#FIXME - a verifier, ne fonctionne pas
+debug : CFLAGS += -g
+debug : re
+
 clean:
 	@rm -rf $(BUILD_DIR)
 	@echo $(GREEN)"$(NAME) build is clean. 🧹"$(NC)
@@ -61,7 +65,6 @@ fclean: clean
 
 re: fclean 
 	$(MAKE) all
-
 
 
 # ================= Archives ================= #

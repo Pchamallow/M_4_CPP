@@ -6,17 +6,17 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/05 08:40:45 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/07/05 19:28:26 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/07/06 14:29:13 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>     // std::cout, std::hex, std::endl
-#include <iomanip>      // std::setiosflags
+#include <iostream>
+#include <iomanip>
 #include <cstdlib>
 #include "PhoneBook.hpp"
 
 
-void	print(std::string message, int fd)
+void	print(int fd, std::string message)
 {
 	if (fd == 2)
 		std::cerr << "\033[31m" << message  << "\033[0m" << std::endl;
@@ -24,17 +24,18 @@ void	print(std::string message, int fd)
 		std::cout << message << std::endl;
 }
 
-void	search(PhoneBook phonebook)
+void	search(PhoneBook& book)
 {
-	// const char	*input;
-	(void)phonebook;
 	std::string	input;
+
 	while (1)
 	{
-		if (phonebook.current == -1){
-			print("Error: not a least one contact, add one before search", 2);
+		if (book.getCurrent() == -1){
+			print(2, "Error: not a least one contact, add one before search");
 			return ;
 		}
+
+		book.printContacts();
 
 		std::cout << "Search index n* ";
 		getline(std::cin, input);
@@ -43,64 +44,58 @@ void	search(PhoneBook phonebook)
 
 		if (input.empty())
 			continue ;
-		else if (endptr == input.c_str() || index > phonebook.current)
+		else if (endptr == input.c_str() || index > book.getCurrent())
 		{
 			std::cerr << "Error: index must be between 0 and ";
-			std::cerr << phonebook.current << " (inclusive)";
+			std::cerr << book.getCurrent() << " (inclusive)";
 			std::cerr << std::endl;
 			continue ;
 		}
 		else {
-			// print l index
+			// print un contact -> index
 			break ;
 		}
 	}
 }
 
-void	add(PhoneBook phonebook)
+void	add(PhoneBook& book)
 {
 	std::string		input[5];
-	Contact			contact;
 	int				i = 0;
 
-	if (phonebook.current == -1)
-		++phonebook.current;
+	if (book.getCurrent() == -1)
+		book.incrementCurrent();
+	// std:;cout 
 	while (i < 5)
 	{
-		std::cout << phonebook.fields_names[i] << " : ";
+		std::cout << book.fields_names[i] << " : ";
 		getline(std::cin, input[i]);
 		if (input[i].empty())
 			continue ;
 		else
 			i++;
 	}
-	phonebook.add_contact(phonebook.current, contact);
-	++phonebook.current;
+	Contact	contact(input[0], input[1], input[2], input[3], input[4]);
+	book.addContact(contact);
 }
 
 
 int main () {
 
-	PhoneBook		phonebook;
+	PhoneBook		book;
 	std::string		input;
 
-	// PhoneBook.fields_names = {"coucou", "salut", "yo", "hello", "hs"}; // test
 	while (1)
 	{
-		std::cout << "Enter a command : ADD / SEARCH / EXIT" << std::endl;
+		std::cout << "Enter a command (ADD / SEARCH / EXIT): ";
 		getline(std::cin, input);
-	
-		if (!input.compare("ADD")){
-			add(phonebook);
-			std::cout << "oui" << std::endl;
-		}
-		else if (!input.compare("SEARCH")){
-			search(phonebook);
-		}
-		else if (!input.compare("EXIT")){
-			break ;
-		}
 
+		if (input == "ADD")
+			add(book);
+		else if (input == "SEARCH")
+			search(book);
+		else if (input == "EXIT")
+			break ;
 	}
 	return (0);
 }
