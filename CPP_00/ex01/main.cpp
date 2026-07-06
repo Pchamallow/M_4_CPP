@@ -6,7 +6,7 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/05 08:40:45 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/07/06 14:29:13 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/07/06 18:46:16 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 #include <iomanip>
 #include <cstdlib>
 #include "PhoneBook.hpp"
-
 
 void	print(int fd, std::string message)
 {
@@ -24,37 +23,64 @@ void	print(int fd, std::string message)
 		std::cout << message << std::endl;
 }
 
-void	search(PhoneBook& book)
+int	isNumeric(std::string str)
+{
+	int i = 0;
+	while (str[i])
+	{
+		if(!std::isdigit(str[i]))
+			return (0);
+		++i;
+	}
+	return (1);
+}
+
+int	getIndex(PhoneBook& book)
 {
 	std::string	input;
+	int			index = -1;
 
 	while (1)
 	{
-		if (book.getCurrent() == -1){
+		std::cout << "Index to find: ";
+		getline(std::cin, input);
+		index = std::atoi(input.c_str());
+	
+		if (input.empty())
+			continue ;
+		else if (!isNumeric(input)
+				|| index > book.getMaxIndex()
+				|| index < 0)
+		{
+			int max = book.getMaxIndex();
+			std::cerr << "\033[31m" << "Error: index must be between 0 and ";
+			std::cerr << max << " (inclusive)";
+			std::cerr << "\033[0m" << std::endl;
+			continue ;
+		}
+		else
+			break;
+	}
+	return (index);
+}
+
+void	search(PhoneBook& book)
+{
+	while (1)
+	{
+		if (book.getIndex() == -1){
 			print(2, "Error: not a least one contact, add one before search");
 			return ;
 		}
 
 		book.printContacts();
 
-		std::cout << "Search index n* ";
-		getline(std::cin, input);
-		char *endptr;
-		int	index = std::strtol(input.c_str(), &endptr, 10);
+		int index = -1;
+		while (index == -1)
+			index = getIndex(book);
 
-		if (input.empty())
-			continue ;
-		else if (endptr == input.c_str() || index > book.getCurrent())
-		{
-			std::cerr << "Error: index must be between 0 and ";
-			std::cerr << book.getCurrent() << " (inclusive)";
-			std::cerr << std::endl;
-			continue ;
-		}
-		else {
-			// print un contact -> index
-			break ;
-		}
+		book.printContact(index);
+		break ;
 	}
 }
 
@@ -63,12 +89,11 @@ void	add(PhoneBook& book)
 	std::string		input[5];
 	int				i = 0;
 
-	if (book.getCurrent() == -1)
-		book.incrementCurrent();
-	// std:;cout 
+	if (book.getIndex() == -1)
+		book.incrementIndex();
 	while (i < 5)
 	{
-		std::cout << book.fields_names[i] << " : ";
+		std::cout << book.fieldsNames[i] << ": ";
 		getline(std::cin, input[i]);
 		if (input[i].empty())
 			continue ;
@@ -78,7 +103,6 @@ void	add(PhoneBook& book)
 	Contact	contact(input[0], input[1], input[2], input[3], input[4]);
 	book.addContact(contact);
 }
-
 
 int main () {
 
@@ -99,50 +123,3 @@ int main () {
 	}
 	return (0);
 }
-
-
-// TESTS
-// SEARCH
-// mettre des lettres
-
-
-
-// // SECTION READ FROM INPUT TERMINAL + DISPLAY PROMPT IF INPUT EMPTY
-// // an entire line of text, including spaces.
-// std::string name;
-
-// getline(std::cin, name);
-// std::cout << name;
-
-
-// // SECTION SAVE CONTACT
-// get input for each element
-// if empty display
-// put in instance
-
-// // SECTION SEARCH INDEX
-// get input
-// if empty display prompt
-// if invalid = error
-// read the index of array contact
-
-// // SECTION EXIT
-// get input
-// if input == EXIT, return main
-
-// // SECTION RIGHT ALIGNED + REPLACE LAST CHAR BY A DOT + 10 WIDE
-// // PIPE
-// // std::string s = "Coucou les loulous. Comment ça fart ?";
-// std::string s = "Coucou";
-// std::string getrest = s.substr(0,9);
-// std::cout << std::right << std::setw(10);
-// std::cout << (s.size() > 10 ? getrest.replace(9, 1, ".") : s) << std::endl;
-
-// print a pipe
-
-// reprint avec la fonction au dessus 
-// faire toute la ligne ainsi 
-// endl
-// faire chaque ligne
-
-

@@ -6,7 +6,7 @@
 #    By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/07/04 10:52:43 by pswirgie          #+#    #+#              #
-#    Updated: 2026/07/06 18:59:41 by pswirgie         ###   ########.fr        #
+#    Updated: 2026/07/06 19:01:42 by pswirgie         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,21 +14,19 @@
 
 CC				:= c++
 CFLAGS			:= -Wall -Wextra -Werror -std=c++98
-BUILD_DIR		:= .phonebook
+BUILD_DIR		:= .account
 
-NAME		:= phonebook
+NAME		:= account
 
 # Colors
 GREEN		:='\033[0;32m'
 NC			:='\033[0m'
 
 # Sources
-SRCS		:=	main.cpp		\
-				Contact.cpp		\
-				PhoneBook.cpp
+SRCS		:=	tests.cpp		\
+				Account.cpp
 
-HEADERS		:=	Contact.hpp		\
-				PhoneBook.hpp
+HEADERS		:=	Account.hpp
 
 OBJS		:= $(SRCS:%.cpp=$(BUILD_DIR)/%.o)
 

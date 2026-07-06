@@ -18,21 +18,20 @@ class	PhoneBook {
 
 	public :
 		PhoneBook();
-		static const std::string	fields_names[5];
+		static const std::string	fieldsNames[5];
 
 		std::string	toString(int nb);
 		void	addContact(const Contact& c);
-		// void	addContact(Contact c);
-		int		getCurrent();
-		void	incrementCurrent();
+		int		getIndex();
+		int		getMaxIndex();
+		void	incrementIndex();
 		void	printFormat(std::string str);
 		void	printContacts();
-		// void	printContact(int index);
-		// void	incrementCurrent(int *_current);
-		// ex : function qui incremente le current
+		void	printContact(int index);
 
 	private :
 		Contact	_contacts[8];
-		int		_current;
+		int		_nextIndex;
+		int		_maxIndex;
 
 };

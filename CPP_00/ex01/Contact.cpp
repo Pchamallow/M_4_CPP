@@ -6,13 +6,11 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/05 14:46:06 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/07/06 14:28:15 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/07/06 16:39:03 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Contact.hpp"
-#include <iostream>
-#include <iomanip>
 
 Contact::Contact() : _firstName(""), _lastName(""),
 					_nickname(""), _phoneNumber(""),

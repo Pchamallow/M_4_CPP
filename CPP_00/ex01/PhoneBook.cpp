@@ -18,37 +18,52 @@
 
 // Default constructor -> values by default
 PhoneBook::PhoneBook() {
-	_current = -1;
+	_nextIndex = -1;
+	_maxIndex = -1;
 }
 
-// Create a method = type Class name (args)
-// void	PhoneBook:: addContact(Contact c)
 void	PhoneBook:: addContact(const Contact& c)
 {
-	_contacts[_current] = c;
-	// std::cout << "debug" << _contacts[0].getField(0) << std::endl; 
-	_current = (_current + 1) % 8;
+	_contacts[_nextIndex] = c;
+	if (_maxIndex < 7)
+		_maxIndex = _nextIndex;
+	_nextIndex = (_nextIndex + 1) % 8;
 }
 
-void	PhoneBook:: incrementCurrent(){
-	_current += 1;
+void	PhoneBook:: incrementIndex(){
+	_nextIndex += 1;
 }
 
-int	PhoneBook:: getCurrent(){
-	return (_current);
+int	PhoneBook:: getIndex(){
+	return (_nextIndex);
 }
 
-// right-aligned, 10 characters wide
+int	PhoneBook:: getMaxIndex(){
+	return (_maxIndex);
+}
+
+// right-aligned, 10 characters wide, trunc with last char = .
 void	PhoneBook:: printFormat(std::string str)
 {
+	std::string getrest = str.substr(0,9);
 	std::cout << std::right << std::setw(10);
-	std::cout << str;
+	std::cout << (str.size() > 10 ? getrest.replace(9, 1, ".") : str);
 }
 
-std::string	PhoneBook:: toString(int nb){
+std::string	PhoneBook::	toString(int nb){
 	std::ostringstream oss;
 	oss << nb;
 	return (oss.str());
+}
+
+void	PhoneBook::	printContact(int index){
+	int	i = 0;
+
+	while (i < 5){
+		std::cout << fieldsNames[i] << ": ";
+		std::cout << _contacts[index].getField(i) << std::endl;
+		++i;
+	}
 }
 
 void	PhoneBook::	printContacts()
@@ -59,30 +74,33 @@ void	PhoneBook::	printContacts()
 	while (i < 3)
 	{
 		std::cout << "|";
-		printFormat(fields_names[i]);
+		printFormat(fieldsNames[i]);
 		++i;
 	}
+	std::cout << "|";
+	std::cout << std::endl;
+
 	i = 0;
-	int j = 0;
-	while (i == 0 || i < _current)
+	while (i == 0 || i <= _maxIndex)
 	{
 		printFormat(toString(i));
 		std::cout << "|";
+		int j = 0;
 		while (j < 3)
 		{
 			printFormat(_contacts[i].getField(j));
 			std::cout << "|";
 			++j;
 		}
+		std::cout << std::endl;
 		++i;
 	}
-	std::cout << std::endl;
 }
 
 // define a array static const
 // -> same in all program and define 1 time,
 // even if we have several instances of book
-const std::string PhoneBook::fields_names[5] = {
+const std::string PhoneBook::fieldsNames[5] = {
 	"First name", "Last name", "Nick name", "Phone number", "Darkest secret"
 };
 
