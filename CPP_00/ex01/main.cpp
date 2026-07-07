@@ -6,14 +6,36 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/05 08:40:45 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/07/06 18:46:16 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/07/07 13:48:53 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <iomanip>
 #include <cstdlib>
+#include <cctype>
 #include "PhoneBook.hpp"
+
+bool	strWhitespaces(std::string *str)
+{
+	int	i = 0;
+
+	while ((*str)[i])
+	{
+		if (!std::isspace((*str)[i]))
+			return (false);
+		i++;
+	}
+	return (true);
+}
+
+bool	getInput(std::string *input)
+{
+	getline(std::cin, *input);
+	if (std::cin.eof())
+		return (false);
+	return (true);
+}
 
 void	print(int fd, std::string message)
 {
@@ -35,7 +57,7 @@ int	isNumeric(std::string str)
 	return (1);
 }
 
-int	getIndex(PhoneBook& book)
+int	getIndexInput(PhoneBook& book)
 {
 	std::string	input;
 	int			index = -1;
@@ -43,14 +65,15 @@ int	getIndex(PhoneBook& book)
 	while (1)
 	{
 		std::cout << "Index to find: ";
-		getline(std::cin, input);
+		if(!getInput(&input))
+			return (-2);
 		index = std::atoi(input.c_str());
 	
-		if (input.empty())
-			continue ;
-		else if (!isNumeric(input)
-				|| index > book.getMaxIndex()
-				|| index < 0)
+		if (input.empty()
+			|| strWhitespaces(&input)
+			|| !isNumeric(input)
+			|| index > book.getMaxIndex()
+			|| index < 0)
 		{
 			int max = book.getMaxIndex();
 			std::cerr << "\033[31m" << "Error: index must be between 0 and ";
@@ -64,27 +87,30 @@ int	getIndex(PhoneBook& book)
 	return (index);
 }
 
-void	search(PhoneBook& book)
+int	search(PhoneBook& book)
 {
 	while (1)
 	{
 		if (book.getIndex() == -1){
 			print(2, "Error: not a least one contact, add one before search");
-			return ;
+			return (0);
 		}
 
 		book.printContacts();
 
 		int index = -1;
 		while (index == -1)
-			index = getIndex(book);
+			index = getIndexInput(book);
+		if (index == -2)
+			return (1);
 
 		book.printContact(index);
 		break ;
 	}
+	return (0);
 }
 
-void	add(PhoneBook& book)
+int	add(PhoneBook& book)
 {
 	std::string		input[5];
 	int				i = 0;
@@ -94,14 +120,16 @@ void	add(PhoneBook& book)
 	while (i < 5)
 	{
 		std::cout << book.fieldsNames[i] << ": ";
-		getline(std::cin, input[i]);
-		if (input[i].empty())
+		if (!getInput(&input[i]))
+			return (1);
+		if (input[i].empty() || strWhitespaces(&input[i]))
 			continue ;
 		else
 			i++;
 	}
 	Contact	contact(input[0], input[1], input[2], input[3], input[4]);
 	book.addContact(contact);
+	return (0);
 }
 
 int main () {
@@ -112,12 +140,13 @@ int main () {
 	while (1)
 	{
 		std::cout << "Enter a command (ADD / SEARCH / EXIT): ";
-		getline(std::cin, input);
+		if (!getInput(&input))
+			return (1);
 
-		if (input == "ADD")
-			add(book);
-		else if (input == "SEARCH")
-			search(book);
+		if (input == "ADD" && add(book))
+			return (1);
+		else if (input == "SEARCH" && search(book))
+			return (1);
 		else if (input == "EXIT")
 			break ;
 	}
