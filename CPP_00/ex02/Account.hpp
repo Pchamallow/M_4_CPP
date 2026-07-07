@@ -21,6 +21,7 @@ class Account {
 
 public:
 
+	// t = synonyme d Account Account::t == Account
 	typedef Account		t;
 
 	static int	getNbAccounts( void );

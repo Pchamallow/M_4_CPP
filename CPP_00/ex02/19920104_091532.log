@@ -10,7 +10,7 @@ print a chaque ajout de l amount
 [19920104_091532] index:7;amount:16576;created
 
 Phase 2 :
-print le total de chaque categorie
+displayAccountsInfos
 [19920104_091532] accounts:8;total:20049;deposits:0;withdrawals:0
 
 Phase 3 :
@@ -36,7 +36,7 @@ print le amount avant le deposit, le deposit, apres le deposit, le nb de deposit
 [19920104_091532] index:7;p_amount:16576;deposit:20;amount:16596;nb_deposits:1
 
 Phase 5 :
-print le total de chaque categorie
+displayAccountsInfos
 [19920104_091532] accounts:8;total:21524;deposits:8;withdrawals:0
 
 Phase 6 :
@@ -62,7 +62,7 @@ print le p amount avant le withdrawal -> refused si moins de 47, sinon withdraw
 [19920104_091532] index:7;p_amount:16596;withdrawal:7654;amount:8942;nb_withdrawals:1
 
 Phase 8 :
-print le total de chaque categorie
+displayAccountsInfos
 [19920104_091532] accounts:8;total:12442;deposits:8;withdrawals:6
 
 Phase 9 :
