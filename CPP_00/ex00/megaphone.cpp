@@ -6,7 +6,7 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/04 10:49:05 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/07/05 08:38:14 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/07/08 16:08:56 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 int	main(int ac, char **av)
 {
 	if (ac == 1)
-		 std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
+		 std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *";
 	for(int i = 1; av[i]; ++i)
 	{
 		std::string s = av[i];
