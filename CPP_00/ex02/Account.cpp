@@ -82,7 +82,6 @@ int Account::	checkAmount()const{
 	return (_amount);
 }
 
-// [19920104_091532] accounts:8;total:20049;deposits:0;withdrawals:0
 void Account::	displayAccountsInfos(){
 	_displayTimestamp();
 	std::cout << "accounts:" << getNbAccounts() << ";total:" << getTotalAmount();

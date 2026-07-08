@@ -6,11 +6,13 @@
 #    By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/07/08 15:59:21 by pswirgie          #+#    #+#              #
-#    Updated: 2026/07/08 16:01:09 by pswirgie         ###   ########.fr        #
+#    Updated: 2026/07/08 16:03:50 by pswirgie         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-DIRS = dir1 dir2 dir3
+MAKEFLAGS += --no-print-directory
+
+DIRS = $(dir $(wildcard */Makefile))
 TARGETS = all clean fclean re
 
 .PHONY: $(TARGETS)
