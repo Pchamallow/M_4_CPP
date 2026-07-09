@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   zombieHorde.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pswirgie <pswirgie>                        +#+  +:+       +#+        */
+/*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/08 23:39:37 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/07/08 23:58:17 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/07/09 10:28:17 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,21 +16,21 @@
 
 Zombie* zombieHorde( int N, std::string name )
 {
-    int i = 0;
-    Zombie *zombie;
-    
-    try { zombie = new Zombie[N]; }
-    catch  ( const std::bad_alloc &e )
-    {
-        std::cout << "Error: zombieHorde - allocation of memory failed";
-        std::cout << std::endl;
-        exit (1);
-    }
-        
-    while (i < N)
-    {
-        zombie[i] = Zombie(name);
-        i++;
-    }
-    return (zombie);
+	int i = 0;
+	Zombie *zombie;
+	
+	try { zombie = new Zombie[N]; }
+	catch  ( const std::bad_alloc &e )
+	{
+		std::cout << "Error: zombieHorde - allocation of memory failed";
+		std::cout << std::endl;
+		exit (1);
+	}
+		
+	while (i < N)
+	{
+		zombie[i] = Zombie(name);
+		i++;
+	}
+	return (zombie);
 }
