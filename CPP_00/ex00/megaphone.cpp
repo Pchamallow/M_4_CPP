@@ -6,7 +6,7 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/04 10:49:05 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/07/08 16:08:56 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/07/09 10:18:28 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,12 @@ int	main(int ac, char **av)
 	for(int i = 1; av[i]; ++i)
 	{
 		std::string s = av[i];
-		std::string::iterator j;
-		for(j = s.begin(); j != s.end(); ++j)
-			std::cout << (char)std::toupper(*j);
+		int j = 0;
+		while(s[j])
+		{
+			std::cout << (char)std::toupper(s[j]);
+			++j;
+		}
 	}
 	std::cout << std::endl;
 	return (0);

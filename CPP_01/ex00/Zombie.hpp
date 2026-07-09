@@ -6,7 +6,7 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/08 16:18:24 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/07/08 18:06:28 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/07/09 10:43:46 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ class Zombie{
 	public :
 		Zombie( std::string zombieName);
 		~Zombie();
-		void	annouce( void );
-		// Zombie&	operator= ( const Zombie& other );
+		void	announce( void );
+		Zombie&	operator= ( const Zombie& other );
 
 	private :
 		std::string	name;

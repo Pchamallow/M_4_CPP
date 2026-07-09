@@ -13,8 +13,7 @@
 #include <ctime>
 #include <string>
 
-// Initialisation des statics -> commence tous a 0
-// static creer une fois, nb comment a toutes les instance d Account
+// Initialisation statics -> begin all at 0
 int Account::_nbAccounts = 0;
 int Account::_totalAmount = 0;
 int Account::_totalNbDeposits = 0;
