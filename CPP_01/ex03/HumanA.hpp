@@ -6,7 +6,7 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/15 13:08:27 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/07/15 13:31:36 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/07/15 13:54:02 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,12 @@
 class HumanA{
 
 	public :
-		HumanA ( std::string humanName, Weapon weaponTarget );
+		HumanA ( std::string humanName, Weapon& weaponTarget );
 
 		void	attack( void );
 
 	private :
 		std::string	name;
-		Weapon		weapon;
-		
+		Weapon&		weapon;
 
 };
