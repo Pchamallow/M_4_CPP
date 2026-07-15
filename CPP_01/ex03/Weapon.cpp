@@ -1,26 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Weapon.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/07/08 16:17:55 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/07/09 10:57:05 by pswirgie         ###   ########.fr       */
+/*   Created: 2026/07/15 12:58:16 by pswirgie          #+#    #+#             */
+/*   Updated: 2026/07/15 13:30:41 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.h"
-#include "Zombie.hpp"
+#include "Weapon.hpp"
 
-int	main( void )
-{
-	Zombie *zombie;
-	zombie = newZombie("Eustache");
-	delete zombie;
 
-	Zombie zombie2("Michell");
-	zombie2.announce();
+Weapon::Weapon() : type("") {}
 
-	return (0);
+Weapon::Weapon( std::string typeTarget ){
+	type = typeTarget;
 }
+
+void	Weapon::setType ( std::string target )
+{
+	type = target;
+}
+
+const std::string&	Weapon::getType ( void )
+{
+	std::string& ref = type;
+	return (ref);
+}
+

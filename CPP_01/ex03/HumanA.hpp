@@ -1,26 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   HumanA.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/07/08 16:17:55 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/07/09 10:57:05 by pswirgie         ###   ########.fr       */
+/*   Created: 2026/07/15 13:08:27 by pswirgie          #+#    #+#             */
+/*   Updated: 2026/07/15 13:31:36 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.h"
-#include "Zombie.hpp"
+#pragma once
 
-int	main( void )
-{
-	Zombie *zombie;
-	zombie = newZombie("Eustache");
-	delete zombie;
+#include <string>
+#include "Weapon.hpp"
 
-	Zombie zombie2("Michell");
-	zombie2.announce();
+class HumanA{
 
-	return (0);
-}
+	public :
+		HumanA ( std::string humanName, Weapon weaponTarget );
+
+		void	attack( void );
+
+	private :
+		std::string	name;
+		Weapon		weapon;
+		
+
+};

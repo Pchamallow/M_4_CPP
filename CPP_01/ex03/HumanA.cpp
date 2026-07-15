@@ -1,36 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.cpp                                         :+:      :+:    :+:   */
+/*   HumanA.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/07/08 16:23:29 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/07/15 13:13:39 by pswirgie         ###   ########.fr       */
+/*   Created: 2026/07/15 13:16:35 by pswirgie          #+#    #+#             */
+/*   Updated: 2026/07/15 13:29:09 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "HumanA.hpp"
 #include <iostream>
-#include "Zombie.hpp"
 
-Zombie::Zombie() : name("") {}
-
-Zombie::Zombie( std::string zombieName ){
-	name = zombieName;
+HumanA:: HumanA ( std::string humanName, Weapon weaponTarget )
+{
+	name = humanName;
+	weapon = weaponTarget;
 }
 
-Zombie::~Zombie(){
-	std::cout << name << " is lying on the ground, inanimate";
+void	HumanA::attack( void )
+{
+	std::cout << name << " attacks with their " << weapon.getType();
 	std::cout << std::endl;
-}
-
-void	Zombie::announce( void ){
-	std::cout << name << ": BraiiiiiiinnnzzzZ...";
-	std::cout << std::endl;
-}
-
-Zombie&	Zombie::operator= (const Zombie& other){
-	if (this != &other)
-		this->name = other.name;
-	return (*this);
+	
 }

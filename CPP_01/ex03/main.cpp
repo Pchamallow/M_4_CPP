@@ -5,22 +5,28 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/07/08 16:17:55 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/07/09 10:57:05 by pswirgie         ###   ########.fr       */
+/*   Created: 2026/07/15 13:25:19 by pswirgie          #+#    #+#             */
+/*   Updated: 2026/07/15 13:27:43 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.h"
-#include "Zombie.hpp"
+#include "HumanA.hpp"
+#include "Weapon.hpp"
 
-int	main( void )
+
+int main ()
 {
-	Zombie *zombie;
-	zombie = newZombie("Eustache");
-	delete zombie;
-
-	Zombie zombie2("Michell");
-	zombie2.announce();
-
-	return (0);
+	Weapon club = Weapon("crude spiked club");
+	HumanA bob("Bob", club);
+	bob.attack();
+	club.setType("some other type of club");
+	bob.attack();
+	
+	// Weapon club = Weapon("crude spiked club");
+	// HumanB jim("Jim");
+	// jim.setWeapon(club);
+	// jim.attack();
+	// club.setType("some other type of club");
+	// jim.attack();
+	return 0;
 }
