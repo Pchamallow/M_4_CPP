@@ -6,7 +6,7 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/15 13:08:27 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/07/15 14:06:04 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/07/15 14:12:40 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,10 @@ class HumanB{
 		HumanB ( std::string humanName );
 
 		void	attack( void );
-		void	setWeapon(Weapon weaponTarget);
+		void	setWeapon(Weapon& weaponTarget);
 
 	private :
 		std::string	name;
-		Weapon		*weapon;
+		Weapon*		weapon;
 
 };
