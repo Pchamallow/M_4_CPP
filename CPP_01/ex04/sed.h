@@ -1,31 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Weapon.cpp                                         :+:      :+:    :+:   */
+/*   sed.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/07/15 12:58:16 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/07/15 14:33:24 by pswirgie         ###   ########.fr       */
+/*   Created: 2026/07/18 15:55:24 by pswirgie          #+#    #+#             */
+/*   Updated: 2026/07/18 17:48:16 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Weapon.hpp"
+#ifndef SED_H
+# define SED_H
 
+# include <fstream>
+# include <string>
 
-Weapon::Weapon() : type("") {}
-
-Weapon::Weapon( std::string typeTarget ){
-	type = typeTarget;
-}
-
-void	Weapon::setType ( std::string target )
+typedef struct		s_data
 {
-	type = target;
-}
+	std::string		line;
+	std::fstream	file;
+	std::fstream	write_target;
+	std::ifstream	perm_target;
+	std::ofstream	out_target;
+}					t_data;
 
-const std::string&	Weapon::getType ( void ) const
-{
-	return (type);
-}
+int	is_whitespaces(std::string str);
+int	invalid_args(t_data *data, int ac, char **av);
+int	create_file(t_data *data, char *original);
 
+
+#endif

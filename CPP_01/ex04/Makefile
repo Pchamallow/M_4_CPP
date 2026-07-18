@@ -6,7 +6,7 @@
 #    By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/07/04 10:52:43 by pswirgie          #+#    #+#              #
-#    Updated: 2026/07/15 14:27:27 by pswirgie         ###   ########.fr        #
+#    Updated: 2026/07/18 17:22:45 by pswirgie         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,13 +25,7 @@ NC			:='\033[0m'
 
 # Sources
 SRCS		:=	main.cpp			\
-				HumanA.cpp			\
-				HumanB.cpp			\
-				Weapon.cpp			
-
-HEADERS		:=	Weapon.hpp			\
-				HumanA.hpp			\
-				HumanB.hpp
+				handle_files.cpp
 
 OBJS		:= $(SRCS:%.cpp=$(BUILD_DIR)/%.o)
 
