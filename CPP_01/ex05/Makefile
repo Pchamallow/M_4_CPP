@@ -6,7 +6,7 @@
 #    By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/07/04 10:52:43 by pswirgie          #+#    #+#              #
-#    Updated: 2026/07/19 12:51:48 by pswirgie         ###   ########.fr        #
+#    Updated: 2026/07/19 14:26:55 by pswirgie         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,9 +15,9 @@
 CC				:= c++
 CFLAGS			:= -Wall -Wextra -Werror -std=c++98 -g
 MAKEFLAGS		+= --no-print-directory
-BUILD_DIR		:= .sedisforlosers
+BUILD_DIR		:= .harl2
 
-NAME		:= sedisforlosers
+NAME		:= harl2
 
 # Colors
 GREEN		:='\033[0;32m'
@@ -25,7 +25,9 @@ NC			:='\033[0m'
 
 # Sources
 SRCS		:=	main.cpp			\
-				handle_files.cpp
+				Harl.cpp
+
+HEADERS		:=	Harl.hpp			\
 
 OBJS		:= $(SRCS:%.cpp=$(BUILD_DIR)/%.o)
 

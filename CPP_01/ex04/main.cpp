@@ -6,7 +6,7 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/15 14:26:40 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/07/19 12:35:15 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/07/19 13:12:16 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,21 +20,36 @@ void	write_to_replace(t_data *data, std::string model, std::string target)
 
 	size_t len = model.size();
 	size_t i = data->line.find(model);
+
+	std::string before;
+	std::string after;
 	while (getline(data->original, data->line))
 	{
 		while (i != std::string::npos)
 		{
-			data->line.replace(i, i + len, target);
 			i = data->line.find(model);
+			if (i == std::string::npos)
+				break ;
+			if (i > 0)
+				before = data->line.substr(0, i);
+			before.append(target);
+			if (data->line[i + model.size()])
+			{
+				after = data->line.substr(i + len, data->line.size());
+				before.append(after);
+			}
+			data->line = before;
 		}
 		i = 0;
+		before.clear();
+		after.clear();
 		data->write_target << data->line << std::endl;
 	}
 	return ;
 }
 
 /*
-* TO DO TESTS
+* Handle : 
 * replace already exist, 
 * replace already have content
 * replace chmod 000
