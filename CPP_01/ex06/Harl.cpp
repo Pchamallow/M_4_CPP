@@ -6,7 +6,7 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/19 13:14:45 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/07/19 15:24:10 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/07/19 15:36:55 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ Harl:: Harl ()
 
 void	Harl::debug( void )
 {
+	std::cout << "[ DEBUG ]" << std::endl;
 	std::cout << "I love having extra bacon for"
 	" my 7XL-double-cheese-triple-pickle-special-"
 	"ketchup burger." << std::endl;
@@ -27,6 +28,7 @@ void	Harl::debug( void )
 
 void	Harl::info( void )
 {
+	std::cout << "[ INFO ]" << std::endl;
 	std::cout << "I cannot believe adding"
 	" extra bacon costs more money." << std::endl;
 	std::cout << "You didn’t put enough bacon in"
@@ -37,6 +39,7 @@ void	Harl::info( void )
 
 void	Harl::warning( void )
 {
+	std::cout << "[ WARNING ]" << std::endl;
 	std::cout << "I think I deserve to have some extra"
 	" bacon for free." << std::endl;
 	std::cout << "I’ve been coming for years, whereas"
@@ -45,6 +48,7 @@ void	Harl::warning( void )
 
 void	Harl::error( void )
 {
+	std::cout << "[ ERROR ]" << std::endl;
 	std::cout << "This is unacceptable! I want"
 	" to speak to the manager now !!!!!" << std::endl;
 }
@@ -58,9 +62,30 @@ void	Harl::complain( std::string level )
 		&Harl::warning, &Harl::error
 	};
 
-	for (int i = 0; i < 4; ++i)
+	int i = 0;
+	while (i < 4)
 	{
 		if (level == array[i])
-			return (this->*arrayLevels[i])();
+			break;
+		++i;
+	}
+
+	if (i >= 4)
+	{
+		std::cout << "[ Probably complaining about insignificant"
+		" problems ]" << std::endl;
+		return ;
+	}
+
+	switch (i)
+	{
+		case 0:
+			(this->*arrayLevels[0])();
+		case 1:
+			(this->*arrayLevels[1])();
+		case 2:
+			(this->*arrayLevels[2])();
+		case 3:
+			(this->*arrayLevels[3])();
 	}
 }
