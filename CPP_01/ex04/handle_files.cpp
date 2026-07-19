@@ -6,7 +6,7 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/18 17:20:32 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/07/18 17:48:16 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/07/19 11:42:14 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,18 +42,20 @@ int	invalid_args(t_data *data, int ac, char **av)
 		std::cerr << "Error: 3 parameters requiered" << std::endl;
 		return (1);
 	}
-	data->file.open(av[1], std::ios::in);
-	if (!data->file.is_open())
+	data->original.open(av[1], std::ios::in);
+	if (!data->original.is_open())
 	{
 		std::cerr << "Error: Unable to open " << av[1] << std::endl; 
 		return (1);
 	}
-	if (!getline(data->file, data->line))
+	if (!getline(data->original, data->line))
 	{
 		std::cerr << "Error: Failed to read data from " << av[1] << std::endl;
-		data->file.close();
+		data->original.close();
 		return (1);
 	}
+	data->original.close();
+	data->original_name = av[1];
 	return (0);
 }
 

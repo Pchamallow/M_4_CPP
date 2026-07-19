@@ -6,7 +6,7 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/18 15:55:24 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/07/18 17:48:16 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/07/19 11:41:23 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@
 typedef struct		s_data
 {
 	std::string		line;
-	std::fstream	file;
+	std::string		original_name;
+	std::fstream	original;
 	std::fstream	write_target;
 	std::ifstream	perm_target;
 	std::ofstream	out_target;
