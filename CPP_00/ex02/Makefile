@@ -6,17 +6,17 @@
 #    By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/07/04 10:52:43 by pswirgie          #+#    #+#              #
-#    Updated: 2026/07/06 19:01:42 by pswirgie         ###   ########.fr        #
+#    Updated: 2026/07/20 10:15:34 by pswirgie         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # ================= VARIABLES ================= #
 
-CC				:= c++
-CFLAGS			:= -Wall -Wextra -Werror -std=c++98
-BUILD_DIR		:= .account
+CXX				:= c++
+CXXFLAGS			:= -Wall -Wextra -Werror -std=c++98
+BUILD_DIR		:= .aCXXount
 
-NAME		:= account
+NAME		:= aCXXount
 
 # Colors
 GREEN		:='\033[0;32m'
@@ -24,9 +24,9 @@ NC			:='\033[0m'
 
 # Sources
 SRCS		:=	tests.cpp		\
-				Account.cpp
+				ACXXount.cpp
 
-HEADERS		:=	Account.hpp
+HEADERS		:=	ACXXount.hpp
 
 OBJS		:= $(SRCS:%.cpp=$(BUILD_DIR)/%.o)
 
@@ -36,7 +36,7 @@ OBJS		:= $(SRCS:%.cpp=$(BUILD_DIR)/%.o)
 all: $(NAME)
 
 $(NAME): $(BUILD_DIR) $(OBJS)
-	@$(CC) $(CFLAGS) $(OBJS) $(INCLUDES) -o $(NAME)
+	@$(CXX) $(CXXFLAGS) $(OBJS) $(INCLUDES) -o $(NAME)
 	@echo $(GREEN)"\n✨ $(NAME) build created. ✨\n"$(NC)
 	@clear
 	@echo $(GREEN)"💫 All compiled 💫\n"$(NC)
@@ -47,11 +47,11 @@ $(BUILD_DIR):
 # Compilation .c -> .o
 $(BUILD_DIR)/%.o: %.cpp $(HEADERS)
 	@mkdir -p $(dir $@)
-	@$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
+	@$(CXX) $(CXXFLAGS) $(INCLUDES) -c $< -o $@
 
-debug : CFLAGS += -g
+debug : CXXFLAGS += -g
 debug: fclean
-	@$(MAKE) --no-print-directory CFLAGS="$(CFLAGS)" all
+	@$(MAKE) --no-print-directory CXXFLAGS="$(CXXFLAGS)" all
 
 clean:
 	@rm -rf $(BUILD_DIR)
@@ -85,6 +85,6 @@ zip:
 		mkdir -p "$(TARGET_DIR)"; \
 	fi
 	@mv ${NAME}_${DATE}.zip $(TARGET_DIR);
-	@echo ${GREEN}"Backup successfully done."${NC};
+	@echo ${GREEN}"Backup suCXXessfully done."${NC};
 
 .PHONY: all clean fclean re setup unzip zip

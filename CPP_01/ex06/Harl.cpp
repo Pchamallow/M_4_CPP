@@ -6,7 +6,7 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/19 13:14:45 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/07/19 15:36:55 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/07/20 11:10:03 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ void	Harl::debug( void )
 	" my 7XL-double-cheese-triple-pickle-special-"
 	"ketchup burger." << std::endl;
 	std::cout << "I really do!" << std::endl;
+	std::cout << std::endl;
 }
 
 void	Harl::info( void )
@@ -35,6 +36,7 @@ void	Harl::info( void )
 	"my burger!" << std::endl;
 	std::cout << "If you did, I wouldn’t"
 	" be asking for more!" << std::endl;
+	std::cout << std::endl;
 }
 
 void	Harl::warning( void )
@@ -44,6 +46,7 @@ void	Harl::warning( void )
 	" bacon for free." << std::endl;
 	std::cout << "I’ve been coming for years, whereas"
 	" you started working here just last month." << std::endl;
+	std::cout << std::endl;
 }
 
 void	Harl::error( void )
@@ -51,6 +54,7 @@ void	Harl::error( void )
 	std::cout << "[ ERROR ]" << std::endl;
 	std::cout << "This is unacceptable! I want"
 	" to speak to the manager now !!!!!" << std::endl;
+	std::cout << std::endl;
 }
 
 void	Harl::complain( std::string level )
@@ -70,13 +74,6 @@ void	Harl::complain( std::string level )
 		++i;
 	}
 
-	if (i >= 4)
-	{
-		std::cout << "[ Probably complaining about insignificant"
-		" problems ]" << std::endl;
-		return ;
-	}
-
 	switch (i)
 	{
 		case 0:
@@ -87,5 +84,9 @@ void	Harl::complain( std::string level )
 			(this->*arrayLevels[2])();
 		case 3:
 			(this->*arrayLevels[3])();
+			break ;
+		default:
+			std::cout << "[ Probably complaining about insignificant"
+				" problems ]" << std::endl;
 	}
 }

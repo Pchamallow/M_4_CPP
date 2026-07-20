@@ -6,7 +6,7 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/15 14:26:40 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/07/19 13:12:16 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/07/20 11:04:57 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,28 +14,28 @@
 #include <iostream>
 #include <fstream>
 
-void	write_to_replace(t_data *data, std::string model, std::string target)
+void	write_to_replace(t_data *data, std::string oldStr, std::string newStr)
 {
-	data->original.open(data->original_name.c_str(), std::ios::in);
-
-	size_t len = model.size();
-	size_t i = data->line.find(model);
+	size_t lenOldStr = oldStr.size();
+	size_t lenNewStr = newStr.size();
+	size_t i = data->line.find(oldStr);
 
 	std::string before;
 	std::string after;
 	while (getline(data->original, data->line))
 	{
-		while (i != std::string::npos)
+		while (lenOldStr > 0 && i != std::string::npos)
 		{
-			i = data->line.find(model);
+			i = data->line.find(oldStr);
 			if (i == std::string::npos)
 				break ;
 			if (i > 0)
 				before = data->line.substr(0, i);
-			before.append(target);
-			if (data->line[i + model.size()])
+			if (lenNewStr)
+				before.append(newStr);
+			if (data->line[i + oldStr.size()])
 			{
-				after = data->line.substr(i + len, data->line.size());
+				after = data->line.substr(i + lenOldStr, data->line.size());
 				before.append(after);
 			}
 			data->line = before;
@@ -43,20 +43,11 @@ void	write_to_replace(t_data *data, std::string model, std::string target)
 		i = 0;
 		before.clear();
 		after.clear();
-		data->write_target << data->line << std::endl;
+		data->create_target << data->line << std::endl;
 	}
 	return ;
 }
 
-/*
-* Handle : 
-* replace already exist, 
-* replace already have content
-* replace chmod 000
-* valgrind
-* original = several lines
-* original = without the model
-*/
 int	main(int ac, char **av)
 {
 	t_data	data;
@@ -70,5 +61,5 @@ int	main(int ac, char **av)
 	write_to_replace(&data, av[2], av[3]);
 
 	data.original.close();
-	data.write_target.close();
+	data.create_target.close();
 }

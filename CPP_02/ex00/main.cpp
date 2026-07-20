@@ -5,25 +5,25 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/07/08 16:17:55 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/07/19 15:59:24 by pswirgie         ###   ########.fr       */
+/*   Created: 2026/07/19 16:19:20 by pswirgie          #+#    #+#             */
+/*   Updated: 2026/07/20 12:53:34 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.h"
-#include "Zombie.hpp"
+#include <iostream>
+#include "Fixed.hpp"
 
-int	main( void )
+int main( void )
 {
-	Zombie *zombie;
-	zombie = newZombie("Eustache");
-	zombie->announce();
-	delete zombie;
+	Fixed a;
+	Fixed b( a );
+	Fixed c;
 
-	randomChump("Bazooka");
-	
-	Zombie zombie2("Michell");
-	zombie2.announce();
+	c = b;
+
+	std::cout << a.getRawBits() << std::endl;
+	std::cout << b.getRawBits() << std::endl;
+	std::cout << c.getRawBits() << std::endl;
 
 	return (0);
 }

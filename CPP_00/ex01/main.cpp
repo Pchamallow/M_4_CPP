@@ -6,14 +6,14 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/05 08:40:45 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/07/07 13:48:53 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/07/20 10:15:34 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <iomanip>
 #include <cstdlib>
-#include <cctype>
+#include <CXXtype>
 #include "PhoneBook.hpp"
 
 bool	strWhitespaces(std::string *str)

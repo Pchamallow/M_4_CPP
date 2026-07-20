@@ -1,29 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/07/08 16:17:55 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/07/19 15:59:24 by pswirgie         ###   ########.fr       */
+/*   Created: 2026/07/19 16:19:51 by pswirgie          #+#    #+#             */
+/*   Updated: 2026/07/19 16:48:46 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.h"
-#include "Zombie.hpp"
+#pragma once
 
-int	main( void )
+class Fixed
 {
-	Zombie *zombie;
-	zombie = newZombie("Eustache");
-	zombie->announce();
-	delete zombie;
+	public :
+		Fixed ();
+		Fixed ( const Fixed& other);
+		Fixed& operator=( const Fixed& other );
+		~Fixed ();
+		int getRawBits( void ) const;
+		void setRawBits( int const raw );
 
-	randomChump("Bazooka");
-	
-	Zombie zombie2("Michell");
-	zombie2.announce();
-
-	return (0);
-}
+	private :
+		int					_fixedPointValue;
+		static const int	_nbBits = 8;
+};

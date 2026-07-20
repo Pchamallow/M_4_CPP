@@ -6,18 +6,18 @@
 #    By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/07/04 10:52:43 by pswirgie          #+#    #+#              #
-#    Updated: 2026/07/20 10:21:28 by pswirgie         ###   ########.fr        #
+#    Updated: 2026/07/20 10:23:27 by pswirgie         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # ================= VARIABLES ================= #
 
 CXX				:= c++
-CXXFLAGS			:= -Wall -Wextra -Werror -std=c++98
+CXXFLAGS		:= -Wall -Wextra -Werror -std=c++98
 MAKEFLAGS		+= --no-print-directory
 BUILD_DIR		:= .obj
 
-NAME		:= moarBrainz
+NAME		:= firstClassCanonical
 
 # Colors
 GREEN		:='\033[0;32m'
@@ -25,10 +25,9 @@ NC			:='\033[0m'
 
 # Sources
 SRCS		:=	main.cpp			\
-				Zombie.cpp			\
-				zombieHorde.cpp		\
+				Fixed.cpp
 
-HEADERS		:=	Zombie.hpp			\
+HEADERS		:=	Fixed.hpp			\
 
 OBJS		:= $(SRCS:%.cpp=$(BUILD_DIR)/%.o)
 
