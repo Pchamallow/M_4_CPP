@@ -6,7 +6,7 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/19 16:19:20 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/07/20 20:03:04 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/07/20 20:45:36 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,19 @@ int main( void )
 		Point	a(0.f, 0.f);
 		Point	b(5.f, 4.f);
 		Point	c(0.f, 4.f);
-		Point	point(0.f, 0.f);
+		// Point	point(0.f, 0.f);
+		// Point	point(3.f, 3.f);
+		Point	point(0.f, 1.f);
+
+		std::cout << "Triangle" << std::endl;
+		std::cout << "Point	a =		" << a.getX() << "; " << a.getY() << std::endl;
+		std::cout << "Point	b =		" << b.getX() << "; " << b.getY() << std::endl;
+		std::cout << "Point	c =		" << c.getX() << "; " << c.getY() << std::endl;
+		std::cout << "Point	point =		" << point.getX() << "; " << point.getY() << std::endl;
 		if (bsp(a, b, c, point))
 			std::cout << "Point is inside triangle" << std::endl;
 		else
 			std::cout << "Point is outside triangle" << std::endl;
+		std::cout << std::endl;
 	}
 }
