@@ -6,18 +6,18 @@
 #    By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/07/04 10:52:43 by pswirgie          #+#    #+#              #
-#    Updated: 2026/07/20 10:59:16 by pswirgie         ###   ########.fr        #
+#    Updated: 2026/07/20 12:55:17 by pswirgie         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # ================= VARIABLES ================= #
 
 CXX				:= c++
-CXXFLAGS			:= -Wall -Wextra -Werror -std=c++98
+CXXFLAGS		:= -Wall -Wextra -Werror -std=c++98
 MAKEFLAGS		+= --no-print-directory
-BUILD_DIR		:= .sedIsForLosers
+BUILD_DIR		:= .obj
 
-NAME		:= sedIsForLosers
+NAME		:= towards
 
 # Colors
 GREEN		:='\033[0;32m'
@@ -25,7 +25,9 @@ NC			:='\033[0m'
 
 # Sources
 SRCS		:=	main.cpp			\
-				handle_files.cpp
+				Fixed.cpp
+
+HEADERS		:=	Fixed.hpp			\
 
 OBJS		:= $(SRCS:%.cpp=$(BUILD_DIR)/%.o)
 
