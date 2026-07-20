@@ -6,12 +6,14 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/19 16:19:34 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/07/20 19:02:18 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/07/20 19:25:28 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 #include <cmath>
+
+
 
 // = CONSTRUCTORS ==============================================
 
@@ -157,6 +159,7 @@ Fixed	Fixed::operator--( int )
 	this->_fixedPointValue -= 1;
 	return (tmp);
 }
+
 
 
 // = METHODS INCREMENT / DECREMENT OVERLOAD ====================
