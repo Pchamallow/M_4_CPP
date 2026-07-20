@@ -6,7 +6,7 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/20 18:26:15 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/07/20 19:16:56 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/07/20 21:00:59 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ Point:: Point( const float initX, const float initY ): x(initX), y(initY)
 	#ifdef DEBUG
 	std::cout << "Point Init constructor called" << std::endl;
 	#endif
+	// std::cout << "value x = " << x.toFloat() << std::endl;
+	// std::cout << "value y = " << y.toFloat() << std::endl;
 }
 
 Point:: Point( const Point& other )

@@ -6,7 +6,7 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/20 19:17:26 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/07/20 20:47:06 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/07/20 20:59:36 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 static float	area(Point const point1, Point const point2, Point const point3)
 {
 	float x1 = point1.getX();
+	std::cout << x1 << std::endl;
 	float y1 = point1.getY();
 	float x2 = point2.getX();
 	float y2 = point2.getY();
@@ -33,6 +34,7 @@ bool	bsp( Point const a, Point const b, Point const c, Point const point)
 	std::cout << triangle << std::endl;
 	std::cout << areaPoint1 << std::endl;
 	std::cout << areaPoint2 << std::endl;
+	std::cout << areaPoint3 << std::endl;
 
 	// if (triangle == areaPoint1 + areaPoint2 + areaPoint3)
 		
