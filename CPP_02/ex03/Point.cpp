@@ -6,7 +6,7 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/20 18:26:15 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/07/20 21:00:59 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/07/21 10:19:52 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,16 +26,13 @@ Point:: Point( const float initX, const float initY ): x(initX), y(initY)
 	#ifdef DEBUG
 	std::cout << "Point Init constructor called" << std::endl;
 	#endif
-	// std::cout << "value x = " << x.toFloat() << std::endl;
-	// std::cout << "value y = " << y.toFloat() << std::endl;
 }
 
-Point:: Point( const Point& other )
+Point:: Point( const Point& other ) : x(other.x), y(other.y)
 {
 	#ifdef DEBUG
 	std::cout << "Point cpy constructor called" << std::endl;
 	#endif
-	(*this) = other;
 }
 
 Point&	Point::operator=( const Point& )
@@ -57,11 +54,7 @@ Point:: ~Point ()
 // = METHODS ===================================================
 
 float	Point::getX( void ) const
-{
-	return (this->x.toFloat());
-}
+{	return (this->x.toFloat());	}
 
 float	Point::getY( void ) const
-{
-	return (this->y.toFloat());
-}
+{	return (this->y.toFloat());	}

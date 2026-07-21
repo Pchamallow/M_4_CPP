@@ -6,7 +6,7 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/19 16:19:34 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/07/20 19:25:28 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/07/21 10:18:55 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -201,5 +201,4 @@ std::ostream&	operator<<( std::ostream& os, const Fixed& other )
 	os << other.toFloat();
 	return (os);
 }
-
 
