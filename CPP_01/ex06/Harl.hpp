@@ -6,13 +6,15 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/19 13:14:45 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/07/19 15:05:31 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/07/21 18:40:07 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string>
 
 #pragma once
+
+
 
 class Harl
 {
@@ -27,3 +29,18 @@ class Harl
 		void error( void );
 
 };
+
+Harl::Harl() {} // definition de la classe
+
+typedef void (Harl::*method)(void);
+
+struct	s_choose
+{
+	std::string	name;
+	method		callback;
+};
+
+void Harl::complain(std::string level)
+{
+
+}

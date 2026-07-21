@@ -6,7 +6,7 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/19 16:19:51 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/07/20 17:58:01 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/07/21 18:23:09 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,13 @@
 
 #include <iostream>
 
+enum	e_point
+{
+	inside,
+	outside,
+	onEdge,
+	onVertex,
+};
 
 class Fixed
 {

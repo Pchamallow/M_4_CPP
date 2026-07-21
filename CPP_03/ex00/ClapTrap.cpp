@@ -6,7 +6,7 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/21 10:59:54 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/07/21 13:59:59 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/07/21 16:29:30 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 ClapTrap:: ClapTrap ()
 {
 	std::cout << "ClapTrap - default constructor called" << std::endl;
+	_name = "";
 	_hitPoints = 10;
 	_energyPoints = 10;
 	_attackDamage = 0;

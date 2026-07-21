@@ -6,7 +6,7 @@
 #    By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/07/04 10:52:43 by pswirgie          #+#    #+#              #
-#    Updated: 2026/07/21 16:34:57 by pswirgie         ###   ########.fr        #
+#    Updated: 2026/07/21 17:08:12 by pswirgie         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ CXXFLAGS		:= -Wall -Wextra -Werror -std=c++98
 MAKEFLAGS		+= --no-print-directory
 BUILD_DIR		:= .obj
 
-NAME		:= scavtrap
+NAME		:= fragTrap
 
 # Colors
 GREEN		:='\033[0;32m'
@@ -26,10 +26,12 @@ NC			:='\033[0m'
 # Sources
 SRCS		:=	main.cpp			\
 				ClapTrap.cpp		\
-				ScavTrap.cpp
+				ScavTrap.cpp		\
+				FragTrap.cpp
 
 HEADERS		:=	ClapTrap.hpp		\
-				ScavTrap.hpp
+				ScavTrap.hpp		\
+				FragTrap.hpp
 
 OBJS		:= $(SRCS:%.cpp=$(BUILD_DIR)/%.o)
 

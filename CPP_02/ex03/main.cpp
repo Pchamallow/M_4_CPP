@@ -6,7 +6,7 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/19 16:19:20 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/07/21 10:19:09 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/07/21 18:23:37 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,16 @@ Point MakePoint( int choose )
 {
 	switch (choose)
 	{
-		case 1:
-			return	Point(3.f, 3.f); // inside
-		case 2:
-			return	Point(0.f, 0.f); // on vertex
-		case 3:
-			return	Point(1.f, 4.f); // on edge
-		default:
-			return	Point(0.f, 1.f); // outside
+		case inside:
+			return	Point(3.f, 3.f);
+		case outside:
+			return	Point(0.f, 1.f);
+		case onEdge:
+			return	Point(1.f, 4.f);
+		case onVertex:
+			return	Point(0.f, 0.f);
+		default: // inside
+			return	Point(3.f, 3.f);
 	}
 }
 

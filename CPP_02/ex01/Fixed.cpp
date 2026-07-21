@@ -6,7 +6,7 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/19 16:19:34 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/07/20 16:27:15 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/07/21 16:02:21 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ float	Fixed::toFloat( void ) const
 { return ((float)_fixedPointValue/(1 << _nbBits)); }
 
 int		Fixed::toInt( void ) const
-{ return (_fixedPointValue/(1 << _nbBits)); }
+{ return (_fixedPointValue >> _nbBits); }
 
 std::ostream&	operator<<( std::ostream& os, const Fixed& other )
 {

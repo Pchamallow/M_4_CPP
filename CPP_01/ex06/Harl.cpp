@@ -6,7 +6,7 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/19 13:14:45 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/07/20 11:10:03 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/07/21 18:42:25 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,19 +59,21 @@ void	Harl::error( void )
 
 void	Harl::complain( std::string level )
 {
-	std::string array[4] = {"DEBUG", "INFO","WARNING", "ERROR"};
-
-	void	(Harl::*arrayLevels[4])(void) = {
-		&Harl::debug, &Harl::info,
-		&Harl::warning, &Harl::error
+	s_choose table[4] = {
+		{"DEBUG",   &Harl::debug},
+		{"INFO",    &Harl::info},
+		{"WARNING", &Harl::warning},
+		{"ERROR",   &Harl::error}
 	};
 
-	int i = 0;
-	while (i < 4)
+	int ret;
+	for (int i = 0; i < 4; ++i)
 	{
-		if (level == array[i])
-			break;
-		++i;
+		if (level == table[i].name)
+		{
+			(this->*table[i].callback)();
+			ret
+		}
 	}
 
 	switch (i)

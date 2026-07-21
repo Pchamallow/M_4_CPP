@@ -6,10 +6,11 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/21 10:59:52 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/07/21 14:02:15 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/07/21 15:26:55 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#pragma once
 #include <string>
 
 class ClapTrap
