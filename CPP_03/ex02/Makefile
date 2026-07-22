@@ -6,7 +6,7 @@
 #    By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/07/04 10:52:43 by pswirgie          #+#    #+#              #
-#    Updated: 2026/07/21 17:08:12 by pswirgie         ###   ########.fr        #
+#    Updated: 2026/07/21 19:17:38 by pswirgie         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,7 +39,7 @@ OBJS		:= $(SRCS:%.cpp=$(BUILD_DIR)/%.o)
 all: $(NAME)
 
 $(NAME): $(BUILD_DIR) $(OBJS)
-	@$(CXX) $(CXXFLAGS) $(OBJS) $(INCLUDES) -o $(NAME)
+	@$(CXX) $(OBJS) $(INCLUDES) -o $(NAME)
 	@echo $(GREEN)"\n✨ $(NAME) build created. ✨\n"$(NC)
 	@clear
 	@echo $(GREEN)"💫 All compiled 💫\n"$(NC)

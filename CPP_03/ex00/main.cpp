@@ -6,7 +6,7 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/21 10:59:49 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/07/21 14:01:57 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/07/22 18:01:36 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 int main ()
 {
 	{
-		std::cout << "Seb attack 0 -> Vulkan died" <<std::endl;
+		std::cout << "Seb attack -> Vulkan died" <<std::endl;
 		ClapTrap a;
 		ClapTrap b("Seb");
 		ClapTrap c("Vulkan");
@@ -57,5 +57,13 @@ int main ()
 		b.attack("Vulkan");
 		b.attack("Vulkan");
 		b.beRepaired(5);
+	}
+	{
+		std::cout << std::endl;
+		ClapTrap c("Vulkan");
+		ClapTrap f(c);
+
+		std::cout << "ClapTrap copy - Vulkan's copy appeares." << std::endl;
+		f.beRepaired(5);
 	}
 }

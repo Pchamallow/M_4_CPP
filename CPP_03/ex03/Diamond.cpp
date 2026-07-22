@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.cpp                                       :+:      :+:    :+:   */
+/*   Diamond.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,38 +10,38 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScavTrap.hpp"
+#include "Diamond.hpp"
 #include <iostream>
 
 
 // = CONSTRUCTORS ==============================================
 
-ScavTrap:: ScavTrap()
+Diamond:: Diamond()
 {	
-	std::cout << "ScavTrap - default constructor called" << std::endl;
+	std::cout << "Diamond - default constructor called" << std::endl;
 	_name = "";
 	_hitPoints = 100;
 	_energyPoints = 50;
 	_attackDamage = 20;
 }
 
-ScavTrap:: ScavTrap ( const ScavTrap& other )
+Diamond:: Diamond ( const Diamond& other )
 {	
-	std::cout << "ScavTrap - copy constructor called" << std::endl;
+	std::cout << "Diamond - copy constructor called" << std::endl;
 	(*this) = other;
 }
 
-ScavTrap:: ScavTrap( const std::string& name )
+Diamond:: Diamond( const std::string& name )
 		: ClapTrap ( name )
 {
-	std::cout << "ScavTrap - init constructor called" << std::endl;
+	std::cout << "Diamond - init constructor called" << std::endl;
 	_name = name;
 	_hitPoints = 100;
 	_energyPoints = 50;
 	_attackDamage = 20;
 }
 
-ScavTrap& ScavTrap::operator=( const ScavTrap& other )
+Diamond& Diamond::operator=( const Diamond& other )
 {
 	if (this != &other)
 	{
@@ -53,23 +53,21 @@ ScavTrap& ScavTrap::operator=( const ScavTrap& other )
 	return (*this);
 }
 
-ScavTrap:: ~ScavTrap()
+Diamond:: ~Diamond()
 {
-	std::cout << "ScavTrap - destructor called" << std::endl;
+	std::cout << "Diamond - destructor called" << std::endl;
 }
 
 
 
 // = METHODS ===================================================
 
-void	ScavTrap::guardGate()
-{	std::cout << "ScavTrap - " << _name << " is now in Gate keeper mode" << std::endl;	}
 
-void	ScavTrap::attack( const std::string& target )
+void	Diamond::attack( const std::string& target )
 {
 	if (_hitPoints && _energyPoints)
 	{
-		std::cout << "ScavTrap - ";
+		std::cout << "Diamond - ";
 		std::cout << _name << " attacks " << target;
 		std::cout << ", causing " << _attackDamage << " points of damage !";
 		std::cout << std::endl;
@@ -77,7 +75,13 @@ void	ScavTrap::attack( const std::string& target )
 	}
 	else
 	{
-		std::cout << "ScavTrap - " << _name << " can't attack.";
+		std::cout << "Diamond - " << _name << " can't attack.";
 		std::cout << std::endl;
 	}
+}
+
+void	Diamond::whoAmI()
+{
+	std::cout << "I am " << //diamond name << " and ";
+	std::cout << //claptrap name << std::endl;
 }

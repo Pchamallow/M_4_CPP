@@ -6,34 +6,40 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/21 10:59:49 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/07/22 18:03:39 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/07/22 18:09:40 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 #include "ScavTrap.hpp"
 #include "FragTrap.hpp"
+#include "Diamond.hpp"
 #include <iostream>
 
 int main ()
 {
-	ScavTrap a;
-	ScavTrap b("Seb");
-	FragTrap c("Vulkan");
-	FragTrap d(c);
-	ClapTrap e;
-	ClapTrap f("Mish");
-	std::cout << std::endl;
+	{
+		std::cout << "TESTS - INITIALISATION - DIAMOND" << std::endl;
+		Diamond	a;
+		Diamond	b("Mish");
+		Diamond	c(b);
+		Diamond	d = c;
+		std::cout << std::endl;
+	}
+	{
+		std::cout << "TESTS - FIGHT" << std::endl;
+		ScavTrap	a("Seb");
+		Diamond		b("Vulkan");
+		
+		a.attack("Vulkan");
+		b.takeDamage(20);
+
+
+
+		
+		std::cout << std::endl;
+	}
 	
-	b.attack("Vulkan");
-	c.takeDamage(10);
-	c.takeDamage(10);
-	c.beRepaired(10);
-	b.attack("Vulkan");
-	c.takeDamage(10);
-	c.takeDamage(10);
-	c.highFivesGuys();
-	std::cout << "FragTrap copy - Vulkan's copy appeares." << std::endl;
-	d.attack("Seb");
-	std::cout << std::endl;
+	
+
 }

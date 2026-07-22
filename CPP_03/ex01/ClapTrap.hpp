@@ -6,7 +6,7 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/21 10:59:52 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/07/21 16:51:14 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/07/22 17:40:48 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ class ClapTrap
 {
 	public:
 		ClapTrap();
+		ClapTrap ( const ClapTrap& other );
 		ClapTrap( const std::string& name );
 		ClapTrap& operator=( const ClapTrap& other );
 		~ClapTrap();
@@ -25,7 +26,7 @@ class ClapTrap
 		void	takeDamage( unsigned int amount );
 		void	beRepaired( unsigned int amount );
 
-	protected: // permet aux enfants d avoir les atrributes privess de la class parents
+	protected:
 		int				_hitPoints;
 		int				_energyPoints;
 		int				_attackDamage;

@@ -6,7 +6,7 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/21 10:59:54 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/07/21 16:29:30 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/07/22 17:43:15 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,12 @@ ClapTrap:: ClapTrap ()
 	_hitPoints = 10;
 	_energyPoints = 10;
 	_attackDamage = 0;
+}
+
+ClapTrap:: ClapTrap ( const ClapTrap& other )
+{	
+	std::cout << "ClapTrap - copy constructor called" << std::endl;
+	(*this) = other;
 }
 
 ClapTrap:: ClapTrap ( const std::string& name )
