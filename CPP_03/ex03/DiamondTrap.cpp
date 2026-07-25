@@ -22,7 +22,7 @@ DiamondTrap:: DiamondTrap()
 	_name = "";
 	_hitPoints = FragTrap:: _hitPoints;
 	_energyPoints = ScavTrap:: _energyPoints;
-	_attackDamage = 30;
+	ScavTrap::_attackDamage = 30;
 }
 
 DiamondTrap:: DiamondTrap ( const DiamondTrap& other ) : ClapTrap(other), FragTrap(other), ScavTrap(other)
@@ -38,7 +38,7 @@ DiamondTrap:: DiamondTrap( const std::string& name )
 	_name = name;
 	_hitPoints = FragTrap:: _hitPoints;
 	_energyPoints = ScavTrap:: _energyPoints;
-	_attackDamage = 30;
+	ScavTrap::_attackDamage = 30; 
 	ClapTrap::_name = name + "_clap_name";
 }
 

@@ -36,5 +36,4 @@ class DiamondTrap : public FragTrap, public ScavTrap
 		std::string			_name;
 		int					_hitPoints;
 		int					_energyPoints;
-		int					_attackDamage;
 };
