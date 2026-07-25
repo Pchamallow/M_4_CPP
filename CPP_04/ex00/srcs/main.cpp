@@ -6,7 +6,7 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/25 11:00:16 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/07/25 15:29:35 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/07/25 16:33:35 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	testsInitByTypes()
 		std::cout << std::endl;
 	}
 	{
-		std::cout << std::endl << std::string(80, '-') << std::endl << std::endl;
+		std::cout << std::endl << std::string(60, '-') << std::endl << std::endl;
 		std::cout << "TESTS - initialisation - Cat" << std::endl << std::endl;
 		Cat	a;
 		std::cout << std::endl;
@@ -38,7 +38,7 @@ void	testsInitByTypes()
 		std::cout << std::endl;
 	}
 	{
-		std::cout << std::endl << std::string(80, '-') << std::endl << std::endl;
+		std::cout << std::endl << std::string(60, '-') << std::endl << std::endl;
 		std::cout << "TESTS - initialisation - Dog" << std::endl << std::endl;
 		Dog	a;
 		std::cout << std::endl;
@@ -51,7 +51,7 @@ void	testsInitByTypes()
 
 void	testsSoundAndType()
 {
-	std::cout << std::endl << std::string(80, '-') << std::endl << std::endl;
+	std::cout << std::endl << std::string(60, '-') << std::endl << std::endl;
 	std::cout << "TESTS - makesound - getType" << std::endl << std::endl;
 
 	Cat	a;
@@ -67,7 +67,7 @@ void	testsSoundAndType()
 
 void	testsSubject()
 {
-	std::cout << std::endl << std::string(80, '-') << std::endl << std::endl;
+	std::cout << std::endl << std::string(60, '-') << std::endl << std::endl;
 	std::cout << "TESTS - the subject" << std::endl << std::endl;
 	
 	const Animal* j = new Dog();
@@ -82,7 +82,11 @@ void	testsSubject()
 	std::cout << std::endl;
 	const Animal* meta = new Animal();
 	meta->makeSound();
-	std::cout << std::endl;	
+	std::cout << std::endl;
+
+	delete j;
+	delete i;
+	delete meta;
 }
 
 int	main ()
@@ -91,17 +95,18 @@ int	main ()
 	testsInitByTypes();
 	#endif
 
-	testsSoundAndType();
-
 	testsSubject();
+	testsSoundAndType();
 	{
-		std::cout << std::endl << std::string(80, '-') << std::endl << std::endl;
+		std::cout << std::endl << std::string(60, '-') << std::endl << std::endl;
 		std::cout << "TESTS - WrongAnimal and WrongCat" << std::endl << std::endl;
 
-		WrongCat a;
+		const WrongAnimal* a = new WrongCat();
 		std::cout << std::endl;
-		a.makeSound();
+		std::cout << "getype: " << a->getType() << " " << std::endl;
+		a->makeSound();
 		std::cout << std::endl;
+		delete a;
 	}
-	std::cout << std::endl << std::string(80, '-') << std::endl << std::endl;
+	std::cout << std::endl << std::string(60, '-') << std::endl << std::endl;
 }

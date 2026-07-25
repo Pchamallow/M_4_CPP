@@ -1,26 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.hpp                                            :+:      :+:    :+:   */
+/*   WrongCat.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/25 11:03:33 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/07/25 16:10:34 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/07/25 15:15:55 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
-#include "Animal.hpp"
+#include "WrongAnimal.hpp"
 
-class Dog : public Animal
+class WrongCat : public WrongAnimal
 {
 	public :
-		Dog();
-		Dog( const Dog& other );
-		Dog& operator=( const Dog& other );
-		~Dog();
+		WrongCat();
+		WrongCat( const WrongCat& other );
+		WrongCat& operator=( const WrongCat& other );
+		~WrongCat();
 
 		void			makeSound( void ) const;
 		std::string		getType( void ) const;
+
+	private :
+	
 };

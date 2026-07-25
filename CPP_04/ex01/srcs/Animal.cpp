@@ -1,49 +1,49 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongAnimal.cpp                                    :+:      :+:    :+:   */
+/*   Animal.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/25 11:21:08 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/07/25 15:39:44 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/07/25 15:15:59 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/WrongAnimal.hpp"
+#include "../includes/Animal.hpp"
 #include "iostream"
 
 
 // = CONSTRUCTORS ==============================================
 
-WrongAnimal:: WrongAnimal()
+Animal:: Animal()
 {
 	type = "";
-	std::cout << "A WrongAnimal with no types is born" << std::endl;
+	std::cout << "An animal with no types is born" << std::endl;
 }
 
-WrongAnimal:: WrongAnimal( const WrongAnimal& other )
+Animal:: Animal( const Animal& other )
 {
 	(*this) = other;
-	std::cout << "A twin of a WrongAnimal of type " << type << " is created" << std::endl;
+	std::cout << "A twin of an animal of type " << type << " is created" << std::endl;
 }
 
-WrongAnimal& WrongAnimal::operator=( const WrongAnimal& other )
+Animal& Animal::operator=( const Animal& other )
 {
 	if (this != &other)
 	{	type = other.type;	}
-	std::cout << "A new same WrongAnimal" << type << " is created" << std::endl;
+	std::cout << "A new same " << type << " is created" << std::endl;
 	return (*this);
 }
 
-WrongAnimal:: ~WrongAnimal()
-{	std::cout << "An WrongAnimal, type : " << type << " is leaving" << std::endl;	}
+Animal:: ~Animal()
+{	std::cout << "An animal, type : " << type << " is leaving" << std::endl;	}
 
 
 // = METHODS ===================================================
 
-void	WrongAnimal::makeSound( void ) const
-{	std::cout << "makeSound() - WrongAnimal make a sound" << std::endl;	}
+void	Animal::makeSound( void ) const
+{	std::cout << "makeSound() - Animal make a sound" << std::endl;	}
 
-std::string	WrongAnimal::getType( void ) const
+std::string	Animal::getType( void ) const
 {	return (type);	}

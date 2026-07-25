@@ -1,26 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.hpp                                            :+:      :+:    :+:   */
+/*   Brain.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/07/25 11:03:33 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/07/25 16:10:34 by pswirgie         ###   ########.fr       */
+/*   Created: 2026/07/25 11:00:29 by pswirgie          #+#    #+#             */
+/*   Updated: 2026/07/25 17:12:24 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
-#include "Animal.hpp"
+#include <string>
 
-class Dog : public Animal
+class Brain
 {
 	public :
-		Dog();
-		Dog( const Dog& other );
-		Dog& operator=( const Dog& other );
-		~Dog();
+		Brain();
+		Brain( const Brain& other );
+		Brain& operator=( const Brain& other );
+		virtual ~Brain();
 
-		void			makeSound( void ) const;
-		std::string		getType( void ) const;
+		void			setIdea( int index, std::string content );
+		std::string		getIdea( int index ) const;
+
+
+	protected :
+		std::string	ideas[100];
+
 };

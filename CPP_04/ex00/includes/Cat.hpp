@@ -6,7 +6,7 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/25 11:03:33 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/07/25 15:15:48 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/07/25 16:10:35 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,4 @@ class Cat : public Animal
 
 		void			makeSound( void ) const;
 		std::string		getType( void ) const;
-
-	private :
-	
 };

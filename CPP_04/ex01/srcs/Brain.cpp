@@ -1,49 +1,54 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongAnimal.cpp                                    :+:      :+:    :+:   */
+/*   Brain.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/25 11:21:08 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/07/25 15:39:44 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/07/25 17:11:57 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/WrongAnimal.hpp"
+#include "../includes/Brain.hpp"
 #include "iostream"
 
 
 // = CONSTRUCTORS ==============================================
 
-WrongAnimal:: WrongAnimal()
+Brain:: Brain()
 {
-	type = "";
-	std::cout << "A WrongAnimal with no types is born" << std::endl;
+	for(int i = 0; i < 100; i++)
+		ideas[i] = "Brain is empty";
+	std::cout << "An Brain is created" << std::endl;
 }
 
-WrongAnimal:: WrongAnimal( const WrongAnimal& other )
+Brain:: Brain( const Brain& other )
 {
 	(*this) = other;
-	std::cout << "A twin of a WrongAnimal of type " << type << " is created" << std::endl;
+	std::cout << "A Brain copy is created" << std::endl;
 }
 
-WrongAnimal& WrongAnimal::operator=( const WrongAnimal& other )
+Brain& Brain::operator=( const Brain& other )
 {
 	if (this != &other)
-	{	type = other.type;	}
-	std::cout << "A new same WrongAnimal" << type << " is created" << std::endl;
+	{	
+		for(int i = 0; i < 100; i++)
+			ideas[i] = other.ideas[i];
+	}
+	std::cout << "A new same Brain is created" << std::endl;
 	return (*this);
 }
 
-WrongAnimal:: ~WrongAnimal()
-{	std::cout << "An WrongAnimal, type : " << type << " is leaving" << std::endl;	}
+Brain:: ~Brain()
+{	std::cout << "A new same Brain is destroyed" << std::endl;	}
 
 
 // = METHODS ===================================================
 
-void	WrongAnimal::makeSound( void ) const
-{	std::cout << "makeSound() - WrongAnimal make a sound" << std::endl;	}
+void	Brain::setIdea( int index, std::string content )
+{	ideas[index] = content;	}
 
-std::string	WrongAnimal::getType( void ) const
-{	return (type);	}
+std::string	Brain::getIdea( int index ) const
+{	return (ideas[index]);	}
+
