@@ -6,7 +6,7 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/25 11:00:16 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/07/25 15:27:14 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/07/25 15:29:35 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,7 +96,7 @@ int	main ()
 	testsSubject();
 	{
 		std::cout << std::endl << std::string(80, '-') << std::endl << std::endl;
-		std::cout << "TESTS - WrongAnimal and Wrongcat" << std::endl << std::endl;
+		std::cout << "TESTS - WrongAnimal and WrongCat" << std::endl << std::endl;
 
 		WrongCat a;
 		std::cout << std::endl;
