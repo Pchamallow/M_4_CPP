@@ -6,7 +6,7 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/21 10:59:49 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/07/25 10:34:42 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/07/25 10:46:50 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,22 +33,27 @@ int main ()
 		std::cout << std::endl;
 	}
 	{
-		std::cout << std::endl;
-		std::cout << "TESTS - FIGHT" << std::endl;
+		std::cout << std::endl << std::string(80, '-') << std::endl << std::endl;
+
 		ScavTrap	a("Seb");
 		DiamondTrap	b("Vulkan");
-
+		
+		std::cout << std::endl;
+		std::cout << "TESTS - FIGHT" << std::endl;
 		a.attack("Vulkan");
 		b.takeDamage(20);
 		b.attack("Seb");
+	}
+	{
+		std::cout << std::endl << std::string(80, '-') << std::endl << std::endl;
 
-		std::cout << std::endl;
 		ClapTrap c = DiamondTrap ("Gael");
+		DiamondTrap	b("Vulkan");
+		
 		std::cout << std::endl;
 		std::cout << "TESTS - CONVERT CLAP TO DIAMOND - WHO I AM" << std::endl;
 		c.takeDamage(1);
 		std::cout << "Who I am = ";
 		b.whoAmI();
-		std::cout << std::endl;
 	}
 }
