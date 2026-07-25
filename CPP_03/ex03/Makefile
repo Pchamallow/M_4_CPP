@@ -6,14 +6,14 @@
 #    By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/07/04 10:52:43 by pswirgie          #+#    #+#              #
-#    Updated: 2026/07/24 14:05:10 by pswirgie         ###   ########.fr        #
+#    Updated: 2026/07/25 10:37:26 by pswirgie         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # ================= VARIABLES ================= #
 
 CXX				:= c++
-CXXFLAGS		:= -Wall -Wextra -Werror -std=c++98
+CXXFLAGS		:= -Wall -Wextra -Werror -Wshadow -std=c++98
 MAKEFLAGS		+= --no-print-directory
 BUILD_DIR		:= .obj
 

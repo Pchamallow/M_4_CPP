@@ -6,7 +6,7 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/21 17:02:43 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/07/25 10:00:27 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/07/25 10:38:50 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,9 +54,7 @@ FragTrap& FragTrap::operator=( const FragTrap& other )
 }
 
 FragTrap:: ~FragTrap()
-{
-	std::cout << "FragTrap - destructor called" << std::endl;
-}
+{	std::cout << "FragTrap - destructor called" << std::endl;	}
 
 
 

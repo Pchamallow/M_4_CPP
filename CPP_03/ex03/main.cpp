@@ -6,7 +6,7 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/21 10:59:49 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/07/24 14:16:32 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/07/25 10:34:42 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,17 @@
 int main ()
 {
 	{
-		std::cout << "TESTS - INITIALISATION - DIAMOND" << std::endl;
 		DiamondTrap	a;
 		DiamondTrap	b("Mish");
 		DiamondTrap	c(b);
 		DiamondTrap	d = c;
+		
+		std::cout << std::endl;
+		std::cout << "TESTS - INITIALISATION - DIAMOND" << std::endl;
+		std::cout << "hit points : " << b.getHitPoints() << std::endl;
+		std::cout << "energy points : " << b.getEnergyPoints() << std::endl;
+		std::cout << "attack damage : " << b.getAttackDamage() << std::endl;
+		b.attack("Vulkan");
 		std::cout << std::endl;
 	}
 	{

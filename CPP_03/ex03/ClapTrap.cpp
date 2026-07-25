@@ -6,7 +6,7 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/21 10:59:54 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/07/22 10:36:52 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/07/25 10:38:58 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,9 +53,7 @@ ClapTrap& ClapTrap::operator=( const ClapTrap& other )
 }
 
 ClapTrap:: ~ClapTrap()
-{
-	std::cout << "ClapTrap - destructor called" << std::endl;
-}
+{	std::cout << "ClapTrap - destructor called" << std::endl;	}
 
 
 

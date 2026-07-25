@@ -6,7 +6,7 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/21 15:25:46 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/07/25 10:00:33 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/07/25 10:39:08 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,9 +54,7 @@ ScavTrap& ScavTrap::operator=( const ScavTrap& other )
 }
 
 ScavTrap:: ~ScavTrap()
-{
-	std::cout << "ScavTrap - destructor called" << std::endl;
-}
+{	std::cout << "ScavTrap - destructor called" << std::endl;	}
 
 
 
