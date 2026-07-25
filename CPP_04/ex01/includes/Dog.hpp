@@ -6,7 +6,7 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/25 11:03:33 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/07/25 16:17:58 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/07/25 17:52:59 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,9 @@ class Dog : public Animal
 		~Dog();
 
 		void			makeSound( void ) const;
+		void			setIdea( int index, std::string content );
 		std::string		getType( void ) const;
+		std::string		getIdea( int index ) const;
 
 	private :
 		Brain *_brain;
