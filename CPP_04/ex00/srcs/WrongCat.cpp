@@ -6,7 +6,7 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/25 11:09:37 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/07/25 15:26:48 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/07/25 18:15:19 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ WrongCat:: WrongCat()
 	std::cout << "A WrongCat " << type << " is born" << std::endl;
 }
 
-WrongCat:: WrongCat( const WrongCat& other )
+WrongCat:: WrongCat( const WrongCat& other ) : WrongAnimal(other)
 {
 	(*this) = other;
 	std::cout << "A twin WrongCat" << type << " is created" << std::endl;

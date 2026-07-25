@@ -6,7 +6,7 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/25 11:00:16 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/07/25 18:09:44 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/07/25 18:20:47 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,16 +76,26 @@ int	main ()
 		Cat a;
 		std::cout << std::endl;
 	
+		std::cout << std::endl << std::string(30, '-') << std::endl;
+		std::cout << "TESTS - copy constructor" << std::endl;
 		a.setIdea(37, "food");
+		std::cout << "cat a -> set idea[37] to pee" << std::endl << std::endl;
 		
+		Cat c(a);
+		std::cout << std::endl;
+		std::cout << "cat c -> idea[37] is : " << c.getIdea(37) << std::endl;
+		std::cout << std::string(30, '-') << std::endl << std::endl;
+		
+		std::cout << "TESTS - copy operator overload" << std::endl;
 		Cat b = a;
 		std::cout << std::endl;
 		std::cout << "cat b -> idea[37] is : " << b.getIdea(37) << std::endl;
-		std::cout << "set idea to pee" << std::endl;
+		std::cout << "cat b -> set idea[37] to pee" << std::endl;
 		b.setIdea(37, "pee");
 		std::cout << "cat b -> idea[37] is : " << b.getIdea(37) << std::endl << std::endl;
 	
 		std::cout << "cat a -> idea[37] is : " << a.getIdea(37) << std::endl << std::endl;
+		std::cout << std::string(30, '-') << std::endl << std::endl;
 	}
 	std::cout << std::endl;
 }
