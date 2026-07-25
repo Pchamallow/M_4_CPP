@@ -6,7 +6,7 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/25 11:21:08 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/07/25 14:29:34 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/07/25 15:16:12 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,8 @@ WrongAnimal:: ~WrongAnimal()
 
 // = METHODS ===================================================
 
-std::string	WrongAnimal::getType( void )
-{	return (type);	}
-
-void	WrongAnimal::makeSound( void )
+void	WrongAnimal::makeSound( void ) const
 {	std::cout << "makeSound() - WrongAnimal make a sound" << std::endl;	}
+
+std::string	WrongAnimal::getType( void ) const
+{	return (type);	}

@@ -6,7 +6,7 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/25 11:21:08 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/07/25 14:28:17 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/07/25 15:15:59 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,8 @@ Animal:: ~Animal()
 
 // = METHODS ===================================================
 
-std::string	Animal::getType( void )
-{	return (type);	}
-
-void	Animal::makeSound( void )
+void	Animal::makeSound( void ) const
 {	std::cout << "makeSound() - Animal make a sound" << std::endl;	}
+
+std::string	Animal::getType( void ) const
+{	return (type);	}

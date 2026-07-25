@@ -6,7 +6,7 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/21 10:59:54 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/07/22 17:43:15 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/07/25 15:15:00 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,13 +31,10 @@ ClapTrap:: ClapTrap ( const ClapTrap& other )
 	(*this) = other;
 }
 
-ClapTrap:: ClapTrap ( const std::string& name )
+ClapTrap:: ClapTrap ( const std::string& name ) : ClapTrap()
 {
 	std::cout << "ClapTrap - init constructor called" << std::endl;
 	_name = name;
-	_hitPoints = 10;
-	_energyPoints = 10;
-	_attackDamage = 0;
 }
 
 ClapTrap& ClapTrap::operator=( const ClapTrap& other )

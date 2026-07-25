@@ -6,7 +6,7 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/25 11:09:37 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/07/25 14:27:02 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/07/25 15:16:05 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,8 @@ Dog:: ~Dog()
 
 // = METHODS ===================================================
 
-void	Dog::makeSound( void )
+void	Dog::makeSound( void ) const
 {	std::cout << "makeSound() - Ouaf" << std::endl;	}
 
-std::string	Dog::getType( void )
+std::string	Dog::getType( void ) const
 {	return (type);	}

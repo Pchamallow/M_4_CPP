@@ -6,7 +6,7 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/25 11:09:37 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/07/25 14:26:54 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/07/25 15:16:02 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,8 @@ Cat:: ~Cat()
 
 // = METHODS ===================================================
 
-void	Cat::makeSound( void )
+void	Cat::makeSound( void ) const
 {	std::cout << "makeSound() - Miaou" << std::endl;	}
 
-std::string	Cat::getType( void )
+std::string	Cat::getType( void ) const
 {	return (type);	}

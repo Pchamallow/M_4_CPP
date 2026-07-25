@@ -6,7 +6,7 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/25 11:09:37 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/07/25 14:29:15 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/07/25 15:26:48 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,8 @@ WrongCat:: ~WrongCat()
 
 // = METHODS ===================================================
 
-void	WrongCat::makeSound( void )
-{	std::cout << "WrongCat - makeSound - Miaou" << std::endl;	}
+void	WrongCat::makeSound( void ) const
+{	std::cout << "makeSound() - Miaou" << std::endl;	}
 
-std::string	WrongCat::getType( void )
+std::string	WrongCat::getType( void ) const
 {	return (type);	}

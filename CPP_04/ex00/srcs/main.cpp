@@ -6,12 +6,13 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/25 11:00:16 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/07/25 14:35:43 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/07/25 15:27:14 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/Animal.hpp"
 #include "../includes/Cat.hpp"
+#include "../includes/WrongCat.hpp"
 #include "../includes/Dog.hpp"
 #include "iostream"
 
@@ -48,34 +49,59 @@ void	testsInitByTypes()
 	}
 }
 
+void	testsSoundAndType()
+{
+	std::cout << std::endl << std::string(80, '-') << std::endl << std::endl;
+	std::cout << "TESTS - makesound - getType" << std::endl << std::endl;
+
+	Cat	a;
+	a.makeSound();
+	std::cout << "getype: " << a.getType() << std::endl;
+	std::cout << std::endl;
+
+	Dog	b;
+	b.makeSound();
+	std::cout << "getype: " << b.getType() << std::endl;
+	std::cout << std::endl << std::endl;
+}
+
+void	testsSubject()
+{
+	std::cout << std::endl << std::string(80, '-') << std::endl << std::endl;
+	std::cout << "TESTS - the subject" << std::endl << std::endl;
+	
+	const Animal* j = new Dog();
+	std::cout << "getype: " << j->getType() << " " << std::endl;
+	j->makeSound();
+	std::cout << std::endl;
+	
+	const Animal* i = new Cat();
+	std::cout << "getype: " << i->getType() << " " << std::endl;
+	i->makeSound();
+	
+	std::cout << std::endl;
+	const Animal* meta = new Animal();
+	meta->makeSound();
+	std::cout << std::endl;	
+}
+
 int	main ()
 {
 	#ifdef DEBUG
 	testsInitByTypes();
 	#endif
 
+	testsSoundAndType();
+
+	testsSubject();
 	{
 		std::cout << std::endl << std::string(80, '-') << std::endl << std::endl;
-		std::cout << "TESTS - makesound - getType" << std::endl << std::endl;
+		std::cout << "TESTS - WrongAnimal and Wrongcat" << std::endl << std::endl;
 
-		Cat	a;
-		a.makeSound();
-		std::cout << "getype: " << a.getType() << std::endl;
+		WrongCat a;
 		std::cout << std::endl;
-
-		Dog	b;
-		b.makeSound();
-		std::cout << "getype: " << b.getType() << std::endl;
-		std::cout << std::endl << std::endl;
+		a.makeSound();
+		std::cout << std::endl;
 	}
-	{
-		// const Animal* meta = new Animal();
-		// const Animal* j = new Dog();
-		// const Animal* i = new Cat();
-		// std::cout << j->getType() << " " << std::endl;
-		// std::cout << i->getType() << " " << std::endl;
-		// i->makeSound(); //will output the cat sound!
-		// j->makeSound();
-		// meta->makeSound();
-	}
+	std::cout << std::endl << std::string(80, '-') << std::endl << std::endl;
 }

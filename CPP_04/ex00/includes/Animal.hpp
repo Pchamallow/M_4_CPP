@@ -6,7 +6,7 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/25 11:00:29 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/07/25 13:09:56 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/07/25 15:15:39 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ class Animal
 		Animal& operator=( const Animal& other );
 		virtual ~Animal();
 
-		std::string		getType( void );
-		virtual void	makeSound( void );
+		virtual void	makeSound( void ) const;
+		std::string		getType( void ) const;
 
 	protected :
 		std::string	type;

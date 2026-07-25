@@ -6,7 +6,7 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/25 11:03:33 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/07/25 13:03:11 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/07/25 15:15:51 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ class Dog : public Animal
 		Dog& operator=( const Dog& other );
 		~Dog();
 
-		void			makeSound( void );
-		std::string		getType( void );
+		void			makeSound( void ) const;
+		std::string		getType( void ) const;
 
 	private :
 	
