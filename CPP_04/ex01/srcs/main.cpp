@@ -6,7 +6,7 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/25 11:00:16 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/07/25 17:20:05 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/07/25 17:46:34 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,15 +39,34 @@ void	testInitArray()
 
 int	main ()
 {
-	#ifdef DEBUG
-	testsInitByTypes();
-	#endif
-
+	std::cout << std::endl;
 	testInitArray();
 	
 	std::cout << std::endl << std::string(60, '-') << std::endl << std::endl;
+	std::cout << "TESTS - subject" << std::endl << std::endl;
 
-	Animal *cat = new Cat();
-	// Cat	cat();
-	std::cout << cat->setIdea(0, "coucou");
+	Animal *a = new Cat();
+	a->makeSound();
+	std::cout << std::endl;
+	delete a;
+
+	Animal *b = new Dog();
+	b->makeSound();
+	std::cout << std::endl;
+	delete b;
+	{
+		std::cout << std::endl << std::string(60, '-') << std::endl << std::endl;
+		std::cout << "TESTS - setIdea / getIdea" << std::endl << std::endl;
+
+		Cat c;
+
+		std::cout << std::endl;
+		c.setIdea(1, "salut");
+		std::cout << "idea is : " << c.getIdea(1) << std::endl;
+		c.setIdea(100, "salut");
+		c.setIdea(-1, "salut");
+
+		std::cout << std::endl;
+	}
+	std::cout << std::endl;
 }

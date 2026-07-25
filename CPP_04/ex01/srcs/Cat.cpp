@@ -6,11 +6,12 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/25 11:09:37 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/07/25 17:18:40 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/07/25 17:48:44 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/Cat.hpp"
+#include "../includes/Animal.hpp"
 #include "iostream"
 
 
@@ -23,7 +24,7 @@ Cat:: Cat()
 	std::cout << "A " << type << " is born" << std::endl;
 }
 
-Cat:: Cat( const Cat& other )
+Cat:: Cat( const Cat& other ) : Animal (other)
 {
 	*this = other;
 	std::cout << "A twin " << type << " is created" << std::endl;
@@ -54,10 +55,21 @@ void	Cat::makeSound( void ) const
 {	std::cout << "makeSound() - Miaou" << std::endl;	}
 
 void	Cat::setIdea( int index, std::string content )
-{	_brain->setIdea(index, content);	}
+{
+	if (index >= 0 && index < 100)
+		_brain->setIdea(index, content);
+	else
+		std::cout << "Invalid neuron range, only allowed between: [0, 99]" << std::endl;
+}
 
 std::string	Cat::getIdea( int index ) const
-{	return (_brain->getIdea(index));	}
+{
+	if (index >= 0 && index < 100)
+		return (_brain->getIdea(index));
+	else
+		std::cout << "Invalid neuron range, only allowed between: [0, 99]" << std::endl;
+	return ("");
+}
 
 std::string	Cat::getType( void ) const
 {	return (type);	}

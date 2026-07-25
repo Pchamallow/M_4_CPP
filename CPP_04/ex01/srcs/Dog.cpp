@@ -6,11 +6,12 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/25 11:09:37 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/07/25 17:01:16 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/07/25 17:25:03 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/Dog.hpp"
+#include "../includes/Animal.hpp"
 #include "iostream"
 
 
@@ -23,7 +24,7 @@ Dog:: Dog()
 	std::cout << "A " << type << " is born" << std::endl;
 }
 
-Dog:: Dog( const Dog& other )
+Dog:: Dog( const Dog& other ) : Animal (other)
 {
 	*this = other;
 	std::cout << "A twin " << type << " is created" << std::endl;
