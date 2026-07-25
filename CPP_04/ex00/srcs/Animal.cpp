@@ -6,7 +6,7 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/25 11:21:08 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/07/25 15:15:59 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/07/25 18:10:45 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,13 @@
 Animal:: Animal()
 {
 	type = "";
-	std::cout << "An animal with no types is born" << std::endl;
+	std::cout << "An Animal with no types is born" << std::endl;
 }
 
 Animal:: Animal( const Animal& other )
 {
 	(*this) = other;
-	std::cout << "A twin of an animal of type " << type << " is created" << std::endl;
+	std::cout << "A twin of an Animal of type " << type << " is created" << std::endl;
 }
 
 Animal& Animal::operator=( const Animal& other )
@@ -37,7 +37,7 @@ Animal& Animal::operator=( const Animal& other )
 }
 
 Animal:: ~Animal()
-{	std::cout << "An animal, type : " << type << " is leaving" << std::endl;	}
+{	std::cout << "An Animal, type : " << type << " is leaving" << std::endl;	}
 
 
 // = METHODS ===================================================

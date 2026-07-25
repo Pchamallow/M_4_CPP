@@ -6,7 +6,7 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/25 11:00:16 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/07/25 17:46:34 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/07/25 18:09:44 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,21 +39,23 @@ void	testInitArray()
 
 int	main ()
 {
-	std::cout << std::endl;
-	testInitArray();
-	
-	std::cout << std::endl << std::string(60, '-') << std::endl << std::endl;
-	std::cout << "TESTS - subject" << std::endl << std::endl;
+	{
+		std::cout << std::endl;
+		testInitArray();
+		
+		std::cout << std::endl << std::string(60, '-') << std::endl << std::endl;
+		std::cout << "TESTS - subject" << std::endl << std::endl;
 
-	Animal *a = new Cat();
-	a->makeSound();
-	std::cout << std::endl;
-	delete a;
+		Animal *a = new Cat();
+		a->makeSound();
+		std::cout << std::endl;
+		delete a;
 
-	Animal *b = new Dog();
-	b->makeSound();
-	std::cout << std::endl;
-	delete b;
+		Animal *b = new Dog();
+		b->makeSound();
+		std::cout << std::endl;
+		delete b;
+	}
 	{
 		std::cout << std::endl << std::string(60, '-') << std::endl << std::endl;
 		std::cout << "TESTS - setIdea / getIdea" << std::endl << std::endl;
@@ -62,11 +64,28 @@ int	main ()
 
 		std::cout << std::endl;
 		c.setIdea(1, "salut");
-		std::cout << "idea is : " << c.getIdea(1) << std::endl;
+		std::cout << "idea[1] is : " << c.getIdea(1) << std::endl;
 		c.setIdea(100, "salut");
 		c.setIdea(-1, "salut");
 
 		std::cout << std::endl;
+	}
+	{
+		std::cout << std::endl << std::string(60, '-') << std::endl << std::endl;
+		std::cout << "TESTS - shallow / deep copy" << std::endl << std::endl;
+		Cat a;
+		std::cout << std::endl;
+	
+		a.setIdea(37, "food");
+		
+		Cat b = a;
+		std::cout << std::endl;
+		std::cout << "cat b -> idea[37] is : " << b.getIdea(37) << std::endl;
+		std::cout << "set idea to pee" << std::endl;
+		b.setIdea(37, "pee");
+		std::cout << "cat b -> idea[37] is : " << b.getIdea(37) << std::endl << std::endl;
+	
+		std::cout << "cat a -> idea[37] is : " << a.getIdea(37) << std::endl << std::endl;
 	}
 	std::cout << std::endl;
 }

@@ -6,7 +6,7 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/25 11:21:08 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/07/25 17:11:57 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/07/25 18:00:28 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ Brain& Brain::operator=( const Brain& other )
 }
 
 Brain:: ~Brain()
-{	std::cout << "A new same Brain is destroyed" << std::endl;	}
+{	std::cout << "A Brain is destroyed" << std::endl;	}
 
 
 // = METHODS ===================================================

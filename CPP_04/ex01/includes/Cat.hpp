@@ -6,7 +6,7 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/25 11:03:33 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/07/25 17:52:55 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/07/25 18:00:06 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ class Cat : public Animal
 		void			setIdea( int index, std::string content );
 		std::string		getType( void ) const;
 		std::string		getIdea( int index ) const;
-
 
 	private :
 		Brain *_brain;
