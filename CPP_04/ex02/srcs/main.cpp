@@ -6,7 +6,7 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/25 11:00:16 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/07/25 18:23:48 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/07/25 18:28:47 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,8 @@ int	main ()
 		std::cout << std::endl << std::string(60, '-') << std::endl << std::endl;
 		std::cout << "TESTS - subject" << std::endl << std::endl;
 
+		// Animal f = Animal(); // abstract error
+		
 		Animal *a = new Cat();
 		std::cout << std::endl;
 		a->makeSound();
