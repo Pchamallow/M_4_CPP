@@ -6,7 +6,7 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/21 10:59:49 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/07/22 18:01:13 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/07/25 09:57:58 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ int main ()
 	b.guardGate();
 	std::cout << "ScavTrap copy - Seb's sibling appeares." << std::endl;
 	e.beRepaired(5);
+	b.attack("Vulkan");
+	e.takeDamage(5);
 	std::cout << "ClapTrap copy - Vulkan's copy appeares." << std::endl;
 	f.beRepaired(5);
 	std::cout << std::endl;

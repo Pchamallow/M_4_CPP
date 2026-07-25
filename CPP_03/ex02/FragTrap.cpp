@@ -6,7 +6,7 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/21 17:02:43 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/07/22 17:45:34 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/07/25 10:00:07 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ FragTrap:: FragTrap()
 	_attackDamage = 30;
 }
 
-FragTrap:: FragTrap ( const FragTrap& other )
+FragTrap:: FragTrap ( const FragTrap& other ) : ClapTrap ( other )
 {	
 	std::cout << "FragTrap - copy constructor called" << std::endl;
 	(*this) = other;

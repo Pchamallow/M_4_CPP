@@ -6,7 +6,7 @@
 #    By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/07/04 10:52:43 by pswirgie          #+#    #+#              #
-#    Updated: 2026/07/22 18:08:40 by pswirgie         ###   ########.fr        #
+#    Updated: 2026/07/24 14:05:10 by pswirgie         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,12 +28,12 @@ SRCS		:=	main.cpp			\
 				ClapTrap.cpp		\
 				ScavTrap.cpp		\
 				FragTrap.cpp		\
-				Diamond.cpp
+				DiamondTrap.cpp
 
 HEADERS		:=	ClapTrap.hpp		\
 				ScavTrap.hpp		\
 				FragTrap.hpp		\
-				Diamond.hpp
+				DiamondTrap.hpp
 
 OBJS		:= $(SRCS:%.cpp=$(BUILD_DIR)/%.o)
 

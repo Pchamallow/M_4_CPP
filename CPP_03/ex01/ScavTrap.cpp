@@ -6,7 +6,7 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/21 15:25:46 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/07/22 17:57:05 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/07/25 10:01:14 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ ScavTrap:: ScavTrap()
 	_attackDamage = 20;
 }
 
-ScavTrap:: ScavTrap ( const ScavTrap& other )
+ScavTrap:: ScavTrap ( const ScavTrap& other ) : ClapTrap ( other )
 {	
 	std::cout << "ScavTrap - copy constructor called" << std::endl;
 	(*this) = other;
@@ -34,7 +34,7 @@ ScavTrap:: ScavTrap ( const ScavTrap& other )
 ScavTrap:: ScavTrap( const std::string& name )
 		: ClapTrap ( name )
 {
-	std::cout << "ScavTrap - default constructor called" << std::endl;
+	std::cout << "ScavTrap - init constructor called" << std::endl;
 	_name = name;
 	_hitPoints = 100;
 	_energyPoints = 50;
