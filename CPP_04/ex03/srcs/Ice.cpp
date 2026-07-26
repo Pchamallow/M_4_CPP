@@ -6,7 +6,7 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/25 11:09:37 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/07/26 11:32:03 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/07/26 12:10:05 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,18 +18,15 @@
 // = CONSTRUCTORS ==============================================
 
 Ice:: Ice()
-{
-	AMateria::_type = "ice";
-}
+{	AMateria::_type = "ice";	}
 
 Ice:: Ice( const Ice& other ) : AMateria(other)
-{}
+{	*this = other;	}
 
-Ice& Ice::operator=( const Ice& other )
-{}
+Ice& Ice::operator=( const Ice& )
+{	return (*this);	}
 
-Ice:: ~Ice()
-{}
+Ice:: ~Ice() {}
 
 
 // = METHODS ===================================================

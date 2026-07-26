@@ -6,32 +6,22 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/25 11:00:16 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/07/26 09:38:40 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/07/26 12:08:45 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/IMateriaSource.hpp"
-#include "../includes/Ice.hpp"
-// #include "../includes/Cure.hpp"
 #include "../includes/AMateria.hpp"
+#include "../includes/Character.hpp"
+#include "../includes/Ice.hpp"
 #include "../includes/ICharacter.hpp"
+#include "../includes/IMateriaSource.hpp"
+#include "../includes/MateriaSource.hpp"
+// #include "../includes/Cure.hpp"
 #include "iostream"
-
-// void	testInit()
-// {
-// 	{
-// 		std::cout << "TESTS - init " << std::endl << std::endl;
-
-
-// 	}
-// }
 
 int	main ()
 {
 	{
-		std::cout << std::endl;
-		// testInit();
-		
 		std::cout << std::endl << std::string(60, '-') << std::endl << std::endl;
 		std::cout << "TESTS - subject" << std::endl << std::endl;
 
@@ -61,6 +51,9 @@ int	main ()
 		std::cout << std::endl << std::string(60, '-') << std::endl << std::endl;
 		std::cout << "TESTS - " << std::endl << std::endl;
 
+		// materia source learn a materia and verifier que le createmateria 
+		// remvoie bien le meme type 
+		// dernier learn = type du creer
 
 		std::cout << std::endl;
 	}

@@ -40,6 +40,7 @@ MateriaSource&	MateriaSource::operator=( const MateriaSource& other )
 				this->_source[i] = other._source[i]->clone();
 		}
 	}
+	return (*this);
 }
 
 MateriaSource::	~MateriaSource()
@@ -60,13 +61,13 @@ void	MateriaSource::learnMateria( AMateria *other )
 	{
 		if (!_source[i])
 		{
-			_source[i] = other->clone();
+			_source[i] = other;
 			return ;
 		}
 	}
 }
 
-AMateria*	MateriaSource::createMateria( std::string const &type )
+AMateria*	MateriaSource::createMateria( std::string const & type )
 {
 	for (int i = 3; i >= 0; i--)
 	{
