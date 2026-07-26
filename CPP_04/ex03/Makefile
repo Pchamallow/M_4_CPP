@@ -6,7 +6,7 @@
 #    By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/07/04 10:52:43 by pswirgie          #+#    #+#              #
-#    Updated: 2026/07/26 09:21:38 by pswirgie         ###   ########.fr        #
+#    Updated: 2026/07/26 10:51:25 by pswirgie         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,7 @@ NC			:='\033[0m'
 
 # Sources
 SRC_DIR			:= srcs/
-SRC_BASENAMES := main AMateria Ice Cure
+SRC_BASENAMES := main AMateria Ice Character
 SRCS := $(addprefix $(SRC_DIR), $(addsuffix .cpp,$(SRC_BASENAMES))) 
 
 OBJS		:= $(SRCS:%.cpp=$(BUILD_DIR)/%.o)

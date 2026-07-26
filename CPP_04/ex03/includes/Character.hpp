@@ -1,27 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   AMateria.hpp                                         :+:      :+:    :+:   */
+/*   Character.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/07/25 11:00:29 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/07/26 09:20:44 by pswirgie         ###   ########.fr       */
+/*   Created: 2026/07/26 10:48:50 by pswirgie          #+#    #+#             */
+/*   Updated: 2026/07/26 11:19:31 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 #include <string>
+#include "ICharacter.hpp"
 
-class AMateria;
-
-class ICharacter
+class Character : public ICharacter
 {
 	public :
-		virtual ~ICharacter() {}
+		Character();
+		Character( const std::string name );
+		Character( const Character& other );
+		Character&	operator=( const Character& other );
+		~Character();
+		
+		std::string const	&getName() const;
+		void				equip(AMateria* m);
+		void				unequip(int idx);
+		void				use(int idx, ICharacter& target);
 
-		virtual std::string const	&getName() const = 0;
-		virtual void				equip(AMateria* m) = 0;
-		virtual void				unequip(int idx) = 0;
-		virtual void				use(int idx, ICharacter& target) = 0;
+	private :
+		std::string		_name;
+		AMateria		*_inventory[4];
 };

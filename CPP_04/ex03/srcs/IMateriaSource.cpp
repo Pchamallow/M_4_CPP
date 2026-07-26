@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   AMateria.cpp                                            :+:      :+:    :+:   */
+/*   IMateriaSource.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,39 +10,42 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/AMateria.hpp"
+#include "../includes/IMateriaSource.hpp"
 #include "iostream"
 
 
 // = CONSTRUCTORS ==============================================
 
-AMateria:: AMateria(std::string const & type)
-{	_type = type;	}
+IMateriaSource:: IMateriaSource()
+{
+}
 
-AMateria:: AMateria()
-{	_type = "DEFAULT";	}
+IMateriaSource:: IMateriaSource( const IMateriaSource& other )
+{
+	*this = other;
+}
 
-AMateria:: AMateria( const AMateria& other )
-{	*this = other;	}
-
-AMateria& AMateria::operator=( const AMateria& other )
+IMateriaSource& IMateriaSource::operator=( const IMateriaSource& other )
 {
 	if (this != &other)
 	{
 		_type = other._type;
+		std::cout << "A new same materia " << _type << " is created" << std::endl;
 	}
 	return (*this);
 }
 
-AMateria:: ~AMateria()
-{}
+IMateriaSource:: ~IMateriaSource()
+{
+	std::cout << "A materia " << _type << " is destroyed" << std::endl;
+}
 
 
 // = METHODS ===================================================
 
 
-std::string	const & AMateria::getType( void ) const
+std::string	const & IMateriaSource::getType( void ) const
 {	return (_type);	}
 
-void AMateria::use(ICharacter& target)
+void IMateriaSource::use(ICharacter& target)
 {	return ;	}
