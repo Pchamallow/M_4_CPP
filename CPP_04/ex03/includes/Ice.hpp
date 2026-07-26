@@ -6,7 +6,7 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/25 11:03:33 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/07/26 10:20:32 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/07/26 15:51:31 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,12 @@
 class Ice : public AMateria
 {
 	public :
-		Ice();
+		Ice( void );
 		Ice( const Ice& other );
 		Ice& operator=( const Ice& other );
 		~Ice();
 
-		AMateria*		clone() const;
+		AMateria*		clone( void ) const;
 		std::string		getType( void ) const;
 		void			use(ICharacter& target);
 };

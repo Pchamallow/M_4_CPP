@@ -6,7 +6,7 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/25 11:09:37 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/07/26 12:10:05 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/07/26 15:52:31 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 // = CONSTRUCTORS ==============================================
 
-Ice:: Ice()
+Ice:: Ice( void )
 {	AMateria::_type = "ice";	}
 
 Ice:: Ice( const Ice& other ) : AMateria(other)
@@ -34,7 +34,7 @@ Ice:: ~Ice() {}
 std::string		Ice::getType( void ) const
 {	return (_type);	}
 
-AMateria*	Ice::clone() const
+AMateria*	Ice::clone( void ) const
 {	return (new Ice(*this));	}
 
 void	Ice::use(ICharacter& target)

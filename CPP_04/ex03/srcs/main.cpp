@@ -6,7 +6,7 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/25 11:00:16 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/07/26 15:43:13 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/07/26 16:00:41 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,10 +102,9 @@ int	main ()
 		}
 
 		Character *jean = new Character("jean");
-		// // ICharacter &jeanPrim = jean;
 		mish->use(0, *jean);
+		mish->clearFloor();
 
-		
 		std::cout << std::endl;
 		std::cout << std::endl << std::string(60, '-') << std::endl << std::endl;
 		delete a;
@@ -116,5 +115,4 @@ int	main ()
 		delete src;
 		delete srcB;
 	}
-	std::cout << std::endl;
 }

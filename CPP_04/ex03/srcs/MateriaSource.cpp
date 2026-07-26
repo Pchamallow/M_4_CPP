@@ -18,7 +18,7 @@
 
 // = CONSTRUCTORS ==============================================
 
-MateriaSource::	MateriaSource()
+MateriaSource::	MateriaSource( void )
 {
 	for (int i = 0; i < 4; i++)
 		_source[i] = NULL;
@@ -43,7 +43,7 @@ MateriaSource&	MateriaSource::operator=( const MateriaSource& other )
 	return (*this);
 }
 
-MateriaSource::	~MateriaSource()
+MateriaSource::	~MateriaSource( void )
 {
 	for (int i = 0; i < 4; i++)
 	{

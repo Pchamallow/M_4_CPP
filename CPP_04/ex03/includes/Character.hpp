@@ -6,7 +6,7 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/26 10:48:50 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/07/26 13:27:32 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/07/26 15:51:22 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,18 +17,19 @@
 class Character : public ICharacter
 {
 	public :
-		Character();
+		Character( void );
 		Character( const std::string name );
 		Character( const Character& other );
 		Character&	operator=( const Character& other );
 		~Character();
 		
-		std::string const	&getName() const;
+		std::string const	&getName( void ) const;
 		AMateria*			getFloor( int idx ) const;
 		AMateria*			getInventory( int idx ) const;
 		void				equip( AMateria* m );
 		void				unequip( int idx );
 		void				use( int idx, ICharacter& target );
+		static void			clearFloor( void );
 
 	private :
 		std::string			_name;

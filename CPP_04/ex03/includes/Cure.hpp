@@ -6,7 +6,7 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/26 12:39:27 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/07/26 12:39:31 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/07/26 15:51:12 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,12 @@
 class Cure : public AMateria
 {
 	public :
-		Cure();
+		Cure( void );
 		Cure( const Cure& other );
 		Cure& operator=( const Cure& other );
 		~Cure();
 
-		AMateria*		clone() const;
+		AMateria*		clone( void ) const;
 		std::string		getType( void ) const;
 		void			use(ICharacter& target);
 };

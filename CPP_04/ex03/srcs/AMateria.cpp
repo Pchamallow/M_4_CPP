@@ -19,7 +19,7 @@
 AMateria::	AMateria( std::string const & type )
 {	_type = type;	}
 
-AMateria::	AMateria()
+AMateria::	AMateria( void )
 {	_type = "DEFAULT";	}
 
 AMateria::	AMateria( const AMateria& other )
@@ -34,7 +34,7 @@ AMateria&	AMateria::operator=( const AMateria& other )
 	return (*this);
 }
 
-AMateria::	~AMateria(){}
+AMateria::	~AMateria( void ){}
 
 
 // = METHODS ===================================================

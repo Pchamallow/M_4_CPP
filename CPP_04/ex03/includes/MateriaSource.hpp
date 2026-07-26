@@ -17,7 +17,7 @@
 class MateriaSource : public IMateriaSource
 {
 	public :
-		MateriaSource();
+		MateriaSource( void );
 		MateriaSource( const MateriaSource& other );
 		MateriaSource&	operator=( const MateriaSource& other );
 		~MateriaSource();

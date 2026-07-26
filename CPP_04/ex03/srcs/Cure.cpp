@@ -6,7 +6,7 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/26 12:39:42 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/07/26 13:14:23 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/07/26 15:52:23 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 // = CONSTRUCTORS ==============================================
 
-Cure:: Cure()
+Cure:: Cure( void )
 {	AMateria::_type = "cure";	}
 
 Cure:: Cure( const Cure& other ) : AMateria(other)
@@ -34,7 +34,7 @@ Cure:: ~Cure() {}
 std::string		Cure::getType( void ) const
 {	return (_type);	}
 
-AMateria*	Cure::clone() const
+AMateria*	Cure::clone( void ) const
 {	return (new Cure(*this));	}
 
 void	Cure::use(ICharacter& target)

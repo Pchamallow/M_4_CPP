@@ -18,7 +18,7 @@ AMateria*	Character::_floor[50] = {NULL};
 
 // = CONSTRUCTORS ==============================================
 
-Character::	Character()
+Character::	Character( void )
 {
 	_name = "unknown";
 	for (int i = 0; i < 4; i++)
@@ -51,17 +51,15 @@ Character&	Character::operator=( const Character& other )
 	return (*this);
 }
 
-Character::	~Character()
+Character::	~Character( void )
 {
 	for (int i = 0; i < 4; i++)
 	{
 		if (_inventory[i])
+		{
 			delete _inventory[i];
-	}
-	for (int i = 0; i < 50; i++)
-	{
-		if (_floor[i])
-			delete _floor[i];
+			_inventory[i] = NULL;
+		}
 	}
 }
 
@@ -122,3 +120,14 @@ void	Character::use( int idx, ICharacter& target )
 		(*_inventory[idx]).use(target);
 }
 
+void	Character::clearFloor( void )
+{
+	for (int i = 0; i < 50; i++)
+	{
+		if (_floor[i])
+		{
+			delete _floor[i];
+			_floor[i] = NULL;
+		}
+	}
+}
