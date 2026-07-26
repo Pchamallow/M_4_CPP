@@ -6,7 +6,7 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/25 11:00:16 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/07/26 13:38:08 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/07/26 13:55:33 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,9 +86,9 @@ int	main ()
 		mish->equip(cure);
 		std::cout << "Last materia in inventory is " << mish->getInventory(3)->getType() << std::endl;
 
-		std::cout << std::endl << std::string(60, '-') << std::endl << std::endl;
+		std::cout << std::endl << std::string(30, '-') << std::endl;
 		std::cout << "TESTS - Characters equip, unequip and use " << std::endl << std::endl;
-		mish->unequip(4);
+		mish->unequip(-4);
 		if (mish->getFloor(0))
 			std::cout << "Mish unequip successfully, so on the ground we have materia " << mish->getFloor(0)->getType();
 		else
@@ -98,8 +98,13 @@ int	main ()
 		if (mish->getFloor(0))
 			std::cout << "Mish unequip successfully, so on the ground we have materia " << mish->getFloor(0)->getType();
 		
-		
 		std::cout << std::endl;
+		delete a;
+		delete b;
+		delete mish;
+		delete cure;
+		delete src;
+		delete srcB;
 	}
 	{
 		std::cout << std::endl << std::string(60, '-') << std::endl << std::endl;
