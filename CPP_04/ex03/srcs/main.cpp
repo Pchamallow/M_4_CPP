@@ -6,7 +6,7 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/25 11:00:16 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/07/26 16:00:41 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/07/26 18:17:39 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 #include "../includes/ICharacter.hpp"
 #include "../includes/IMateriaSource.hpp"
 #include "../includes/MateriaSource.hpp"
-// #include "../includes/Cure.hpp"
+#include "../includes/Cure.hpp"
 #include "iostream"
 
 int	main ()
@@ -72,7 +72,7 @@ int	main ()
 		if (b)
 			std::cout << "b -> getType : " << b->getType() << std::endl;
 		else
-			std::cout << "cure infind" << std::endl;
+			std::cout << "cure unfound" << std::endl;
 
 		std::cout << std::endl << "ICharacter equip ice x 4 + cure" << std::endl;
 		Character *mish = new Character("Mish");

@@ -6,7 +6,7 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/25 11:09:37 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/07/25 15:16:02 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/07/26 16:34:52 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ Cat:: Cat()
 	std::cout << "A " << type << " is born" << std::endl;
 }
 
-Cat:: Cat( const Cat& other )
+Cat:: Cat( const Cat& other ) : Animal( other )
 {
 	(*this) = other;
 	std::cout << "A twin " << type << " is created" << std::endl;

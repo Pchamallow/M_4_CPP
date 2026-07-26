@@ -61,7 +61,8 @@ void	MateriaSource::learnMateria( AMateria *other )
 	{
 		if (!_source[i])
 		{
-			_source[i] = other;
+			_source[i] = other->clone();
+			delete other;
 			return ;
 		}
 	}

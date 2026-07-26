@@ -6,7 +6,7 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/25 11:09:37 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/07/25 15:16:05 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/07/26 16:34:46 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ Dog:: Dog()
 	std::cout << "A " << type << " is born" << std::endl;
 }
 
-Dog:: Dog( const Dog& other )
+Dog:: Dog( const Dog& other ) : Animal( other )
 {
 	(*this) = other;
 	std::cout << "A twin " << type << " is created" << std::endl;

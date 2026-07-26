@@ -16,11 +16,10 @@
 
 // = CONSTRUCTORS ==============================================
 
-AMateria::	AMateria( std::string const & type )
-{	_type = type;	}
-
 AMateria::	AMateria( void )
 {	_type = "DEFAULT";	}
+
+AMateria::	AMateria( std::string const & type ) : _type(type) {}
 
 AMateria::	AMateria( const AMateria& other )
 {	*this = other;	}
@@ -28,9 +27,7 @@ AMateria::	AMateria( const AMateria& other )
 AMateria&	AMateria::operator=( const AMateria& other )
 {
 	if (this != &other)
-	{
 		_type = other._type;
-	}
 	return (*this);
 }
 

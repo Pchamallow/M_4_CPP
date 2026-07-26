@@ -6,7 +6,7 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/25 11:09:37 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/07/26 15:52:31 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/07/26 18:15:15 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,11 @@ Ice:: Ice( void )
 Ice:: Ice( const Ice& other ) : AMateria(other)
 {	*this = other;	}
 
-Ice& Ice::operator=( const Ice& )
-{	return (*this);	}
+Ice& Ice::operator=( const Ice& other )
+{
+	AMateria::operator=(other);
+	return (*this);
+}
 
 Ice:: ~Ice() {}
 
