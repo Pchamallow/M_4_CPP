@@ -14,6 +14,7 @@
 #include "../includes/AMateria.hpp"
 #include "iostream"
 
+AMateria*	Character::_floor[50] = {NULL};
 
 // = CONSTRUCTORS ==============================================
 
@@ -65,6 +66,20 @@ Character::	~Character()
 std::string const	&Character::getName() const
 {	return (_name);	}
 
+AMateria*	Character::getFloor( int idx ) const
+{
+	if (idx >= 0 && idx < 50 && _floor[idx])
+		return (_floor[idx]->clone());
+	return (0);
+}
+
+AMateria*	Character::getInventory( int idx ) const
+{
+	if (idx >= 0 && idx < 4 && _inventory[idx])
+		return (_inventory[idx]->clone());
+	return (0);
+}
+
 void	Character::equip( AMateria* m )
 {
 	if (!m)
@@ -82,12 +97,22 @@ void	Character::equip( AMateria* m )
 void	Character::unequip( int idx )
 {
 	if (idx >= 0 && idx < 4)
+	{
+		for (int i = 0; i < 50; i++)
+		{
+			if (!_floor[i])
+			{
+				_floor[i] = _inventory[idx];
+				break ;
+			}
+		}
 		_inventory[idx] = NULL;
+	}
 }
 
 void	Character::use( int idx, ICharacter& target )
 {
-	if (idx >= 0 && idx < 4)
+	if (idx >= 0 && idx < 4 && _inventory[idx])
 		(*_inventory[idx]).use(target);
 }
 
