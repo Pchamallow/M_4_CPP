@@ -6,7 +6,7 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/25 11:00:16 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/07/26 13:58:35 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/07/26 15:23:20 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,8 +78,8 @@ int	main ()
 		Character *mish = new Character("Mish");
 		std::cout << "getName : " << mish->getName() << std::endl;
 		for (int i = 0; i < 4; i++)
-			mish->equip(a);
-		mish->equip(a);
+			mish->equip(a->clone());
+		mish->equip(a->clone());
 		IMateriaSource* srcB = new MateriaSource();
 		srcB->learnMateria(new Cure());
 		AMateria* cure = srcB->createMateria("cure"); 
