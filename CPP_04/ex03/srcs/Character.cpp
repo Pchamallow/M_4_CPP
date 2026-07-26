@@ -74,14 +74,14 @@ std::string const	&Character::getName() const
 AMateria*	Character::getFloor( int idx ) const
 {
 	if (idx >= 0 && idx < 50 && _floor[idx])
-		return (_floor[idx]->clone());
+		return (_floor[idx]);
 	return (0);
 }
 
 AMateria*	Character::getInventory( int idx ) const
 {
 	if (idx >= 0 && idx < 4 && _inventory[idx])
-		return (_inventory[idx]->clone());
+		return (_inventory[idx]);
 	return (0);
 }
 

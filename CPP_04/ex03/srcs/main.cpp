@@ -6,7 +6,7 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/25 11:00:16 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/07/26 15:23:20 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/07/26 15:43:13 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ int	main ()
 		std::cout << "a -> getType : " << a->getType() << std::endl;
 
 		std::cout << std::endl << std::string(30, '-') << std::endl;
-		std::cout << "TESTS - inventory character and MateriaSource" << std::endl << std::endl;
+		std::cout << "TESTS - inventory Character and MateriaSource" << std::endl << std::endl;
 		
 		std::cout << "IMateriaSource* src learn Ice x 4 + Cure" << std::endl;
 		src -> learnMateria(new Ice());
@@ -83,7 +83,7 @@ int	main ()
 		IMateriaSource* srcB = new MateriaSource();
 		srcB->learnMateria(new Cure());
 		AMateria* cure = srcB->createMateria("cure"); 
-		mish->equip(cure);
+		mish->equip(cure->clone());
 		std::cout << "Last materia in inventory is " << mish->getInventory(3)->getType() << std::endl;
 
 		std::cout << std::endl << std::string(30, '-') << std::endl;
@@ -96,18 +96,22 @@ int	main ()
 		mish->unequip(3);
 		std::cout << "Mish unequip his inventory[3]" << std::endl;
 		if (mish->getFloor(0))
+		{
 			std::cout << "Mish unequip successfully, so on the ground we have materia " << mish->getFloor(0)->getType();
+			std::cout << std::endl;
+		}
+
+		Character *jean = new Character("jean");
+		// // ICharacter &jeanPrim = jean;
+		mish->use(0, *jean);
+
 		
 		std::cout << std::endl;
-
-
 		std::cout << std::endl << std::string(60, '-') << std::endl << std::endl;
-		std::cout << "TESTS - User equipement " << std::endl << std::endl;
-	
-		std::cout << std::string(30, '-') << std::endl << std::endl;
 		delete a;
 		delete b;
 		delete mish;
+		delete jean;
 		delete cure;
 		delete src;
 		delete srcB;
