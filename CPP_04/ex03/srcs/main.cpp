@@ -6,7 +6,7 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/25 11:00:16 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/07/26 13:55:33 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/07/26 13:58:35 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,18 +99,18 @@ int	main ()
 			std::cout << "Mish unequip successfully, so on the ground we have materia " << mish->getFloor(0)->getType();
 		
 		std::cout << std::endl;
+
+
+		std::cout << std::endl << std::string(60, '-') << std::endl << std::endl;
+		std::cout << "TESTS - User equipement " << std::endl << std::endl;
+	
+		std::cout << std::string(30, '-') << std::endl << std::endl;
 		delete a;
 		delete b;
 		delete mish;
 		delete cure;
 		delete src;
 		delete srcB;
-	}
-	{
-		std::cout << std::endl << std::string(60, '-') << std::endl << std::endl;
-		std::cout << "TESTS - " << std::endl << std::endl;
-	
-		std::cout << std::string(30, '-') << std::endl << std::endl;
 	}
 	std::cout << std::endl;
 }

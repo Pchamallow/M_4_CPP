@@ -58,6 +58,11 @@ Character::	~Character()
 		if (_inventory[i])
 			delete _inventory[i];
 	}
+	for (int i = 0; i < 50; i++)
+	{
+		if (_floor[i])
+			delete _floor[i];
+	}
 }
 
 
@@ -88,10 +93,11 @@ void	Character::equip( AMateria* m )
 	{
 		if (!_inventory[i])
 		{
-			_inventory[i] = m->clone();
+			_inventory[i] = m;
 			return ;
 		}
 	}
+	delete m;
 }
 
 void	Character::unequip( int idx )
