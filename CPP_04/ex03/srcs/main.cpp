@@ -6,12 +6,13 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/25 11:00:16 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/07/26 12:08:45 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/07/26 12:47:42 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/AMateria.hpp"
 #include "../includes/Character.hpp"
+#include "../includes/Cure.hpp"
 #include "../includes/Ice.hpp"
 #include "../includes/ICharacter.hpp"
 #include "../includes/IMateriaSource.hpp"
@@ -25,35 +26,37 @@ int	main ()
 		std::cout << std::endl << std::string(60, '-') << std::endl << std::endl;
 		std::cout << "TESTS - subject" << std::endl << std::endl;
 
+		std::cout << std::endl << std::string(30, '-') << std::endl;
+		std::cout << "TESTS - MateriaSource - learn and create same material" << std::endl << std::endl;
+		
 		IMateriaSource* src = new MateriaSource();
+		std::cout << "IMateriaSource* src learn Ice" << std::endl;
 		src->learnMateria(new Ice());
+		std::cout << "AMateria* a = src create ice" << std::endl;
+		AMateria* a = src->createMateria("ice");
+		std::cout << "a -> getType : " << a->getType() << std::endl;
+		
 		// src->learnMateria(new Cure());
 
-		ICharacter* me = new Character("me");
+		std::cout << "TESTS - inventory character and MateriaSource" << std::endl << std::endl;
+		std::cout << "IMateriaSource* src learn Ice x 4 + Cure" << std::endl;
+		src -> learnMateria(new Ice());
+		src -> learnMateria(new Ice());
+		src -> learnMateria(new Ice());
+		src -> learnMateria(new Ice());
+		src -> learnMateria(new Cure());
+		std::cout << "AMateria* b = src create cure" << std::endl;
+		AMateria* b = src->createMateria("cure");
+		std::cout << "b -> getType : " << b->getType() << std::endl;
 
-		AMateria* tmp;
-		tmp = src->createMateria("ice");
-		me->equip(tmp);
-		tmp = src->createMateria("cure");
-		me->equip(tmp);
-
-		ICharacter* bob = new Character("bob");
-
-		me->use(0, *bob);
-		me->use(1, *bob);
-
-		delete bob;
-		delete me;
-		delete src;
+		// characters 
+		// use ice 
+		// use cure
 
 	}
 	{
 		std::cout << std::endl << std::string(60, '-') << std::endl << std::endl;
 		std::cout << "TESTS - " << std::endl << std::endl;
-
-		// materia source learn a materia and verifier que le createmateria 
-		// remvoie bien le meme type 
-		// dernier learn = type du creer
 
 		std::cout << std::endl;
 	}
