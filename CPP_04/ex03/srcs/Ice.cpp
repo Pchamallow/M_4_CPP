@@ -6,7 +6,7 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/25 11:09:37 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/07/26 09:45:55 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/07/26 10:45:40 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,48 +23,24 @@ Ice:: Ice()
 }
 
 Ice:: Ice( const Ice& other ) : AMateria(other)
-{
-	*this = other;
-	std::cout << "A copy of materia " << _type << " is created" << std::endl;
-}
+{	std::cout << "copying the type doesn’t make sense" << std::endl;	}
 
 Ice& Ice::operator=( const Ice& other )
-{
-	if (this != &other)
-	{
-		AMateria::_type = other._type;
-		std::cout << "A new same materia " << _type << " is created" << std::endl;
-	}
-	return (*this);
-}
+{	std::cout << "copying the type doesn’t make sense" << std::endl;	}
 
 Ice:: ~Ice()
-{
-	std::cout << "A materia " << _type << " is used" << std::endl;
-}
+{	std::cout << "A materia " << _type << " is destroyed" << std::endl;	}
 
 
 // = METHODS ===================================================
 
-void	Ice::makeSound( void ) const
-{	std::cout << "makeSound() - Miaou" << std::endl;	}
-
-void	Ice::setIdea( int index, std::string content )
-{
-	if (index >= 0 && index < 100)
-		_brain->setIdea(index, content);
-	else
-		std::cout << "Invalid neuron range, only allowed between: [0, 99]" << std::endl;
-}
-
-std::string	Ice::getIdea( int index ) const
-{
-	if (index >= 0 && index < 100)
-		return (_brain->getIdea(index));
-	else
-		std::cout << "Invalid neuron range, only allowed between: [0, 99]" << std::endl;
-	return ("");
-}
-
-std::string	Ice::getType( void ) const
+std::string		Ice::getType( void ) const
 {	return (_type);	}
+
+AMateria*	Ice::clone() const
+{	return (new Ice(*this));	}
+
+void	Ice::use(ICharacter& target)
+{
+	std::cout << "* shoots an ice bolt at " << target << " *" << std::endl;
+}

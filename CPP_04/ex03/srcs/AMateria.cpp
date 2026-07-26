@@ -16,6 +16,9 @@
 
 // = CONSTRUCTORS ==============================================
 
+AMateria:: AMateria(std::string const & type)
+{	_type = type;	}
+
 AMateria:: AMateria()
 {
 	_type = "DEFAULT";
@@ -49,3 +52,6 @@ AMateria:: ~AMateria()
 
 std::string	const & AMateria::getType( void ) const
 {	return (_type);	}
+
+void AMateria::use(ICharacter& target)
+{	return ;	}

@@ -6,7 +6,7 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/25 11:03:33 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/07/26 09:23:07 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/07/26 10:20:32 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ class Ice : public AMateria
 		Ice& operator=( const Ice& other );
 		~Ice();
 
-	private :
-
+		AMateria*		clone() const;
+		std::string		getType( void ) const;
+		void			use(ICharacter& target);
 };
