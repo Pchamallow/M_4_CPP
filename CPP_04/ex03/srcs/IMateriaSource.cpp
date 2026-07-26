@@ -17,35 +17,17 @@
 // = CONSTRUCTORS ==============================================
 
 IMateriaSource:: IMateriaSource()
-{
-}
-
-IMateriaSource:: IMateriaSource( const IMateriaSource& other )
-{
-	*this = other;
-}
-
-IMateriaSource& IMateriaSource::operator=( const IMateriaSource& other )
-{
-	if (this != &other)
-	{
-		_type = other._type;
-		std::cout << "A new same materia " << _type << " is created" << std::endl;
-	}
-	return (*this);
-}
-
-IMateriaSource:: ~IMateriaSource()
-{
-	std::cout << "A materia " << _type << " is destroyed" << std::endl;
-}
+{}
 
 
 // = METHODS ===================================================
 
+void	IMateriaSource::learnMateria(AMateria*)
+{
+	
+}
 
-std::string	const & IMateriaSource::getType( void ) const
-{	return (_type);	}
+AMateria*	IMateriaSource::createMateria(std::string const & type)
+{
 
-void IMateriaSource::use(ICharacter& target)
-{	return ;	}
+}

@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Character.cpp                                            :+:      :+:    :+:   */
+/*   MateriaSource.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,81 +10,71 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/Character.hpp"
+#include "../includes/MateriaSource.hpp"
+#include "../includes/IMateriaSource.hpp"
 #include "../includes/AMateria.hpp"
 #include "iostream"
 
 
 // = CONSTRUCTORS ==============================================
 
-Character::	Character()
-{
-	_name = "unknown";
-	for (int i = 0; i < 4; i++)
-		_inventory[i] = NULL;
-}
-
-Character::	Character( const std::string name ) : _name( name )
+MateriaSource::	MateriaSource()
 {
 	for (int i = 0; i < 4; i++)
-		_inventory[i] = NULL;
+		_source[i] = NULL;
 }
 
-Character::	Character( const Character& other )
+MateriaSource::	MateriaSource( const MateriaSource& other )
 {	*this = other;	}
 
-Character&	Character::operator=( const Character& other )
+MateriaSource&	MateriaSource::operator=( const MateriaSource& other )
 {
 	if (this != &other)
 	{
-		this->_name = other._name;
 		for (int i = 0; i < 4; i++)
 		{
-			if (this->_inventory[i])
-				delete this->_inventory[i];
-			this->_inventory[i] = NULL;
-			if (other._inventory[i])
-				this->_inventory[i] = other._inventory[i]->clone();
+			if (this->_source[i])
+				delete this->_source[i];
+			this->_source[i] = NULL;
+			if (other._source[i])
+				this->_source[i] = other._source[i]->clone();
 		}
 	}
 }
 
-Character::	~Character()
+MateriaSource::	~MateriaSource()
 {
 	for (int i = 0; i < 4; i++)
 	{
-		if (_inventory[i])
-			delete _inventory[i];
+		if (_source[i])
+			delete _source[i];
 	}
 }
 
 
 // = METHODS ===================================================
 
-std::string const	&Character::getName() const
-{	return (_name);	}
-
-void	Character::equip( AMateria* m )
+void	MateriaSource::learnMateria( AMateria *other )
 {
 	for (int i = 0; i < 4; i++)
 	{
-		if (!_inventory[i])
+		if (!_source[i])
 		{
-			_inventory[i] = m->clone();
+			_source[i] = other->clone();
 			return ;
 		}
 	}
 }
 
-void	Character::unequip( int idx )
+AMateria*	MateriaSource::createMateria( std::string const &type )
 {
-	if (idx >= 0 && idx < 4)
-		_inventory[idx] = NULL;
+	for (int i = 3; i >= 0; i--)
+	{
+		if (!_source[i] && _source[i]->getType() == type)
+			return (_source[i]->clone());
+	}
+	return (0);
 }
 
-void	Character::use( int idx, ICharacter& target )
-{
-	if (idx >= 0 && idx < 4)
-		(*_inventory[idx]).use(target);
-}
+
 
