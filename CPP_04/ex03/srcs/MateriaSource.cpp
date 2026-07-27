@@ -24,7 +24,7 @@ MateriaSource::	MateriaSource( void )
 		_source[i] = NULL;
 }
 
-MateriaSource::	MateriaSource( const MateriaSource& other )
+MateriaSource::	MateriaSource( const MateriaSource& other ) : _source()
 {	*this = other;	}
 
 MateriaSource&	MateriaSource::operator=( const MateriaSource& other )

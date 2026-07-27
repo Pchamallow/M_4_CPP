@@ -31,7 +31,7 @@ Character::	Character( const std::string name ) : _name( name )
 		_inventory[i] = NULL;
 }
 
-Character::	Character( const Character& other )
+Character::	Character( const Character& other ): _name( "" ), _inventory()
 {	*this = other;	}
 
 Character&	Character::operator=( const Character& other )
