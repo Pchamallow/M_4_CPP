@@ -6,7 +6,7 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/25 11:00:16 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/07/27 10:21:35 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/07/27 10:36:11 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@
 #include "../includes/MateriaSource.hpp"
 #include "../includes/Cure.hpp"
 #include "iostream"
+#define BLUE	"\033[34m"
+#define RESET	"\033[0m"
 
 int	main ()
 {
@@ -108,6 +110,7 @@ int	main ()
 		std::cout << "TESTS - Copy character Jule is a twin of Mish - inventory separated " << std::endl << std::endl;
 		Character jule(*mish);
 		jule.unequip(2);
+		std::cout << BLUE << "Copy constrcutor called : Character jule(*mish)" << RESET <<std::endl;
 		std::cout << "Jule unequip his inventory[2], so on the floor we have : " << mish->getFloor(1)->getType() <<std::endl;
 		std::cout << "Mish can use his inventory[2] : ";
 		mish->use(2, *jean);
@@ -116,6 +119,14 @@ int	main ()
 		mish->unequip(2);
 		std::cout << "However, if Mish can unequip his inventory[2]" << std::endl;
 		mish->use(2, *jean);
+		std::cout << std::endl << std::endl;
+
+		std::cout << BLUE << "Copy operator overload called : Character juleTwin = jule " << RESET <<std::endl;
+		Character juleTwin = jule;
+		AMateria* iceA = juleTwin.getFloor(0);
+		AMateria* iceB = juleTwin.getInventory(0);
+		std::cout << "juleTwin can see on the floor :" << iceA->getType() <<std::endl;
+		std::cout << "juleTwin has in this inventory[0] :" << iceB->getType() <<std::endl;
 
 		mish->clearFloor();
 		std::cout << std::endl;
