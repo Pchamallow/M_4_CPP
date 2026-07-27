@@ -6,7 +6,7 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/25 11:00:16 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/07/26 18:17:39 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/07/27 10:21:35 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,10 +101,23 @@ int	main ()
 			std::cout << std::endl;
 		}
 
-		Character *jean = new Character("jean");
+		Character *jean = new Character("Jean");
 		mish->use(0, *jean);
-		mish->clearFloor();
 
+		std::cout << std::endl << std::string(30, '-') << std::endl;
+		std::cout << "TESTS - Copy character Jule is a twin of Mish - inventory separated " << std::endl << std::endl;
+		Character jule(*mish);
+		jule.unequip(2);
+		std::cout << "Jule unequip his inventory[2], so on the floor we have : " << mish->getFloor(1)->getType() <<std::endl;
+		std::cout << "Mish can use his inventory[2] : ";
+		mish->use(2, *jean);
+		std::cout << std::endl;
+
+		mish->unequip(2);
+		std::cout << "However, if Mish can unequip his inventory[2]" << std::endl;
+		mish->use(2, *jean);
+
+		mish->clearFloor();
 		std::cout << std::endl;
 		std::cout << std::endl << std::string(60, '-') << std::endl << std::endl;
 		delete a;
