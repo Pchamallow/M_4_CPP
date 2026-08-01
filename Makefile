@@ -6,7 +6,7 @@
 #    By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/07/04 10:52:43 by pswirgie          #+#    #+#              #
-#    Updated: 2026/08/01 15:27:18 by pswirgie         ###   ########.fr        #
+#    Updated: 2026/07/31 16:06:24 by pswirgie         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ CXXFLAGS		:= -Wall -Wextra -Werror -std=c++98
 MAKEFLAGS		+= --no-print-directory
 BUILD_DIR		:= .obj
 
-NAME		:= FromUp
+NAME		:= GrowUp
 
 # Colors
 GREEN		:='\033[0;32m'
@@ -26,7 +26,7 @@ NC			:='\033[0m'
 
 # Sources
 SRC_DIR			:= srcs/
-SRC_BASENAMES := main Bureaucrat Form
+SRC_BASENAMES := main Bureaucrat
 SRCS := $(addprefix $(SRC_DIR), $(addsuffix .cpp,$(SRC_BASENAMES))) 
 
 OBJS		:= $(SRCS:%.cpp=$(BUILD_DIR)/%.o)

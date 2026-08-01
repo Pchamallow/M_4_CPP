@@ -6,26 +6,30 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/31 10:21:51 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/07/31 16:20:57 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/08/01 15:21:10 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/Bureaucrat.hpp"
+#include "../includes/Form.hpp"
 #include <iostream>
+#define RED		"\033[31m"
+#define RESET	"\033[0m"
 
 
 // = CONSTRUCTORS =====================================================
 
 Bureaucrat:: Bureaucrat( void ) : _name(""), _grade(150) {}
 
-Bureaucrat:: Bureaucrat( const std::string name ) : _name(name), _grade(150) {}
+Bureaucrat:: Bureaucrat( const std::string name )
+	: _name(name), _grade(150) {}
 
-Bureaucrat:: Bureaucrat( const std::string name, const int grade ) : _name(name)
+Bureaucrat:: Bureaucrat( const std::string name, const int grade )
+	: _name(name)
 {
-	if (!_checkGrade(grade))
-		_grade = grade;
-	else
-		_grade = 150;
+	try {	setGrade(grade);	}
+	catch (std::exception & e)
+	{	std::cout << RED << e.what() << RESET << std::endl;	}
 }
 Bureaucrat:: Bureaucrat( const Bureaucrat& other )
 {	(*this) = other;	}
@@ -51,34 +55,49 @@ int		Bureaucrat::getGrade( void ) const
 
 void	Bureaucrat::incrementGrade( void )
 {
-	if (!_checkGrade(_grade - 1))
-		--_grade;
+	try {	setGrade(_grade - 1);	}
+	catch (std::exception & e)
+	{	std::cout << RED << e.what() << RESET << std::endl;	}
 }
 
 void	Bureaucrat::decrementGrade( void )
 {
-	if (!_checkGrade(_grade + 1))
-		++_grade;
+	try {	setGrade(_grade + 1);	}
+	catch (std::exception & e)
+	{	std::cout << RED << e.what() << RESET << std::endl;	}
 }
 
-int	Bureaucrat::setGrade( int grade )
+void	Bureaucrat::setGrade( int grade )
 {
 	if (grade < 1)
 	{
 		throw Bureaucrat::GradeTooHighException();
-		return (1);
+		return;
 	}
-	if (grade > 150)
+	else if (grade > 150)
 	{
 		throw Bureaucrat::GradeTooLowException();
-		return (1);
+		return;
 	}
-	return (0);
+	else
+		_grade = grade;
+}
+
+void	Bureaucrat::signForm( Form & form )
+{
+	if (form.beSigned(*this))
+	{	std::cout << _name << " signed " << form.getName() << std::endl;	}
+	else
+	{
+		std::cout << _name<< " couldn’t sign ";
+		std::cout << form.getName() << " because ";
+		std::cout << "bureaucrat grade is too low" << std::endl;
+	}
 }
 
 std::ostream&	operator<<( std::ostream& os, const Bureaucrat& other )
 {
-	os << other.getName() << ">, bureaucrat grade " << other.getGrade() << "." << std::endl;
+	os << other.getName() << ", bureaucrat grade " << other.getGrade() << "." << std::endl;
 	return (os);
 }
 

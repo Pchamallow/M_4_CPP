@@ -6,7 +6,7 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/31 10:21:51 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/07/31 16:00:05 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/08/01 14:40:31 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ int	Bureaucrat::_checkGrade( int grade )
 
 std::ostream&	operator<<( std::ostream& os, const Bureaucrat& other )
 {
-	os << other.getName() << ">, bureaucrat grade " << other.getGrade() << "." << std::endl;
+	os << other.getName() << ", bureaucrat grade " << other.getGrade() << "." << std::endl;
 	return (os);
 }
 

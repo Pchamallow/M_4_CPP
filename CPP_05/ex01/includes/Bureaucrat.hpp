@@ -6,7 +6,7 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/31 10:21:07 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/07/31 16:19:55 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/08/01 15:27:34 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 #include <string>
 #include <exception>
 #include "Form.hpp"
+
+class Form;
 
 class Bureaucrat
 {
@@ -27,7 +29,7 @@ class Bureaucrat
 
 		std::string		getName( void ) const;
 		int				getGrade( void ) const;
-		int				setGrade( void );
+		void			setGrade( int grade );
 		void			incrementGrade( void );
 		void			decrementGrade( void );
 		void			signForm( Form & form );

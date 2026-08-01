@@ -6,7 +6,7 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/31 10:21:07 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/07/31 16:12:42 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/08/01 15:56:41 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,22 +15,25 @@
 #include <string>
 #include "Bureaucrat.hpp"
 
+class Bureaucrat;
+
 class Form
 {
 	public :
 		Form();
 		Form( const std::string name );
-		Form( const std::string name, const int grade );
+		Form( const std::string name, const int gradeSign );
+		Form( const std::string name, const int gradeSign, const int gradeExec );
 		Form( const Form& other );
 		Form&	operator=( const Form& other );
 		~Form();
 
 		std::string		getName( void ) const;
+		int				checkGrade( int grade ) const;
 		int				getGradeSign( void ) const;
 		int				getGradeExec( void ) const;
-		void			incrementGrade( void );
-		void			decrementGrade( void );
-		void			beSigned( Bureaucrat& bureaucrat );
+		bool			getSigned( void ) const;
+		bool			beSigned( Bureaucrat& bureaucrat );
 
 	private :
 		const std::string	_name;
@@ -50,6 +53,4 @@ class Form
 	};
 };
 
-std::ostream&	operator<<( std::ostream& os, const Bureaucrat& other );
-
-
+std::ostream&	operator<<( std::ostream& os, const Form& other );
