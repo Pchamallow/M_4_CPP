@@ -6,7 +6,7 @@
 #    By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/07/04 10:52:43 by pswirgie          #+#    #+#              #
-#    Updated: 2026/08/01 15:27:18 by pswirgie         ###   ########.fr        #
+#    Updated: 2026/08/02 12:46:23 by pswirgie         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ CXXFLAGS		:= -Wall -Wextra -Werror -std=c++98
 MAKEFLAGS		+= --no-print-directory
 BUILD_DIR		:= .obj
 
-NAME		:= FromUp
+NAME		:= YouNeed
 
 # Colors
 GREEN		:='\033[0;32m'

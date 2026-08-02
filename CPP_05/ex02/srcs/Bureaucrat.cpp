@@ -6,12 +6,12 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/31 10:21:51 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/08/02 12:42:19 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/08/02 14:44:44 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/Bureaucrat.hpp"
-#include "../includes/Form.hpp"
+#include "../includes/AForm.hpp"
 #include <iostream>
 #define RED		"\033[31m"
 #define RESET	"\033[0m"
@@ -83,7 +83,14 @@ void	Bureaucrat::setGrade( int grade )
 		_grade = grade;
 }
 
-void	Bureaucrat::signForm( Form & form )
+void	Bureaucrat::executeForm(AForm const & form) const
+{
+	form.execute(*this);
+	std::cout << _name << " executed " << form.getName() << std::endl;
+}
+
+
+void	Bureaucrat::signForm( AForm & form )
 {
 	try
 	{

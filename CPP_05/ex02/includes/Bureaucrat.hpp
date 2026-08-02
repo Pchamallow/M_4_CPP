@@ -6,16 +6,16 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/31 10:21:07 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/08/01 15:27:34 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/08/02 14:45:54 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 #include <string>
 #include <exception>
-#include "Form.hpp"
+#include "AForm.hpp"
 
-class Form;
+class AForm;
 
 class Bureaucrat
 {
@@ -32,7 +32,8 @@ class Bureaucrat
 		void			setGrade( int grade );
 		void			incrementGrade( void );
 		void			decrementGrade( void );
-		void			signForm( Form & form );
+		void			signForm( AForm & form );
+		void			executeForm(AForm const & form) const;
 
 	private :
 		const std::string	_name;
