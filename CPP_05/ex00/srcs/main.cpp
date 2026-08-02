@@ -6,7 +6,7 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/31 10:18:33 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/07/31 16:05:15 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/08/02 12:18:01 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,11 @@ int main( void )
 			mish.decrementGrade();
 		std::cout << "(Mish downgrade 135 times)" << std::endl;
 		std::cout << "But imaginary Mish has cheated so he have the grade " << mish.getGrade();
-		std::cout << std::endl;
+		std::cout << std::endl << std::endl;
+
+		std::cout << "Overload << :" << std::endl;
+		std::cout << jean;
+	
 	}
 	catch (std::exception & e)
 	{	std::cout << RED << e.what() << RESET << std::endl;	}
@@ -76,6 +80,6 @@ int main( void )
 	}
 	catch (std::exception & e)
 	{	std::cout << RED << e.what() << RESET << std::endl;	}
-	
+
 	std::cout << std::endl << std::string(60, '-') << std::endl << std::endl;
 }
