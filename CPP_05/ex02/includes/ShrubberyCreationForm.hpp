@@ -6,7 +6,7 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/31 10:21:07 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/08/02 14:53:51 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/08/08 13:51:38 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ class ShrubberyCreationForm : public AForm
 		ShrubberyCreationForm&	operator=( const ShrubberyCreationForm& other );
 		~ShrubberyCreationForm();
 
-		void	writeForm( Bureaucrat const& executor );
+		void	writeForm( Bureaucrat const& executor ) const;
 		void	execute( Bureaucrat const & executor ) const;
 	
 	private :

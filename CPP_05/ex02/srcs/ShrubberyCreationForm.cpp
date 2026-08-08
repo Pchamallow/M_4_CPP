@@ -6,7 +6,7 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/01 14:23:02 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/08/02 15:01:04 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/08/08 14:57:48 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ ShrubberyCreationForm:: ~ShrubberyCreationForm( void ) {}
 
 void	ShrubberyCreationForm::execute( Bureaucrat const& executor ) const
 {
-	try 
+	try
 	{
 		if (!AForm::_signed)
 		{
@@ -57,31 +57,32 @@ void	ShrubberyCreationForm::execute( Bureaucrat const& executor ) const
 	{	std::cout << RED << e.what() << RESET << std::endl;	}
 }
 
-void	ShrubberyCreationForm::writeForm( Bureaucrat const& executor )
+void	ShrubberyCreationForm::writeForm( Bureaucrat const& executor ) const
 {
+	(void) executor;
 	std::string nameFile = _target.c_str();
 	nameFile.append("_shrubbery");
 
 	std::ofstream fileStream;
-	fileStream.open(nameFile);
+	fileStream.open(nameFile.c_str());
 	if (!fileStream.is_open())
 	{
 		std::cerr << "Unable to create " << nameFile << "." << std::endl;
 		fileStream.close();
 		return ;
 	}
-	fileStream << "    _\/_" << std::endl;
-	fileStream << "     /\ " << std::endl;
-	fileStream << "     /\ " << std::endl;
-	fileStream << "    /  \ " << std::endl;
-	fileStream << "    /~~\o " << std::endl;
-	fileStream << "   /o   \ " << std::endl;
-	fileStream << "  /~~*~~~\ " << std::endl;
-	fileStream << " o/    o \ " << std::endl;
-	fileStream << " /~~~~~~~~\~`" << std::endl;
-	fileStream << "/__*_______\ " << std::endl;
+	fileStream << "    _\\/_" << std::endl;
+	fileStream << "     /\\" << std::endl;
+	fileStream << "     /\\" << std::endl;
+	fileStream << "    /  \\" << std::endl;
+	fileStream << "    /~~\\o" << std::endl;
+	fileStream << "   /o   \\" << std::endl;
+	fileStream << "  /~~*~~~\\" << std::endl;
+	fileStream << " o/    o \\" << std::endl;
+	fileStream << " /~~~~~~~~\\" << std::endl;
+	fileStream << "/__*_______\\" << std::endl;
 	fileStream << "     ||" << std::endl;
-	fileStream << "   \====/" << std::endl;
-	fileStream << "    \__/" << std::endl;
+	fileStream << "   \\====/" << std::endl;
+	fileStream << "    \\__/" << std::endl;
 	fileStream.close();
 }

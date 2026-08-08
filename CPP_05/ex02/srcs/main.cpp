@@ -6,7 +6,7 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/31 10:18:33 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/08/02 14:53:11 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/08/08 14:01:06 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ int main( void )
 	ShrubberyCreationForm formS("permis");
 	// AForm *forms = new ShrubberyCreationForm("permis");
 	quentin.executeForm(formS);
+	formS.execute(quentin);
 
 	std::cout << std::endl << std::string(60, '-') << std::endl << std::endl;
 }
