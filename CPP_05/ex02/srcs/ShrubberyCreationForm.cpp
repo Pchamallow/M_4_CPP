@@ -6,7 +6,7 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/01 14:23:02 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/08/08 14:57:48 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/08/14 10:10:39 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,52 +22,36 @@
 // = CONSTRUCTORS =====================================================
 
 ShrubberyCreationForm:: ShrubberyCreationForm( void )
-	: AForm("", 145, 137) {}
+	: AForm("", 145, 137), _target("") {}
 
 ShrubberyCreationForm:: ShrubberyCreationForm( std::string target )
-	: AForm("", 145, 137), _target(target) {}
+	: AForm(target, 145, 137), _target(target) {}
 
-ShrubberyCreationForm:: ShrubberyCreationForm( const ShrubberyCreationForm& other ) 
-	: AForm(other)
+ShrubberyCreationForm:: ShrubberyCreationForm( const ShrubberyCreationForm& other )
 {	(*this) = other;	}
 
-ShrubberyCreationForm&		ShrubberyCreationForm::operator=( const ShrubberyCreationForm& )
-{	return (*this);	}
+ShrubberyCreationForm&		ShrubberyCreationForm::operator=( const ShrubberyCreationForm& other )
+{
+	if (this != &other)
+	{
+		this->AForm::operator=(other);
+		this->_target = other._target;
+	}
+	return (*this);
+}
 
 ShrubberyCreationForm:: ~ShrubberyCreationForm( void ) {}
 
 
 // = MEMBER FUNCTIONS =================================================
 
-void	ShrubberyCreationForm::execute( Bureaucrat const& executor ) const
+void	ShrubberyCreationForm::_execute( void ) const
 {
-	try
-	{
-		if (!AForm::_signed)
-		{
-			if (executor.getGrade() > _gradeExec || executor.getGrade() > _gradeSign)
-				throw AForm::ExecutorGradeTooLowException();
-			else 
-				writeForm(executor);
-		}
-		else
-			throw AForm::FormAlreadySigned();
-	}
-	catch (std::exception &e)
-	{	std::cout << RED << e.what() << RESET << std::endl;	}
-}
-
-void	ShrubberyCreationForm::writeForm( Bureaucrat const& executor ) const
-{
-	(void) executor;
-	std::string nameFile = _target.c_str();
-	nameFile.append("_shrubbery");
-
 	std::ofstream fileStream;
-	fileStream.open(nameFile.c_str());
+	fileStream.open((_target + "_shrubbery").c_str());
 	if (!fileStream.is_open())
 	{
-		std::cerr << "Unable to create " << nameFile << "." << std::endl;
+		std::cerr << "Unable to create " << (_target + "_shrubbery") << "." << std::endl;
 		fileStream.close();
 		return ;
 	}

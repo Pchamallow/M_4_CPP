@@ -6,7 +6,7 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/31 10:21:07 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/08/01 15:56:41 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/08/14 09:23:44 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@ class Form
 		Form&	operator=( const Form& other );
 		~Form();
 
-		std::string		getName( void ) const;
 		int				checkGrade( int grade ) const;
+		std::string		getName( void ) const;
 		int				getGradeSign( void ) const;
 		int				getGradeExec( void ) const;
 		bool			getSigned( void ) const;

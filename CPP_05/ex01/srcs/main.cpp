@@ -6,7 +6,7 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/31 10:18:33 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/08/02 12:35:07 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/08/14 09:21:58 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void	testsInit()
 	std::cout << "Form bac(bac, 10, 13), its gardeExec is : " << bac.getGradeExec() << std::endl;
 	std::cout << std::endl;
 
-	std::cout << "Overload << :" << std::endl;
+	std::cout << "Form overload << :" << std::endl;
 	std::cout << bac;
 }
 

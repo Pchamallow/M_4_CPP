@@ -6,7 +6,7 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/01 14:23:02 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/08/02 14:59:13 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/08/15 11:54:40 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ AForm:: AForm( const std::string name, const int gradeSign)
 	: _name(name), _gradeSign(gradeSign),_gradeExec(1), _signed(false)
 {
 	try {	checkGrade(_gradeSign);	}
-	catch (std::exception & e)
+	catch (std::range_error & e)
 	{	std::cout << RED << e.what() << RESET << std::endl;	}
 }
 
@@ -39,7 +39,7 @@ AForm:: AForm( const std::string name, const int gradeSign, const int gradeExec 
 		checkGrade(_gradeSign);
 		checkGrade(_gradeExec);
 	}
-	catch (std::exception & e)
+	catch (std::range_error & e)
 	{	std::cout << RED << e.what() << RESET << std::endl;	}
 }
 
@@ -87,15 +87,19 @@ int	AForm::checkGrade( int grade ) const
 bool	AForm::beSigned( Bureaucrat& executor )
 {
 	if (executor.getGrade() > _gradeSign)
-	{
 		throw AForm::GradeTooLowException();
-		return (false);
-	}
 	_signed = true;
 	return (true);
 }
 
-void	AForm::execute( Bureaucrat const & ) const {}
+void	AForm::execute( Bureaucrat const & executor ) const
+{
+	if (!_signed)
+		throw AForm::AFormNotSigned();
+	if (executor.getGrade() > _gradeExec)
+		throw AForm::GradeTooLowException();
+	_execute();
+}
 
 std::ostream&	operator<<( std::ostream& os, const AForm& other )
 {
@@ -110,14 +114,14 @@ std::ostream&	operator<<( std::ostream& os, const AForm& other )
 	return (os);
 }
 
-const char* AForm::GradeTooHighException::what( void ) const throw()
-{	return ("AForm grade is too high.");	}
+AForm::GradeTooHighException::GradeTooHighException()
+	:range_error( RED "grade is too high." RESET)
+{}
 
-const char* AForm::GradeTooLowException::what( void ) const throw()
-{	return ("AForm grade is too low.");	}
+AForm::GradeTooLowException::GradeTooLowException()
+	:range_error( RED "grade is too low." RESET)
+{}
 
-const char* AForm::ExecutorGradeTooLowException::what( void ) const throw()
-{	return ("Executor grade is too low.");	}
-
-const char* AForm::FormAlreadySigned::what( void ) const throw()
-{	return ("AForm is already signed.");	}
+AForm::AFormNotSigned::AFormNotSigned()
+	:runtime_error( RED "AForm isn't signed." RESET)
+{}

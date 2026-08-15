@@ -6,12 +6,13 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/31 10:21:07 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/08/02 14:58:49 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/08/14 10:41:41 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 #include <exception>
+#include <stdexcept>
 #include <string>
 #include "Bureaucrat.hpp"
 
@@ -34,34 +35,29 @@ class AForm
 		int				getGradeExec( void ) const;
 		bool			getSigned( void ) const;
 		bool			beSigned( Bureaucrat& executor );
-		virtual void	execute( Bureaucrat const & executor ) const = 0;
+		void			execute( Bureaucrat const & executor ) const;
 
-	protected :
+	private :
 		const std::string	_name;
 		const int			_gradeSign;
 		const int			_gradeExec;
 		bool				_signed;
-		void				_execute( Bureaucrat const & executor ) const;
+		virtual void		_execute( void ) const = 0;
 
-	class GradeTooHighException : public std::exception
+	class GradeTooHighException : public std::range_error
 	{
 		public :
-			virtual const char* what() const throw();
+			GradeTooHighException();
 	};
-	class GradeTooLowException : public std::exception
+	class GradeTooLowException : public std::range_error
 	{
 		public :
-			virtual const char* what() const throw();
+			GradeTooLowException();
 	};
-	class ExecutorGradeTooLowException : public std::exception
+	class AFormNotSigned: public std::runtime_error
 	{
 		public :
-			virtual const char* what() const throw();
-	};
-	class FormAlreadySigned: public std::exception
-	{
-		public :
-			virtual const char* what() const throw();
+			AFormNotSigned();
 	};
 };
 

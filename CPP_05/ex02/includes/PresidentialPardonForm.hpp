@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ShrubberyCreationForm.hpp                          :+:      :+:    :+:   */
+/*   PresidentialPardonForm.hpp                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/31 10:21:07 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/08/14 10:11:09 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/08/15 12:08:47 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,14 @@
 
 class AForm;
 
-class ShrubberyCreationForm : public AForm
+class PresidentialPardonForm : public AForm
 {
 	public :
-		ShrubberyCreationForm();
-		ShrubberyCreationForm( std::string target );
-		ShrubberyCreationForm( const ShrubberyCreationForm& other );
-		ShrubberyCreationForm&	operator=( const ShrubberyCreationForm& other );
-		~ShrubberyCreationForm();
+		PresidentialPardonForm();
+		PresidentialPardonForm( std::string target );
+		PresidentialPardonForm( const PresidentialPardonForm& other );
+		PresidentialPardonForm&	operator=( const PresidentialPardonForm& other );
+		~PresidentialPardonForm();
 
 	private :
 		std::string	_target;

@@ -13,7 +13,6 @@
 #include <iostream>
 #include <iomanip>
 #include <cstdlib>
-#include <CXXtype>
 #include "PhoneBook.hpp"
 
 bool	strWhitespaces(std::string *str)

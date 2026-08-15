@@ -6,7 +6,7 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/31 10:21:07 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/08/02 14:45:54 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/08/14 10:46:10 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,17 +41,16 @@ class Bureaucrat
 
 		static int	_checkGrade( int grade );
 	
-	class GradeTooHighException : public std::exception
+	class GradeTooHighException : public std::range_error
 	{
 		public :
-			virtual const char* what() const throw();
+			GradeTooHighException();
 	};
-	class GradeTooLowException : public std::exception
+	class GradeTooLowException : public std::range_error
 	{
 		public :
-			virtual const char* what() const throw();
+			GradeTooLowException();
 	};
 };
-
 
 std::ostream&	operator<<( std::ostream& os, const Bureaucrat& other );
