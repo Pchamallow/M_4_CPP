@@ -6,7 +6,7 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/14 10:57:14 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/08/15 12:10:23 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/08/15 12:28:20 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,10 @@
 // = CONSTRUCTORS =====================================================
 
 PresidentialPardonForm:: PresidentialPardonForm( void )
-	: AForm("", 25, 5), _target("") {}
+	: AForm("presidential pardon", 25, 5), _target("") {}
 
 PresidentialPardonForm:: PresidentialPardonForm( std::string target )
-	: AForm(target, 25, 5), _target(target) {}
+	: AForm("presidential pardon", 25, 5), _target(target) {}
 
 PresidentialPardonForm:: PresidentialPardonForm( const PresidentialPardonForm& other )
 {	(*this) = other;	}

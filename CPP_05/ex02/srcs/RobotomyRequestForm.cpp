@@ -6,7 +6,7 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/14 10:57:14 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/08/15 11:46:56 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/08/15 12:28:13 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,10 @@
 // = CONSTRUCTORS =====================================================
 
 RobotomyRequestForm:: RobotomyRequestForm( void )
-	: AForm("", 72, 45), _target("") {}
+	: AForm("robotomy request", 72, 45), _target("") {}
 
 RobotomyRequestForm:: RobotomyRequestForm( std::string target )
-	: AForm(target, 72, 45), _target(target) {}
+	: AForm("robotomy request", 72, 45), _target(target) {}
 
 RobotomyRequestForm:: RobotomyRequestForm( const RobotomyRequestForm& other )
 {	(*this) = other;	}

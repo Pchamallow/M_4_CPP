@@ -6,7 +6,7 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/01 14:23:02 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/08/14 10:10:39 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/08/15 12:27:54 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,10 @@
 // = CONSTRUCTORS =====================================================
 
 ShrubberyCreationForm:: ShrubberyCreationForm( void )
-	: AForm("", 145, 137), _target("") {}
+	: AForm("shrubbery creation", 145, 137), _target("") {}
 
 ShrubberyCreationForm:: ShrubberyCreationForm( std::string target )
-	: AForm(target, 145, 137), _target(target) {}
+	: AForm("shrubbery creation", 145, 137), _target(target) {}
 
 ShrubberyCreationForm:: ShrubberyCreationForm( const ShrubberyCreationForm& other )
 {	(*this) = other;	}

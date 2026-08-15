@@ -6,7 +6,7 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/31 10:18:33 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/08/15 12:22:07 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/08/15 12:24:10 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,12 +30,14 @@ int main( void )
 	std::cout << "- bureaucrat Quentin with a high level 3 can sign and excute all." << std::endl;
 	std::cout << "- bureaucrat Martin with a low level 150 can't sign and excute any." << std::endl;
 	std::cout << "- bureaucrat X with level enough for sign but not excute." << std::endl;
-	
+
+
 // Abtract Class --------------------------------------------------------------------------------------------------------
 	std::cout << std::endl << std::string(60, '-') << std::endl;
 	std::cout << "TESTS - Abstract Class" << std::endl << "Please uncomment in the main the line to see the error." << std::endl;
 
 	// AForm formulaire;
+
 
 // Shrubbery --------------------------------------------------------------------------------------------------------
 	std::cout << std::endl << std::string(60, '-') << std::endl;
@@ -109,7 +111,6 @@ int main( void )
 	Bureaucrat albin("Alexandrin", 6);
 	albin.signForm(*punishement);
 	albin.executeForm(*punishement);
-
 
 	std::cout << std::endl << std::string(60, '-') << std::endl << std::endl;
 }
