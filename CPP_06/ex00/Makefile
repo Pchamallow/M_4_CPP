@@ -6,7 +6,7 @@
 #    By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/07/04 10:52:43 by pswirgie          #+#    #+#              #
-#    Updated: 2026/08/16 08:50:21 by pswirgie         ###   ########.fr        #
+#    Updated: 2026/08/16 12:02:35 by pswirgie         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ CXXFLAGS		:= -Wall -Wextra -Werror -std=c++98
 MAKEFLAGS		+= --no-print-directory
 BUILD_DIR		:= .obj
 
-NAME		:= Intern
+NAME		:= Conversion
 
 # Colors
 GREEN		:='\033[0;32m'
@@ -25,9 +25,8 @@ NC			:='\033[0m'
 
 
 # Sources
-SRC_DIR			:= srcs/
-SRC_BASENAMES	:=	main Bureaucrat AForm ShrubberyCreationForm RobotomyRequestForm PresidentialPardonForm Intern
-SRCS := $(addprefix $(SRC_DIR), $(addsuffix .cpp,$(SRC_BASENAMES))) 
+SRC_BASENAMES := main ScalarConverter
+SRCS := $(addsuffix .cpp,$(SRC_BASENAMES))
 
 OBJS		:= $(SRCS:%.cpp=$(BUILD_DIR)/%.o)
 

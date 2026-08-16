@@ -6,7 +6,7 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/31 10:21:51 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/08/15 13:43:56 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/08/16 08:54:23 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ Intern:: Intern( void ) {}
 Intern:: Intern( const Intern& other )
 {	(*this) = other;	}
 
-Intern&		Intern::operator=( const Intern& other )
+Intern&		Intern::operator=( const Intern& )
 {	return (*this);	}
 
 Intern:: ~Intern( void ) {}
@@ -35,36 +35,41 @@ Intern:: ~Intern( void ) {}
 
 // = MEMBER FUNCTIONS =================================================
 
-AForm* Intern::newRobotomyRequest( const std::string& target )
+AForm* Intern::newRobotomyRequest( const std::string& target ) const
 {	return (new RobotomyRequestForm(target));	}
 
-AForm* Intern::newPresidentialPardon( const std::string& target )
+AForm* Intern::newPresidentialPardon( const std::string& target ) const
 {	return (new PresidentialPardonForm(target));	}
 
-AForm* Intern::newShrubberyCreaction( const std::string& target )
+AForm* Intern::newShrubberyCreation( const std::string& target ) const
 {	return (new ShrubberyCreationForm(target));	}
 
 AForm*	Intern::makeForm( const std::string& formName, const std::string& formeTarget ) const
 {
 	static const std::string formNames[3] = {"robotomy request", "presidential pardon", "shrubbery creation"};
 	
-	AForm *(Intern::*formPtr)(std::string&) = {
+	AForm *(Intern::*formPtr[3])(const std::string&) const = {
 		&Intern::newRobotomyRequest,
 		&Intern::newPresidentialPardon,
-		&Intern::newShrubberyCreaction,
+		&Intern::newShrubberyCreation,
 	};
 
 	for (int i = 0; i < 3; ++i)
 	{
-		if (formNames[i] = formName)
+		if (formName == formNames[i])
 		{
-			//message
-			std::cout << "Intern creates " << formeTarget
-			return (this->formPtr[i](formeTarget));
+			std::cout << "Intern creates " << formeTarget << "." << std::endl;
+			return (this->*formPtr[i])(formeTarget);
 		}
 	}
-
-	// thrown error message
+	try{
+		throw FormNotFound();
+	}
+	catch(std::invalid_argument &e)
+	{
+		std::cerr << RED << "Intern can't create because " << e.what() << RESET << std::endl;
+		return (NULL);
+	}
 }
 
 Intern::FormNotFound::FormNotFound()

@@ -6,7 +6,7 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/31 10:21:07 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/08/15 13:42:53 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/08/16 08:37:52 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,9 @@ class Intern
 		AForm*	makeForm( const std::string& formName, const std::string& formeTarget ) const;
 
 		private :
-		AForm*	newRobotomyRequest( const std::string& target );
-		AForm*	newPresidentialPardon( const std::string& target );
-		AForm*	newShrubberyCreaction( const std::string& target );
+		AForm*	newRobotomyRequest( const std::string& target ) const;
+		AForm*	newPresidentialPardon( const std::string& target ) const;
+		AForm*	newShrubberyCreation( const std::string& target ) const;
 
 	class FormNotFound : public std::invalid_argument
 	{
