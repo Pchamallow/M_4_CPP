@@ -6,7 +6,7 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/16 09:52:14 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/08/16 13:20:24 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/08/17 11:38:10 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,11 +34,15 @@ Except for char parameters, only the decimal notation will be used
 
 */
 
-int main( int , char **av )
+int main( int ac, char **av )
 {
 	std::cout << std::endl << std::string(60, '-') << std::endl;
 	std::cout << BROWN << "TESTS - Argument test"<< RESET << std::endl;
-	ScalarConverter::convert(av[1]);
+	
+	if (ac == 2 && av[1])
+		ScalarConverter::convert(av[1]);
+	else
+		std::cerr << RED << "Required one argument" << RESET << std::endl;
 	std::cout << std::endl;
 
 	std::cout << BROWN << "TESTS - Char: b"<< RESET << std::endl;

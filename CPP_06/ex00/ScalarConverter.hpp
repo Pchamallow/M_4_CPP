@@ -6,7 +6,7 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/16 09:54:30 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/08/16 13:26:56 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/08/17 12:14:36 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,16 @@
 #include <limits>
 #include <cerrno>
 
+template <typename valueType>
+void	printChar( valueType value )
+{
+	if ( value >= 32 && value < 128 )
+		std::cout << "char: '" << static_cast<char>(value) << "'" << std::endl;
+	else if (value < 0 || value >= 129)
+		std::cerr << "char: " << "impossible" << std::endl;
+	else
+		std::cerr << "char: " << "Non displayable" << std::endl;
+}
 
 class ScalarConverter
 {
@@ -37,10 +47,10 @@ class ScalarConverter
 		static bool	isFloat( const std::string& src );
 		// static bool	isDouble( const std::string& src );
 		
-		static void	fromChar( const std::string& src, bool is_error );
-		static void	fromInt( const std::string& src, bool is_error );
+		static void	fromChar( const std::string& src );
+		static void	fromInt( const std::string& src );
+		static void	fromFloat( const std::string& src );
 
-		static void	printChar( const std::string& src, bool is_error );
 
 // char -> que de des lettres + len de 1
 
