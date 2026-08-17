@@ -6,7 +6,7 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/16 09:54:30 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/08/17 12:14:36 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/08/17 12:25:08 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,11 +45,12 @@ class ScalarConverter
 		static bool	isChar( const std::string& src );
 		static bool	isInt( const std::string& src );
 		static bool	isFloat( const std::string& src );
-		// static bool	isDouble( const std::string& src );
+		static bool	isDouble( const std::string& src );
 		
 		static void	fromChar( const std::string& src );
 		static void	fromInt( const std::string& src );
 		static void	fromFloat( const std::string& src );
+		static void	fromDouble( const std::string& src );
 
 
 // char -> que de des lettres + len de 1

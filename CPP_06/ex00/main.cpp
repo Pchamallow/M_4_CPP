@@ -6,7 +6,7 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/16 09:52:14 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/08/17 11:38:10 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/08/17 12:20:19 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,11 @@ int main( int ac, char **av )
 	std::cout << BROWN << "TESTS - Float: 0.42f"<< RESET << std::endl;
 	ScalarConverter::convert("0.42f");
 	std::cout << std::endl;
+
+	std::cout << BROWN << "TESTS - Double: 0.42"<< RESET << std::endl;
+	ScalarConverter::convert("0.42");
+	std::cout << std::endl;
+
 
 	std::cout << BROWN << "TESTS - Nan test" << RESET << std::endl;
 	ScalarConverter::convert("nan");

@@ -6,7 +6,7 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/16 10:11:09 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/08/17 12:14:56 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/08/17 12:25:42 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,16 +45,18 @@ void		ScalarConverter::convert( const std::string& src )
 	bool	(*findType[4])( const std::string& ) ={
 		&ScalarConverter::isChar,
 		&ScalarConverter::isInt,
-		&ScalarConverter::isFloat
+		&ScalarConverter::isFloat,
+		&ScalarConverter::isDouble
 	};
 
 	void	(*printType[4])( const std::string& ) ={
 		&ScalarConverter::fromChar,
 		&ScalarConverter::fromInt,
-		&ScalarConverter::fromFloat
+		&ScalarConverter::fromFloat,
+		&ScalarConverter::fromDouble
 	};
 
-	for(int i = 0; i < 3; ++i)
+	for(int i = 0; i < 4; ++i)
 	{
 		if (findType[i](src))
 		{
@@ -94,8 +96,7 @@ bool	ScalarConverter::isInt( const std::string& src )
 bool	ScalarConverter::isFloat( const std::string& src )
 {
 	char	*end;
-	float	nb = std::strtof(src.c_str(), &end);
-	(void)nb;
+	std::strtof(src.c_str(), &end);
 	if (!errno && *end == 'f')
 	{
 		#if DEBUG
@@ -105,22 +106,35 @@ bool	ScalarConverter::isFloat( const std::string& src )
 	}
 	return (false);
 }
-// bool	ScalarConverter::isDouble( const std::string& src );
+
+bool	ScalarConverter::isDouble( const std::string& src )
+{
+	char	*end;
+	std::strtod(src.c_str(), &end);
+	if (!errno && *end == '\0')
+	{
+		#if DEBUG
+		std::cout << "[DEBUG] its a double" << std::endl;
+		#endif
+		return (true);
+	}
+	return (false);
+}
 
 void	ScalarConverter::fromChar( const std::string& src )
 {
-	int	value = atoi(src.c_str());
-	std::cout << "char: " << src[0] << std::endl;
-	std::cout << "int: " << value << std::endl;
+	char	value = *src.begin();
+	std::cout << "char: " << value << std::endl;
+	std::cout << "int: " << static_cast<int>(value)<< std::endl;
+	std::cout << "float: " << static_cast<float>(value) << std::endl;
 }
 
 void	ScalarConverter::fromInt( const std::string& src )
 {
-	char	*end;
-	float	value = std::strtof(src.c_str(), &end);
+	int	value = std::atoi(src.c_str());
 	printChar<int>(value);
 	std::cout << "int: " << value << std::endl;
-	std::cout << "float: " << value << std::endl;
+	std::cout << "float: " << static_cast<float>(value) << std::endl;
 }
 
 void	ScalarConverter::fromFloat( const std::string& src )
@@ -135,6 +149,17 @@ void	ScalarConverter::fromFloat( const std::string& src )
 	std::cout << "float: " << value << std::endl;
 }
 
-
+void	ScalarConverter::fromDouble( const std::string& src )
+{
+	char	*end;
+	double	value = std::strtod(src.c_str(), &end);
+	printChar<double>(value);
+	if (value >= static_cast<double>(INT_MIN) &&value <= static_cast<double>(INT_MAX))
+		std::cout << "int: " << static_cast<int>(value) << std::endl;
+	else
+		std::cout << "int: impossible" << std::endl;
+	std::cout << "float: " << static_cast<int>(value) << std::endl;
+	std::cout << "double: " << value << std::endl;
+}
 
 
