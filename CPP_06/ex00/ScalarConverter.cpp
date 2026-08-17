@@ -6,7 +6,7 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/16 10:11:09 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/08/17 12:25:42 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/08/17 13:37:41 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -126,15 +126,19 @@ void	ScalarConverter::fromChar( const std::string& src )
 	char	value = *src.begin();
 	std::cout << "char: " << value << std::endl;
 	std::cout << "int: " << static_cast<int>(value)<< std::endl;
-	std::cout << "float: " << static_cast<float>(value) << std::endl;
+	printFloat(static_cast<float>(value), 1);
+	printDouble(static_cast<float>(value), 1);
 }
 
 void	ScalarConverter::fromInt( const std::string& src )
 {
-	int	value = std::atoi(src.c_str());
+	char	*end;
+	long	valueLong = std::strtol(src.c_str(), &end, 10);
+	int		value = std::atoi(src.c_str());
 	printChar<int>(value);
-	std::cout << "int: " << value << std::endl;
-	std::cout << "float: " << static_cast<float>(value) << std::endl;
+	printInt(static_cast<long>(valueLong));
+	printFloat(static_cast<float>(value), 1);
+	printDouble(static_cast<float>(value), 1);
 }
 
 void	ScalarConverter::fromFloat( const std::string& src )
@@ -142,11 +146,17 @@ void	ScalarConverter::fromFloat( const std::string& src )
 	char	*end;
 	float	value = std::strtof(src.c_str(), &end);
 	printChar<float>(value);
-	if (value >= static_cast<float>(INT_MIN) &&value <= static_cast<float>(INT_MAX))
-		std::cout << "int: " << static_cast<int>(value) << std::endl;
+	printInt(static_cast<long>(value));
+	if (size_t precis = needPrecision(src))
+	{
+		printFloat(static_cast<float>(value), precis);
+		printDouble(static_cast<double>(value), precis);
+	}
 	else
-		std::cout << "int: impossible" << std::endl;
-	std::cout << "float: " << value << std::endl;
+	{
+		printFloat(static_cast<float>(value), 0);
+		printDouble(static_cast<double>(value), 0);
+	}
 }
 
 void	ScalarConverter::fromDouble( const std::string& src )
@@ -154,12 +164,77 @@ void	ScalarConverter::fromDouble( const std::string& src )
 	char	*end;
 	double	value = std::strtod(src.c_str(), &end);
 	printChar<double>(value);
-	if (value >= static_cast<double>(INT_MIN) &&value <= static_cast<double>(INT_MAX))
+	printInt(static_cast<long>(value));
+	if (size_t precis = needPrecision(src))
+	{
+		printFloat(static_cast<float>(value), precis);
+		printDouble(static_cast<double>(value), precis);
+	}
+	else
+	{
+		printFloat(static_cast<float>(value), 0);
+		printDouble(static_cast<double>(value), 0);
+	}
+}
+
+void	ScalarConverter::printInt( long value )
+{
+	if (value >= INT_MIN && value <= INT_MAX)
 		std::cout << "int: " << static_cast<int>(value) << std::endl;
 	else
 		std::cout << "int: impossible" << std::endl;
-	std::cout << "float: " << static_cast<int>(value) << std::endl;
-	std::cout << "double: " << value << std::endl;
 }
 
 
+void	ScalarConverter::printFloat( float value, size_t add_precision )
+{
+	if (!add_precision)
+		std::cout << "float: " << value << "f" << std::endl;
+	else
+	{
+		std::cout << "float: " << value << ".";
+		for(size_t i = 0; i < add_precision; ++i)
+			std::cout << "0";
+		std::cout << "f" << std::endl;
+	}
+}
+
+void	ScalarConverter::printDouble( double value, size_t add_precision )
+{
+	if (!add_precision)
+		std::cout << "double: " << value << std::endl;
+	else
+	{
+		std::cout << "double: " << value << ".";
+		for(size_t i = 0; i < add_precision; ++i)
+			std::cout << "0";
+		std::cout << std::endl;
+	}
+}
+
+/*
+1. if pattern is .0 or .0f -> 1 precision
+2. while point + i = 0 -> precision++
+3. no precision
+*/
+size_t	ScalarConverter::needPrecision( const std::string& src )
+{
+	size_t len = src.length();
+	size_t point = src.find(".");
+	if (src[point] && src[point + 1] && src[point + 2]
+		&& src[point + 1] == '0'
+		&& (src[point + 2] == '\0' || src[point + 2] == 'f'))
+		return (1);
+	if (src[point + 1] != '\0')
+	{
+		size_t	i = point + 1;
+		while (i < len)
+		{
+			if (src[i] != '\0' && src[i] != '0' && src[i] != 'f')
+				return (0);
+			++i;
+		}
+		return (i - point - 1);
+	}
+	return (0);
+}

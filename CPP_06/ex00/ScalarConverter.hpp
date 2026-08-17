@@ -6,7 +6,7 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/16 09:54:30 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/08/17 12:25:08 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/08/17 13:33:02 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,10 @@ class ScalarConverter
 		static void	fromFloat( const std::string& src );
 		static void	fromDouble( const std::string& src );
 
+		static void		printInt( long value );
+		static void		printFloat( float value, size_t add_precision );
+		static void		printDouble( double value, size_t add_precision );
+		static size_t	needPrecision ( const std::string& src );
 
 // char -> que de des lettres + len de 1
 
