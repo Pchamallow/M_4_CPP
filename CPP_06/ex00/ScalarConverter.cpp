@@ -6,7 +6,7 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/16 10:11:09 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/08/17 14:20:29 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/08/17 14:57:05 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void		ScalarConverter::convert( const std::string& src )
 	else
 		value = std::strtod(input.c_str(), &end);
 
-	if (std::isnan(value))
+	if (std::isnan(value) || std::isinf(value))
 	{
 		std::cout << "char:	impossible" << std::endl;
 		std::cout << "int:	impossible" << std::endl;
@@ -180,6 +180,7 @@ void	ScalarConverter::fromDouble( const std::string& src )
 
 void	ScalarConverter::printInt( long value )
 {
+	std::cout << "long:	" << value << std::endl;
 	if (value >= INT_MIN && value <= INT_MAX)
 		std::cout << "int:	" << static_cast<int>(value) << std::endl;
 	else
