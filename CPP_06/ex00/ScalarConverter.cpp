@@ -6,13 +6,14 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/16 10:11:09 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/08/17 13:37:41 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/08/17 14:20:29 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScalarConverter.hpp"
 
 #define RED		"\033[31m"
+#define BLUE	"\033[34m"
 #define RESET	"\033[0m"
 
 // = MEMBER FUNCTIONS =================================================
@@ -35,10 +36,10 @@ void		ScalarConverter::convert( const std::string& src )
 
 	if (std::isnan(value))
 	{
-		std::cout << "char: impossible" << std::endl;
-		std::cout << "int: impossible" << std::endl;
-		std::cout << "float: impossible" << std::endl;
-		std::cout << "double: impossible" << std::endl;
+		std::cout << "char:	impossible" << std::endl;
+		std::cout << "int:	impossible" << std::endl;
+		std::cout << "float:	impossible" << std::endl;
+		std::cout << "double:	impossible" << std::endl;
 		return ;
 	}
 
@@ -72,7 +73,7 @@ bool	ScalarConverter::isChar( const std::string& src)
 		&& !std::isdigit(src[0]))
 	{
 		#if DEBUG
-		std::cout << "[DEBUG] its a char" << std::endl;
+		std::cout << BLUE << "[DEBUG] its a char" << RESET << std::endl;
 		#endif
 		return (true);
 	}
@@ -86,7 +87,7 @@ bool	ScalarConverter::isInt( const std::string& src )
 	if (!errno && *end == '\0' && (nb >= INT_MIN && nb <= INT_MAX))
 	{
 		#if DEBUG
-		std::cout << "[DEBUG] its a int" << std::endl;
+		std::cout << BLUE << "[DEBUG] its a int" << RESET << std::endl;
 		#endif
 		return (true);
 	}
@@ -100,7 +101,7 @@ bool	ScalarConverter::isFloat( const std::string& src )
 	if (!errno && *end == 'f')
 	{
 		#if DEBUG
-		std::cout << "[DEBUG] its a float" << std::endl;
+		std::cout << BLUE << "[DEBUG] its a float" << RESET << std::endl;
 		#endif
 		return (true);
 	}
@@ -114,7 +115,7 @@ bool	ScalarConverter::isDouble( const std::string& src )
 	if (!errno && *end == '\0')
 	{
 		#if DEBUG
-		std::cout << "[DEBUG] its a double" << std::endl;
+		std::cout << BLUE << "[DEBUG] its a double"<< RESET << std::endl;
 		#endif
 		return (true);
 	}
@@ -124,8 +125,8 @@ bool	ScalarConverter::isDouble( const std::string& src )
 void	ScalarConverter::fromChar( const std::string& src )
 {
 	char	value = *src.begin();
-	std::cout << "char: " << value << std::endl;
-	std::cout << "int: " << static_cast<int>(value)<< std::endl;
+	std::cout << "char:	" << value << std::endl;
+	std::cout << "int:	" << static_cast<int>(value)<< std::endl;
 	printFloat(static_cast<float>(value), 1);
 	printDouble(static_cast<float>(value), 1);
 }
@@ -147,10 +148,10 @@ void	ScalarConverter::fromFloat( const std::string& src )
 	float	value = std::strtof(src.c_str(), &end);
 	printChar<float>(value);
 	printInt(static_cast<long>(value));
-	if (size_t precis = needPrecision(src))
+	if (size_t precis = setPrecision(src))
 	{
-		printFloat(static_cast<float>(value), precis);
-		printDouble(static_cast<double>(value), precis);
+		printFloat(static_cast<float>(value), precis - 1);
+		printDouble(static_cast<double>(value), precis - 1);
 	}
 	else
 	{
@@ -165,7 +166,7 @@ void	ScalarConverter::fromDouble( const std::string& src )
 	double	value = std::strtod(src.c_str(), &end);
 	printChar<double>(value);
 	printInt(static_cast<long>(value));
-	if (size_t precis = needPrecision(src))
+	if (size_t precis = setPrecision(src))
 	{
 		printFloat(static_cast<float>(value), precis);
 		printDouble(static_cast<double>(value), precis);
@@ -180,61 +181,34 @@ void	ScalarConverter::fromDouble( const std::string& src )
 void	ScalarConverter::printInt( long value )
 {
 	if (value >= INT_MIN && value <= INT_MAX)
-		std::cout << "int: " << static_cast<int>(value) << std::endl;
+		std::cout << "int:	" << static_cast<int>(value) << std::endl;
 	else
-		std::cout << "int: impossible" << std::endl;
+		std::cout << "int:	impossible" << std::endl;
 }
 
 
-void	ScalarConverter::printFloat( float value, size_t add_precision )
+void	ScalarConverter::printFloat( float value, size_t addPrecision )
 {
-	if (!add_precision)
-		std::cout << "float: " << value << "f" << std::endl;
-	else
-	{
-		std::cout << "float: " << value << ".";
-		for(size_t i = 0; i < add_precision; ++i)
-			std::cout << "0";
-		std::cout << "f" << std::endl;
-	}
+	std::cout << std::fixed << "float:	" << std::setprecision(addPrecision) << value << "f" << std::endl;
 }
 
-void	ScalarConverter::printDouble( double value, size_t add_precision )
+void	ScalarConverter::printDouble( double value, size_t addPrecision )
 {
-	if (!add_precision)
-		std::cout << "double: " << value << std::endl;
-	else
-	{
-		std::cout << "double: " << value << ".";
-		for(size_t i = 0; i < add_precision; ++i)
-			std::cout << "0";
-		std::cout << std::endl;
-	}
+	std::cout << std::fixed << "double:	" << std::setprecision(addPrecision) << value << "f" << std::endl;
 }
 
-/*
-1. if pattern is .0 or .0f -> 1 precision
-2. while point + i = 0 -> precision++
-3. no precision
-*/
-size_t	ScalarConverter::needPrecision( const std::string& src )
+size_t	ScalarConverter::setPrecision( const std::string& src )
 {
-	size_t len = src.length();
-	size_t point = src.find(".");
-	if (src[point] && src[point + 1] && src[point + 2]
-		&& src[point + 1] == '0'
-		&& (src[point + 2] == '\0' || src[point + 2] == 'f'))
-		return (1);
-	if (src[point + 1] != '\0')
+	size_t	len = src.length();
+	size_t	point = src.find(".");
+	bool	null = true;
+	size_t	i = point + 1;
+	while (i < len - 1)
 	{
-		size_t	i = point + 1;
-		while (i < len)
-		{
-			if (src[i] != '\0' && src[i] != '0' && src[i] != 'f')
-				return (0);
-			++i;
-		}
-		return (i - point - 1);
+		// std::cout << "i = " << i << "src[i] = " << src[i] << std::endl;
+		if (src[i] != '0' && src[i] != 'f')
+			null = false;
+		++i;
 	}
-	return (0);
+	return (i - point);
 }

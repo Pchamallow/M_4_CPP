@@ -6,7 +6,7 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/16 09:54:30 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/08/17 13:33:02 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/08/17 14:18:23 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,16 +19,17 @@
 #include <climits>
 #include <limits>
 #include <cerrno>
+#include <iomanip>
 
 template <typename valueType>
 void	printChar( valueType value )
 {
 	if ( value >= 32 && value < 128 )
-		std::cout << "char: '" << static_cast<char>(value) << "'" << std::endl;
+		std::cout << "char:	'" << static_cast<char>(value) << "'" << std::endl;
 	else if (value < 0 || value >= 129)
-		std::cerr << "char: " << "impossible" << std::endl;
+		std::cerr << "char:	" << "impossible" << std::endl;
 	else
-		std::cerr << "char: " << "Non displayable" << std::endl;
+		std::cerr << "char:	" << "Non displayable" << std::endl;
 }
 
 class ScalarConverter
@@ -55,7 +56,7 @@ class ScalarConverter
 		static void		printInt( long value );
 		static void		printFloat( float value, size_t add_precision );
 		static void		printDouble( double value, size_t add_precision );
-		static size_t	needPrecision ( const std::string& src );
+		static size_t	setPrecision ( const std::string& src );
 
 // char -> que de des lettres + len de 1
 

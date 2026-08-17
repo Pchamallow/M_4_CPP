@@ -6,7 +6,7 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/16 09:52:14 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/08/17 13:29:13 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/08/17 14:19:00 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,8 +53,9 @@ int main( int ac, char **av )
 
 // Char -------------------------------------------------------------------------------
 	std::cout << std::endl << std::string(30, '-') << std::endl;
-	std::cout << BROWN << "TESTS - Char: b"<< RESET << std::endl << std::endl;
-	
+	std::cout << BROWN << "TESTS - Char"<< RESET << std::endl << std::endl;
+
+	std::cout << BROWN << "b"<< RESET << std::endl;
 	ScalarConverter::convert("b");
 
 // Int -------------------------------------------------------------------------------
