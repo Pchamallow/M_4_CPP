@@ -6,11 +6,12 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/19 10:10:01 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/08/19 10:10:25 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/08/19 16:31:54 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string>
+#pragma once
 
 struct Data{
 	std::string	data;

@@ -6,7 +6,7 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/16 09:54:30 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/08/17 14:18:23 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/08/19 16:31:59 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 #include <limits>
 #include <cerrno>
 #include <iomanip>
+#pragma once
 
 template <typename valueType>
 void	printChar( valueType value )

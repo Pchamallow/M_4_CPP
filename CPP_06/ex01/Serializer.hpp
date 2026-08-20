@@ -6,12 +6,13 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/19 10:02:47 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/08/19 10:22:17 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/08/19 16:31:51 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdint.h>
 #include "Data.hpp"
+#pragma once
 
 class Serializer
 {
