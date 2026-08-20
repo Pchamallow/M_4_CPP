@@ -6,7 +6,7 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/19 16:44:29 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/08/20 10:40:03 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/08/20 11:06:43 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -142,30 +142,48 @@ void	PmergeMe::printArrayA( void )
 	std::cout << RESET << std::endl;
 }
 
+void	PmergeMe::algo( void )
+{
+	printArrayA();
+	_orderPairs(2);
+	printArrayA();
+}
+
 
 // 1er tour a 2
 void	PmergeMe::_orderPairs( size_t padding )
 {
 	size_t i = 0;
+	--padding;
+	if (padding < 1)
+	{
+		printError((char *)"Order pairs, padding invalid");
+		return ;
+	}
 	while(i <= _arrayA.size())
 	{
 		size_t loser = i;
 		size_t winner = i + padding;
+		std::cout << BLUE << "[DEBUG] loser = " << loser << " | winner = " << winner;
+		std::cout << BLUE << " | size = " << _arrayA.size();
+		std::cout << RESET << std::endl;
+
 		if ( loser >= _arrayA.size() )
 			return ; // paire fictive, ne pas modifier
 		if ( i < _arrayA.size() - 1 )
 		{
-			// std::cout << BLUE << "[DEBUG] e1 = " << array.at(i);
-			// std::cout << " e2 = " << array.at(i + 1) << RESET << std::endl;
+
+			std::cout << BLUE << "[DEBUG] value loser = " << _arrayA.at(loser);
+			std::cout << " | value winner = " << _arrayA.at(winner) << std::endl;
+			printArrayA();
+
 			if (_arrayA.at(loser) > _arrayA.at(winner))
 			{
 				int valueLoser = _arrayA.at(loser);
 				_arrayA.erase(_arrayA.begin() + loser);
-				_arrayA.insert(_arrayA.begin() + winner + 1, valueLoser);
-				// invert
-				printArrayA();
+				_arrayA.insert(_arrayA.begin() + loser + 1, valueLoser);
 			}
 		}
-		++i;
+		i += padding + 1;
 	}
 }

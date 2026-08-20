@@ -6,7 +6,7 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/19 16:30:25 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/08/20 10:35:01 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/08/20 10:50:31 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ class PmergeMe
 		void	invalidArguement( void );
 		void	clearArrayA( void );
 		void	printArrayA( void );
+		void	algo( void );
 		
 	private:
 		int		_sendToArray ( std::string str );

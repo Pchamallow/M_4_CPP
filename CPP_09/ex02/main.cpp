@@ -6,7 +6,7 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/19 16:44:47 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/08/20 10:39:50 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/08/20 11:07:41 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,10 +82,10 @@ int main( int ac, char **av )
 
 	PmergeMe all;
 
-	std::cout << "2 3 15 130 198 25" << std::endl;
-	const char *args6[] = {"2", "3", "15", "130", "198", "25"};
-	all.argsToNumbers(7, (char **)args6);
-	all.printArrayA();
+	std::cout << "75 4 8741 130 198 25 7" << std::endl;
+	const char *args6[] = {"75", "4", "8741", "130", "198", "25", "7"};
+	all.argsToNumbers(8, (char **)args6);
+	all.algo();
 
 	std::cout << std::endl << std::string(60, '-') << std::endl;
 }
