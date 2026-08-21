@@ -6,7 +6,7 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/19 16:44:47 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/08/21 09:50:51 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/08/21 10:38:45 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,8 +89,8 @@ int main( int ac, char **av )
 	// all.clearArrayA();
 
 	std::cout << "5 4 6 1 2 3" << std::endl;
-	const char *args7[] = {"5", "4", "6", "1", "2", "3"};
-	all.argsToNumbers(7, (char **)args7);
+	const char *args7[] = {"5", "4", "6", "1", "2", "3", "5", "8", "9", "10"};
+	all.argsToNumbers(11, (char **)args7);
 	all.algo();
 	all.clearArrayA();
 
