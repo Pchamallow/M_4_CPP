@@ -6,7 +6,7 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/19 16:30:25 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/08/21 10:58:54 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/08/21 12:07:55 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,11 @@
 
 #define RED		"\033[31m"
 #define BLUE	"\033[34m"
+#define CYAN	"\033[36m"
 #define LYLA	"\033[35m"
 #define BROWN	"\033[33m"
 #define RESET	"\033[0m"
+#define GROUP	3
 
 
 /*
@@ -34,8 +36,7 @@ class PmergeMe
 		int		argsToNumbers( int ac, char **av );
 		void	invalidArguement( void );
 		void	clearArrayA( void );
-		void	printArrayA( void );
-		void	printArrayB( void );
+		void	printArray( char arr, bool sortByLoseWin );
 		void	algo( void );
 		
 	private:

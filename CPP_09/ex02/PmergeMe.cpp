@@ -6,7 +6,7 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/19 16:44:29 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/08/21 10:59:02 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/08/21 12:08:14 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include <stdlib.h>
 #include <errno.h>
 #include <cmath>
+#include <iomanip>
 
 void	printError( char *message )
 {
@@ -127,39 +128,60 @@ int	PmergeMe::argsToNumbers( int ac, char **av ) // parser les arguemnts de av e
 void	PmergeMe::clearArrayA( void )
 {	_arrayA.clear();	}
 
-void	PmergeMe::printArrayA( void )
+void	PmergeMe::printArray( char arr, bool sortByLoseWin )
 {
-	std::cout << BLUE << "ArrA:	";
-	size_t i = 0;
-	while (i < _arrayA.size())
+	std::vector<int> *src = NULL;
+	switch (arr)
 	{
-		std::cout << _arrayA[i] << " ";
+		case 'A':
+		{
+			std::cout << BLUE << "ArrA:	";
+			src = &_arrayA;
+			break;
+		}
+		case 'B':
+		{
+			std::cout << BLUE << "ArrB:	";
+			src = &_arrayB;
+			break;
+		}
+		default:
+		{
+			printError((char *)"Invalid array, choose A or B");
+			return;
+		}
+	} 
+	size_t i = 0;
+	while (i < src->size())
+	{
+		std::cout << std::setfill('0') << std::setw(2);
+		std::cout << (*src)[i] << " ";
 		++i;
 	}
-	std::cout << std::endl << LYLA << "	";
+	std::cout << std::endl << LYLA << "i:	";
 	size_t j = 0;
+	bool loser = false;
 	while (j < i)
 	{
-		std::cout << j << " ";
-		++j;
-	}
-	std::cout << RESET << std::endl;
-}
-
-void	PmergeMe::printArrayB( void )
-{
-	std::cout << BLUE << "ArrB:	";
-	size_t i = 0;
-	while (i < _arrayB.size())
-	{
-		std::cout << _arrayB[i] << " ";
-		++i;
-	}
-	std::cout << std::endl << LYLA << "	";
-	size_t j = 0;
-	while (j < i)
-	{
-		std::cout << j << " ";
+		if (sortByLoseWin)
+		{
+			if (loser)
+				std::cout << CYAN << std::setfill('0') << std::setw(2) << j;
+			else 
+				std::cout << LYLA << std::setfill('0') << std::setw(2) << j;
+		}
+		else
+			std::cout << LYLA << std::setfill('0') << std::setw(2) << j;
+		if (!((j + 1)%GROUP))
+		{
+			std::cout << BLUE << "|" << LYLA;
+			if (loser)
+				loser = false;
+			else
+				loser = true;
+		}
+		else
+			std::cout << " ";
 		++j;
 	}
 	std::cout << RESET << std::endl;
@@ -203,14 +225,14 @@ void	PmergeMe::_orderGrp( size_t sizeGrp )
 
 			std::cout << BLUE << "[DEBUG] value loser = " << _arrayA.at(loser);
 			std::cout << " | value winner = " << _arrayA.at(winner) << std::endl;
-			printArrayA();
+			printArray('A', true);
 
 			if (_arrayA.at(loser) > _arrayA.at(winner))
 				_moveRange(startLoser, sizeGrp, winner + 1, _arrayA, _arrayA);
 		}
 		i += sizeGrp * 2;
 	}
-	std::cout << BROWN << "[DEBUG] end " << std::string(60, '-') << RESET << std::endl;
+	std::cout << BROWN << "[DEBUG] _orderGrp end " << std::string(60, '-') << RESET << std::endl;
 }
 
 void PmergeMe::_moveRange(size_t start, size_t length, size_t newIndex,
@@ -249,6 +271,7 @@ void	PmergeMe::_allLosersToArrayB( size_t sizeGrp, size_t nbGrp )
 	(void) nbGrp; // retirer des params ?
 	float nbGrpLosers = _nbGrp(_arrayA.size(), sizeGrp) / 2;
 	size_t nbTransfer = 0;
+	size_t skipWinners = 1;
 	std::cout << BLUE << "[DEBUG] nbGrpLosers: " << static_cast<float>(nbGrpLosers) ;
 	std::cout << std::endl;
 	while(nbTransfer < nbGrpLosers)
@@ -256,12 +279,13 @@ void	PmergeMe::_allLosersToArrayB( size_t sizeGrp, size_t nbGrp )
 		size_t start = i;
 		// size_t end = i + sizeGrp;
 		_pushToArr(start, sizeGrp, _arrayA, _arrayB);
-		printArrayA();
-		printArrayB();
+		printArray('A', false);
+		printArray('B', false);
 		nbTransfer++;
-		i = sizeGrp - 1;
+		i = sizeGrp * skipWinners;
+		skipWinners++;
 	}
-	std::cout << BROWN << "[DEBUG] end " << std::string(60, '-') << RESET << std::endl;
+	std::cout << BROWN << "[DEBUG] _allLosersToArrayB -> end " << std::string(40, '-') << RESET << std::endl;
 }
 
 size_t	PmergeMe::_nbGrp( size_t sizeArr, size_t sizeGrp )
@@ -273,8 +297,8 @@ size_t	PmergeMe::_nbGrp( size_t sizeArr, size_t sizeGrp )
 
 void	PmergeMe::algo( void )
 {
-	printArrayA();
-	_orderGrp(3);
-	printArrayA();
-	_allLosersToArrayB(3, 0);
+	printArray('A', true);
+	_orderGrp(GROUP);
+	printArray('A', true);
+	_allLosersToArrayB(GROUP, 0);
 }
