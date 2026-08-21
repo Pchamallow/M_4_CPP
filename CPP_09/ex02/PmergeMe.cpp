@@ -6,7 +6,7 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/19 16:44:29 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/08/20 11:06:43 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/08/21 09:51:29 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -145,27 +145,35 @@ void	PmergeMe::printArrayA( void )
 void	PmergeMe::algo( void )
 {
 	printArrayA();
-	_orderPairs(2);
+	_orderGrp(3);
 	printArrayA();
 }
 
-
-// 1er tour a 2
-void	PmergeMe::_orderPairs( size_t padding )
+/*
+the group size is parameter
+5 4 6 1 2 3
+for groups of 3 elements : 6 is loser, 3 is winner
+if loser > winner, we invert group positions
+1 2 3 5 4 6
+*/
+void	PmergeMe::_orderGrp( size_t grpSize )
 {
-	size_t i = 0;
-	--padding;
-	if (padding < 1)
+	if (grpSize < 1)
 	{
-		printError((char *)"Order pairs, padding invalid");
+		printError((char *)"Order group: grpSize invalid");
 		return ;
 	}
-	while(i <= _arrayA.size())
+	size_t i = grpSize - 1;
+	while(i < _arrayA.size())
 	{
 		size_t loser = i;
-		size_t winner = i + padding;
-		std::cout << BLUE << "[DEBUG] loser = " << loser << " | winner = " << winner;
+		size_t startLoser = i - (grpSize - 1);
+		size_t winner = i + grpSize;
+
+		std::cout << BLUE << "[DEBUG] index loser = " << loser;
+		std::cout << " | index winner = " << winner;
 		std::cout << BLUE << " | size = " << _arrayA.size();
+		std::cout << BLUE << " | grpSize = " << grpSize;
 		std::cout << RESET << std::endl;
 
 		if ( loser >= _arrayA.size() )
@@ -178,12 +186,17 @@ void	PmergeMe::_orderPairs( size_t padding )
 			printArrayA();
 
 			if (_arrayA.at(loser) > _arrayA.at(winner))
-			{
-				int valueLoser = _arrayA.at(loser);
-				_arrayA.erase(_arrayA.begin() + loser);
-				_arrayA.insert(_arrayA.begin() + loser + 1, valueLoser);
-			}
+				_moveRange(startLoser, grpSize, winner + 1);
 		}
-		i += padding + 1;
+		i += grpSize * 2;
 	}
+}
+
+void PmergeMe::_moveRange(size_t start, size_t length, size_t dst)
+{
+	const size_t final_dst = dst > start ? dst - length : dst;
+
+	std::vector<int> tmp(_arrayA.begin() + start, _arrayA.begin() + start + length);
+	_arrayA.erase(_arrayA.begin() + start, _arrayA.begin() + start + length);
+	_arrayA.insert(_arrayA.begin() + final_dst, tmp.begin(), tmp.end());
 }
